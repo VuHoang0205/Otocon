@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="org.atmarkcafe.otocon.function.config.DefaultSearchAgeFragment.ErrorType" />
+
+        <variable
+            name="show"
+            type="boolean" />
+
+        <variable
+            name="dialog"
+            type="org.atmarkcafe.otocon.function.config.DefaultSearchAgeFragment" />
+
+        <variable
+            name="errorType"
+            type="org.atmarkcafe.otocon.function.config.DefaultSearchAgeFragment.ErrorType" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/xlm_background_rules"
+            android:clickable="true"
+            app:layout_constraintBottom_toTopOf="@+id/view12"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:includeFontPadding="true"
+                android:text="@string/title_default_search_age"
+                android:textColor="@color/color_black_2D2D2D"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:onClick="@{() -> dialog.onBack()}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_left"
+                app:layout_constraintBottom_toBottomOf="@+id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/title" />
+
+
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="51dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/xml_advanced_search_button_reset"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:onClick="@{()-> dialog.onReset()}"
+                android:text="@string/reset"
+                android:textColor="@drawable/xml_text_reset_button"
+                android:textSize="11dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <!--app:errorTextAppearance="@style/ErrorText"-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_age"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="6dp"
+
+                android:layout_marginEnd="15dp"
+                android:setTextError="@{errorType == ErrorType.none ? null : errorType == ErrorType.blank ? @string/error_age_blank : @string/error_age_outofthreshold}"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reset">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/ic_adavnced_search_age_chooser"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/reset">
+
+                    <TextView
+                        android:id="@+id/edtAge"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:hint="－"
+                        android:lines="1"
+                        android:onClick="@{()-> dialog.onClickAge()}"
+                        android:text="@{dialog.age!=null  ? dialog.age + @string/age : null}"
+                        android:textColor="@color/color_black_2D2D2D"
+                        android:textColorHint="#979797"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                    <TextView
+
+                        android:id="@+id/txt_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_transparent"
+                        android:gravity="center"
+                        android:hint="－"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:text="@string/age"
+                        android:textColor="@color/color_black_2D2D2D"
+                        android:textColorHint="#979797"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/edtAge"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/confirm_first"
+                style="@style/text_bold"
+                android:layout_width="222dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/ic_advanced_search_btn_confirm"
+                android:gravity="center"
+
+                android:onClick="@{() -> dialog.onConfrim()}"
+                android:padding="0dp"
+                android:text="@string/next"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_input_age" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/view12"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:visibility="@{show ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/windowBackground"
+            android:visibility="@{show ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

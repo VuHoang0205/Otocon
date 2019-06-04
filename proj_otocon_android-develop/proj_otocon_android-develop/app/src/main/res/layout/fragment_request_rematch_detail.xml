@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.model.RematchDetail" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/header_toolbar"
+                android:text="@{item.getTitle(context)}" />
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/rematch_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{item==null ? View.GONE: View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/rematch_send"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/rematch_message"
+                    style="@style/text_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="11dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="11dp"
+                    android:text="@{item.rematchTitle}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="13sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/rematch_pair"
+                    style="@style/text_bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@drawable/xml_background_rematch_success"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="12dp"
+                    android:text="@{item.getShareInfo()}"
+                    android:textColor="#F44D89"
+                    android:textSize="13sp"
+                    android:textIsSelectable="true"
+                    android:visibility="@{item.getShareInfo().length() == 0? View.GONE: View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_message" />
+
+                <TextView
+                    android:id="@+id/rematch_flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:text="@string/rematch_flow"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_pair" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/rematch_detail_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="9dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_flow">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/avatar_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="230dp"
+                            android:background="#D1D5DA"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_no_avatar_male" />
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/avatar_view_pager"
+                            android:layout_width="match_parent"
+                            android:layout_height="230dp"
+                            android:background="#D1D5DA"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@color/color_ADADAD"
+                            app:layout_constraintTop_toBottomOf="@+id/avatar_view_pager" />
+
+                        <View
+                            android:id="@+id/background_rematch_avatar_00"
+                            android:layout_width="53dp"
+                            android:layout_height="53dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@{item.selectedAvatar==0 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                            android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toStartOf="@+id/background_rematch_avatar_01"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/avatar_main" />
+
+                        <View
+                            android:id="@+id/background_rematch_avatar_01"
+                            android:layout_width="53dp"
+                            android:layout_height="53dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@{item.selectedAvatar==1 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                            android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toStartOf="@+id/background_rematch_avatar_02"
+                            app:layout_constraintStart_toEndOf="@+id/background_rematch_avatar_00"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00" />
+
+                        <View
+                            android:id="@+id/background_rematch_avatar_02"
+                            android:layout_width="53dp"
+                            android:layout_height="53dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@{item.selectedAvatar==2 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                            android:visibility="@{item.getAvatar(2).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toStartOf="@+id/background_rematch_avatar_03"
+                            app:layout_constraintStart_toEndOf="@+id/background_rematch_avatar_01"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00" />
+
+                        <View
+                            android:id="@+id/background_rematch_avatar_03"
+                            android:layout_width="53dp"
+                            android:layout_height="53dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@{item.selectedAvatar==3 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                            android:visibility="@{item.getAvatar(3).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/background_rematch_avatar_02"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00" />
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cardview_avatar_00"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:cardCornerRadius="23dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_00"
+                            app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_00"
+                            app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_00"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00">
+
+                            <ImageView
+                                android:id="@+id/rematch_avatar_00"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="#D1D5DA"
+                                android:scaleType="centerCrop"
+                                app:gender="@{item.gender}"
+                                app:loadAvatar="@{item.getAvatar(0)}" />
+                        </android.support.v7.widget.CardView>
+
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cardview_avatar_01"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:cardCornerRadius="23dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_01"
+                            app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_01"
+                            app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_01"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_01">
+
+                            <ImageView
+                                android:id="@+id/rematch_avatar_01"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                app:gender="@{item.gender}"
+                                app:loadAvatar="@{item.getAvatar(1)}" />
+                        </android.support.v7.widget.CardView>
+
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cardview_avatar_02"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:visibility="@{item.getAvatar(2).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:cardCornerRadius="23dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_02"
+                            app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_02"
+                            app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_02"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_02">
+
+                            <ImageView
+                                android:id="@+id/rematch_avatar_02"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                app:gender="@{item.gender}"
+                                app:loadAvatar="@{item.getAvatar(2)}" />
+                        </android.support.v7.widget.CardView>
+
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cardview_avatar_03"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:visibility="@{item.getAvatar(3).isEmpty()? View.GONE: View.VISIBLE}"
+                            app:cardCornerRadius="23dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_03"
+                            app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_03"
+                            app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_03"
+                            app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_03">
+
+                            <ImageView
+                                android:id="@+id/rematch_avatar_03"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                app:gender="@{item.gender}"
+                                app:loadAvatar="@{item.getAvatar(3)}" />
+                        </android.support.v7.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/rematch_name"
+                            style="@style/text_bold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="25dp"
+                            android:text="@{item.nameMei}"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:layout_marginEnd="5dp"
+                            android:textColor="@color/color161616"
+                            android:textSize="16sp"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/background_rematch_avatar_00"
+                            app:layout_constraintEnd_toStartOf="@+id/remath_profile"/>
+
+                        <TextView
+                            android:id="@+id/remath_profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="15dp"
+                            android:drawableLeft="@drawable/ic_profile_percent"
+                            android:drawablePadding="3dp"
+                            android:includeFontPadding="false"
+                            android:text="@{@string/rematch_profile_completed(item.commonCompleted)}"
+                            android:textColor="#F46292"
+                            android:textSize="11sp"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/rematch_name"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <View
+                            android:id="@+id/rematch_line_1"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="#C9C9C9"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rematch_name" />
+
+                        <TextView
+                            android:id="@+id/rematch_history_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:text="@{item.onlineStatus}"
+                            android:textColor="#F46292"
+                            android:textSize="9sp"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rematch_line_1" />
+
+
+                        <TextView
+                            android:id="@+id/remath_installed_app"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="15dp"
+                            android:drawableLeft="@{item.installAppStatus == 0 ? @drawable/ic_not_installed: @drawable/ic_installed}"
+                            android:drawablePadding="10dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{item.installAppStatusTitle}"
+                            android:textColor="@color/color161616"
+                            android:textSize="11sp"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/rematch_history_hint"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+
+                        <View
+                            android:id="@+id/rematch_line_2"
+                            android:layout_width="0dp"
+                            android:layout_height="0.5dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="#C9C9C9"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rematch_history_hint" />
+
+                        <TextView
+                            android:id="@+id/rematch_introduction_self"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:breakStrategy="simple"
+                            android:lineSpacingExtra="8dp"
+                            android:paddingTop="13dp"
+                            android:paddingBottom="23dp"
+                            android:text="@{item.commonDescription}"
+                            android:textColor="@color/color161616"
+                            android:textSize="11sp"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rematch_line_2" />
+
+                        <Button
+                            android:id="@+id/rematch_my_card"
+                            style="@style/Button.GreenBold"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="30dp"
+                            android:background="@drawable/xml_background_button_gray"
+                            android:text="プロフィール詳細へ"
+                            android:textColor="@color/color161616"
+                            android:visibility="@{item.isWithDrawalUser()? View.GONE: View.VISIBLE}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rematch_introduction_self" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/xml_background_rematch_detail"
+                    app:layout_constraintBottom_toBottomOf="@+id/rematch_detail_cardview"
+                    app:layout_constraintEnd_toEndOf="@+id/rematch_detail_cardview"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/rematch_detail_cardview"
+                    app:layout_constraintTop_toTopOf="@+id/rematch_detail_cardview"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/rematch_party_participated"
+                    style="@style/text_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="6dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="18dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@{item.isWithDrawalUser()? @string/rematch_party_participated_with_drawal: @string/rematch_party_participated_with(item.nameMei)}"
+                    android:textColor="@color/color161616"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_detail_cardview" />
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/xml_background_rematch_detail"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_party_participated">
+
+                    <TextView
+                        android:id="@+id/title_party"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="5dp"
+                        android:text="@{item.eventSubName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="0dp"
+                        android:layout_height="22dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/xml_background_text_item_party_opacity_20"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="@{item.getTextEventDate(context)}"
+                        android:textColor="@color/color_F7648F"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/area"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title_party" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/area"
+                        android:layout_width="100dp"
+                        android:layout_height="22dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title_party">
+
+                        <TextView
+                            android:id="@+id/province"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/xlm_bg_addrees_left"
+                            android:backgroundTint="@{item.getEventAreColor()}"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@{item.eventArea}"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="9sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/district" />
+
+
+                        <TextView
+                            android:id="@+id/district"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/xlm_bg_addrees__right_tranfer"
+                            android:backgroundTint="@{item.getEventAreColor()}"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@{item.eventCity}"
+                            android:textColor="@{item.getEventAreColor()}"
+                            android:textSize="9sp"
+                            app:layout_constraintLeft_toRightOf="@id/province"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/rematch_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:text="@string/rematch_to_request_list"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/rematch_reject"
+            style="@style/Button.GreenBold"
+            android:enabled="@{item.enableAction()}"
+            android:alpha="@{item.enableAction()? 1.0f: 0.5f}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/xml_background_button_dark"
+            android:text="@string/rematch_reject"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/rematch_request"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/rematch_approve"
+            style="@style/Button.GreenBold"
+            android:enabled="@{item.enableAction()}"
+            android:alpha="@{item.enableAction()? 1.0f: 0.5f}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/rematch_approve"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/rematch_reject"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/rematch_send"
+            style="@style/Button.GreenBold"
+            android:enabled="@{item.enableAction()}"
+            android:alpha="@{item.enableAction()? 1.0f: 0.5f}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/rematch_send_request"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/rematch_approve"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

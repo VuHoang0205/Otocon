@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presnter"
+            type="org.atmarkcafe.otocon.function.menu.MenuNewPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/header_toolbar"
+                android:text="@string/menu_list_news_title" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvListNew"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/tv_nodata"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
+            android:text="@string/list_new_empty"
+            android:textColor="@color/color989898"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="@+id/swiperefresh"
+            app:layout_constraintBottom_toBottomOf="@+id/swiperefresh"/>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{presnter.isLoading ? View.VISIBLE: View.GONE}" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

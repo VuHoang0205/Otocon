@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ConfirmBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.menu.contactus.ContactConfirmPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/contact_us_confirm_title" />
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/contrain_layout"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/step"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/ic_bg_step_2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:lineSpacingExtra="5dp"
+                        android:id="@+id/step1"
+                        style="@style/text_bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/contact_step_1"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/step2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:lineSpacingExtra="5dp"
+                        android:id="@+id/step2"
+                        style="@style/text_bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/contact_step_2"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/step1"
+                        app:layout_constraintRight_toLeftOf="@id/step3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:lineSpacingExtra="5dp"
+                        android:id="@+id/step3"
+                        style="@style/text_bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/contact_step_3"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/step2"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/txt_contact_name"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/step" />
+
+                <TextView
+                    android:id="@+id/tv_contact_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end|center_vertical"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:singleLine="true"
+                    android:text="@={presenter.name}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_contact_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txt_contact_name"
+                    app:layout_constraintTop_toTopOf="@id/txt_contact_name" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/txt_contact_name" />
+
+                <TextView
+                    android:id="@+id/txt_contact_kana"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_kana_name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view1" />
+
+                <TextView
+                    android:id="@+id/tv_contact_kana"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:singleLine="true"
+                    android:text="@={presenter.nameKana}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contact_kana"
+                    app:layout_constraintTop_toBottomOf="@id/view1" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contact_kana" />
+
+                <TextView
+                    android:id="@+id/txt_contact_gender"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_gender"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view2" />
+
+                <TextView
+                    android:id="@+id/tv_contact_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="@={presenter.gender}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contact_gender"
+                    app:layout_constraintTop_toBottomOf="@id/view2" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contact_gender" />
+
+                <TextView
+                    android:id="@+id/txt_contact_birthday"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_birthday"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view3" />
+
+                <TextView
+                    android:id="@+id/tv_contact_birthday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="@={presenter.birthday}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contact_birthday"
+                    app:layout_constraintTop_toBottomOf="@id/view3" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contact_birthday" />
+
+                <TextView
+                    android:id="@+id/txt_contact_phone"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_tel"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view4" />
+
+                <TextView
+                    android:id="@+id/tv_contact_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:singleLine="true"
+                    android:text="@={presenter.phone}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contact_phone"
+                    app:layout_constraintTop_toBottomOf="@id/view4" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contact_phone" />
+
+                <TextView
+                    android:id="@+id/txt_contact_address"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_address"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view5" />
+
+                <TextView
+                    android:id="@+id/tv_contact_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:singleLine="true"
+                    android:text="@={presenter.address}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contact_address"
+                    app:layout_constraintTop_toBottomOf="@id/view5" />
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contact_address" />
+
+                <TextView
+                    android:id="@+id/txt_contact_email"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_email"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view6" />
+
+                <TextView
+                    android:id="@+id/tv_contact_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:singleLine="true"
+                    android:text="@={presenter.email}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_contact_email"
+                    app:layout_constraintTop_toBottomOf="@id/view6" />
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contact_email" />
+
+                <TextView
+                    android:id="@+id/content"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/contact_us_content"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view7" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="27dp"
+                    android:text="@={presenter.content}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_address"
+                    app:layout_constraintTop_toBottomOf="@id/content" />
+
+                <CheckBox
+                    android:id="@+id/check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:button="@drawable/ic_checked"
+                    android:checked="@={presenter.isReadRules}"
+                    android:lineSpacingExtra="92dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/contact_check"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contrain_layout"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btn_confirm_register"
+                style="@style/Button.Register"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="25dp"
+                android:onClick="@{() -> presenter.callApi()}"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:text="@string/contact_us_text_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color9A9A9A"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <include
+            layout="@layout/layout_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="260dp"
+            android:visibility="@{presenter.isLoading? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ViewStub
+            android:id="@+id/viewstub_completed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inflatedId="@+id/viewstub_completed"
+            android:layout="@layout/layout_contact_confirm" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

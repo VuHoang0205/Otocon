@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/title_calendar_collaboration" />
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/calendar_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginEnd="15dp"
+            android:lineSpacingExtra="10dp"
+            android:gravity="center"
+            android:text="@string/calendar_collaboration_message"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/ic_google_calendar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageView
+            android:id="@+id/ic_google_calendar"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_google_calendar"
+            app:layout_constraintBottom_toTopOf="@+id/google_calendar_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendar_message" />
+
+        <Button
+            android:id="@+id/google_calendar_button"
+            style="@style/Button.GreenBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/xml_background_button_dark"
+            android:text="@string/calendar_collaboration_google"
+            app:layout_constraintBottom_toTopOf="@+id/ic_apple_calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ic_google_calendar" />
+
+        <ImageView
+            android:id="@+id/ic_apple_calendar"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_apple_calendar"
+            app:layout_constraintBottom_toTopOf="@+id/apple_calendar_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/google_calendar_button" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/apple_calendar_button"
+            style="@style/Button.GreenBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/xml_background_button_dark"
+            android:text="@string/calendar_collaboration_apple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ic_apple_calendar" />
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

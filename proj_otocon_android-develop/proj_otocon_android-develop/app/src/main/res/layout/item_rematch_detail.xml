@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/rematch_message"
+            style="@style/text_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00AA3D"
+            android:gravity="center"
+            android:lineSpacingExtra="10dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="11dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="11dp"
+            android:text="@string/rematch_party_successful"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rematch_flow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="@string/rematch_flow"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rematch_message" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/rematch_detail_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="9dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rematch_flow">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/avatar_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="#D1D5DA"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_no_avatar_male" />
+
+                <View
+                    android:id="@+id/background_rematch_avatar_00"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/xml_background_rematch_detail_avatar"
+                    app:layout_constraintEnd_toStartOf="@+id/background_rematch_avatar_01"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/avatar_main" />
+
+                <View
+                    android:id="@+id/background_rematch_avatar_01"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/xml_background_rematch_detail_avatar"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/background_rematch_avatar_02"
+                    app:layout_constraintStart_toEndOf="@+id/background_rematch_avatar_00"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00" />
+
+                <View
+                    android:id="@+id/background_rematch_avatar_02"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/xml_background_rematch_detail_avatar"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toStartOf="@+id/background_rematch_avatar_03"
+                    app:layout_constraintStart_toEndOf="@+id/background_rematch_avatar_01"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00" />
+
+                <View
+                    android:id="@+id/background_rematch_avatar_03"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/xml_background_rematch_detail_avatar"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/background_rematch_avatar_02"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_00"
+                    app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_00"
+                    app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_00"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_00">
+
+                    <ImageView
+                        android:id="@+id/rematch_avatar_00"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="#D1D5DA"
+                        android:src="@drawable/ic_no_avatar_male" />
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_01"
+                    app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_01"
+                    app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_01"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_01">
+
+                    <ImageView
+                        android:id="@+id/rematch_avatar_01"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male" />
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_02"
+                    app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_02"
+                    app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_02"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_02">
+
+                    <ImageView
+                        android:id="@+id/rematch_avatar_02"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male" />
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_rematch_avatar_03"
+                    app:layout_constraintEnd_toEndOf="@id/background_rematch_avatar_03"
+                    app:layout_constraintStart_toStartOf="@id/background_rematch_avatar_03"
+                    app:layout_constraintTop_toTopOf="@+id/background_rematch_avatar_03">
+
+                    <ImageView
+                        android:id="@+id/rematch_avatar_03"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male" />
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/rematch_name"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="25dp"
+                    android:text="Takeishi"
+                    android:textColor="@color/color161616"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/background_rematch_avatar_00" />
+
+                <TextView
+                    android:id="@+id/remath_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:drawableLeft="@drawable/ic_profile_percent"
+                    android:drawablePadding="3dp"
+                    android:includeFontPadding="false"
+                    android:text="99% プロフィール完成度"
+                    android:textColor="#F46292"
+                    android:textSize="11sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/rematch_name"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <View
+                    android:id="@+id/rematch_line_1"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="#C9C9C9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_name" />
+
+                <TextView
+                    android:id="@+id/rematch_history_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="7dp"
+                    android:text="オンライン中"
+                    android:textColor="#F46292"
+                    android:textSize="9sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_line_1" />
+
+
+                <TextView
+                    android:id="@+id/remath_installed_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:drawableLeft="@drawable/ic_not_installed"
+                    android:drawablePadding="10dp"
+                    android:includeFontPadding="false"
+                    android:text="Hello"
+                    android:textColor="@color/color161616"
+                    android:textSize="11sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/rematch_history_hint"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <View
+                    android:id="@+id/rematch_line_2"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="#C9C9C9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_history_hint" />
+
+                <TextView
+                    android:id="@+id/rematch_introduction_self"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:lineSpacingExtra="8dp"
+                    android:paddingTop="13dp"
+                    android:paddingBottom="23dp"
+                    android:text="「オタク趣味だから、敬遠されないかな……」と心配する人もいるかもしれませんが、自分を偽ってカップルになっても。"
+                    android:textColor="@color/color161616"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_line_2" />
+
+                <Button
+                    style="@style/Button.GreenBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/xml_background_button_gray"
+                    android:text="プロフィール詳細へ"
+                    android:textColor="@color/color161616"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rematch_introduction_self" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/xml_background_rematch_detail"
+            app:layout_constraintBottom_toBottomOf="@+id/rematch_detail_cardview"
+            app:layout_constraintEnd_toEndOf="@+id/rematch_detail_cardview"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/rematch_detail_cardview"
+            app:layout_constraintTop_toTopOf="@+id/rematch_detail_cardview"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            style="@style/text_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="18dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/rematch_party_participated_with"
+            android:textColor="@color/color161616"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/rematch_detail_cardview" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fragment"
+            type="org.atmarkcafe.otocon.function.party.list.PartyListFragment" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="16dp">
+
+                <ImageView
+                    android:id="@+id/ic_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_left"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/ic_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:drawableEnd="@drawable/ic_search"
+                    android:drawablePadding="3dp"
+                    android:gravity="center_vertical"
+                    android:includeFontPadding="false"
+                    android:paddingEnd="15dp"
+                    android:text="@string/advanced_search"
+                    android:textColor="@color/color161616"
+                    android:textSize="9sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/header_toolbar"
+                    android:gravity="center"
+                    android:text="@string/tab5"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/layoutListParty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/day_of_week_view_pager">
+
+                    <RadioGroup
+                        android:id="@+id/rg_stype_show"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <RadioButton
+                            android:id="@+id/rb_list"
+                            android:layout_width="25dp"
+                            android:layout_height="40dp"
+
+                            android:background="@drawable/xml_home_select_list"
+                            android:button="@null"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:id="@+id/rb_grid"
+                            android:layout_width="25dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/xml_home_select_grid"
+                            android:button="@null" />
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:id="@+id/txtCount"
+                        style="@style/text_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/color161616"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/rg_stype_show"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/rg_stype_show" />
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scrollbarSize="2dp"
+                    android:scrollbarStyle="insideOverlay"
+                    android:scrollbars="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutListParty" />
+
+
+                <TextView
+                    android:id="@+id/tv_nodata"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/party_empty"
+                    android:textColor="@color/color989898"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutListParty" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

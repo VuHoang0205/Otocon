@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="10dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/text_bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cus_background_tile_menu_venue"
+        android:gravity="center"
+        android:lineSpacingExtra="9dp"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:text="東京エリア"
+        android:textColor="@color/colorWhite"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/ivDown"
+        android:layout_width="9dp"
+        android:layout_height="39dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_menu_down" />
+</RelativeLayout>

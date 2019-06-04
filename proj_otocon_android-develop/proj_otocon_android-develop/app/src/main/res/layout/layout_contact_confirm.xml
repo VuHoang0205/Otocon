@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="submit"
+            type="android.view.View.OnClickListener"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/contact_title_dialog" />
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/step"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_bg_step_3"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/step1"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/contact_step_1"
+                android:textColor="@color/colorBlack"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/step2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/step2"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/contact_step_2"
+                android:textColor="@color/colorBlack"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/step1"
+                app:layout_constraintRight_toLeftOf="@id/step3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/step3"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/contact_step_3"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/step2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_noti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:lineSpacingExtra="17dp"
+                android:text="@string/contact_content_dialog"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <Button
+                android:id="@+id/btn_confirm_register"
+                style="@style/Button.Register"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="37dp"
+                android:gravity="center"
+                android:onClick="@{(view)-> submit.onClick(view)}"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:text="@string/contact_button_dialog"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_noti" />
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color9A9A9A"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

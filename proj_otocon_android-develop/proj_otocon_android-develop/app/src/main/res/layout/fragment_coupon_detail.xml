@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="coupon"
+            type="org.atmarkcafe.otocon.model.Coupon" />
+
+        <variable
+            name="fragment"
+            type="org.atmarkcafe.otocon.function.mypage.coupon.CouponDetailFragment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="?attr/actionBarSize"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@{coupon.getTextTitleToolbarCouponDetail(context)}" />
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/counpon_detail_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/coupon_detail_button"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <ImageView
+                    android:id="@+id/coupon_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:loadImageUrl="@{coupon.image}" />
+
+                <TextView
+                    android:id="@+id/coupon_valid_date_hint"
+                    style="@style/text_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/coupon_detail_valid_date"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/coupon_image" />
+
+                <TextView
+                    android:id="@+id/coupon_valid_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="9dp"
+                    android:text="@{coupon.getValidDate()}"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/coupon_valid_date_hint" />
+
+                <TextView
+                    android:id="@+id/coupon_body_hint"
+                    style="@style/text_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/coupon_detail_body"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/coupon_valid_date" />
+
+                <TextView
+                    android:id="@+id/coupon_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="9dp"
+                    android:text="@{coupon.body}"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/coupon_body_hint" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/coupon_detail_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_EBEBEB"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="7dp"
+            android:padding="7dp"
+            android:textSize="11sp"
+            android:text="@string/coupon_detail_note"
+            android:textColor="@color/color_black_absolute"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <include
+            android:id="@+id/coupon_detail_button"
+            layout="@layout/layout_register_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{coupon.type==coupon.COUPON_REMATCH? View.GONE: View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@+id/coupon_detail_note"
+            bind:click="@{(view)-> fragment.onSubmit(coupon.id)}"
+            bind:disable="@{coupon.apply == 1}"
+            bind:text="@{@string/coupon_detail_use}" />
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="53dp">
+
+    <TextView
+        android:id="@+id/tvTileInformation"
+        style="@style/text_bold"
+        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="メールアドレス"
+        android:textColor="@color/colorBlack"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvValue"
+        style="@style/text_normal"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="abcabcabc123@gmail.com"
+        android:layout_marginEnd="16dp"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/lineBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</android.support.constraint.ConstraintLayout>

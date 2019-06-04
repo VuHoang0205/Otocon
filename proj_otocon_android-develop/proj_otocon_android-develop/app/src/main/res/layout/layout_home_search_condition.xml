@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.home.SearchConsiderPresenter"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/day_of_week_arrow_left"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/xml_background_schedule"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_calendar_arrow_left"
+            android:tint="#989898"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/day_of_week_arrow_right"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/xml_background_schedule"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_calendar_arrow_right"
+            android:tint="#F7648F"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/day_of_week_view_pager"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:background="#DBDBDB"
+            app:layout_constraintEnd_toStartOf="@+id/day_of_week_arrow_right"
+            app:layout_constraintStart_toEndOf="@+id/day_of_week_arrow_left"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/area_text"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_menu_area"
+            android:drawablePadding="6dp"
+            android:drawableLeft="@drawable/ic_filter"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/day_of_week_view_pager" />
+
+        <View
+            android:id="@+id/area_line"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/color161616"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_text" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/area_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11.5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="11.5dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_line" />
+
+
+        <View
+            android:id="@+id/area_sub_line"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="15dp"
+            android:background="#C7C7C7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area_recycler_view" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/city_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11.5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="11.5dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="@{presenter.showAreaId.length()==0? View.GONE: View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@+id/area_sub_line" />
+
+        <View
+            android:id="@+id/city_line"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="7dp"
+            android:background="#C7C7C7"
+            android:visibility="@{presenter.showAreaId.length()==0? View.GONE: View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_recycler_view" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

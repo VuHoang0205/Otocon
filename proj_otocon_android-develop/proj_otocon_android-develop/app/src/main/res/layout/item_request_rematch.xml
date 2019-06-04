@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.model.RequestRematch"/>
+
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="89dp"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="15dp"
+            android:scaleType="centerCrop"
+            app:loadImageUrl="@{item.picture}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/text_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@{item.nickname}"
+                android:textColor="@color/colorFontTextBlack"
+                android:textSize="12.5sp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_max="170dp" />
+
+            <TextView
+                android:id="@+id/tv_sttOnline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="1dp"
+                android:layout_marginStart="9dp"
+                android:singleLine="true"
+                android:text="@{item.online_status}"
+                android:textColor="#F7648F"
+                android:textSize="9sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvName"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvName" />
+
+            <TextView
+                android:id="@+id/tv_rematch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:singleLine="true"
+                android:text="@{item.rematch_status}"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/xml_background_list_user"
+                android:backgroundTint="@{item.getColor(item.rematch_color)}"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <TextView
+                android:id="@+id/tv_sttApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:singleLine="true"
+                android:background="@drawable/xml_background_list_user"
+                android:backgroundTint="@{item.getColor(item.install_app_color)}"
+                android:text="@{item.install_app_status_title}"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_rematch"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:maxLines="2"
+                android:text="@{item.rematch_request}"
+                android:lineSpacingExtra="5dp"
+                android:textColor="@color/colorFontTextBlack"
+                android:textSize="10.5sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_rematch" />
+
+        </android.support.constraint.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#ADADAD"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

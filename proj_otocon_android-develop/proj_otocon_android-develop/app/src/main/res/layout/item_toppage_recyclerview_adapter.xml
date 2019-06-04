@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <Button
+        style="@style/text_normal"
+        android:layout_width="36dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="7dp"
+
+        android:background="@drawable/icon_special"
+        android:gravity="center"
+        android:text="@string/special"
+        android:textColor="@color/colorWhite"
+        android:textSize="8dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_container_image"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="14dp">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:background="@drawable/xml_background_image_item_home"
+            android:id="@+id/ivImageItem"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="5dp"
+            android:src="@drawable/image_item_toppage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/cbLike"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:button="@null"
+            android:enabled="false"
+            android:stateListAnimator="@animator/state_click_animator" />
+
+        <Button
+            android:id="@+id/bnLinear"
+            style="@style/text_normal"
+            android:layout_width="65dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/ivImageItem"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/cus_background_city_grid"
+            android:text="東京"
+            android:textColor="@color/colorWhite"
+            android:textSize="11dp" />
+
+        <Button
+
+            android:id="@+id/bnCity"
+            style="@style/text_normal"
+            android:layout_width="65dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/ivImageItem"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/bnLinear"
+            android:background="@drawable/cus_background_city_grid"
+            android:text="銀座"
+            android:textColor="@color/colorWhite"
+            android:textSize="11dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_container_ImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/rl_container_image">
+
+        <TextView
+            android:id="@+id/tvDateParty"
+            android:layout_width="match_parent"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/cus_background_date"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:text="7/19(木)  18:15 〜"
+            android:textColor="@color/colorWhite"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDateParty"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="8dp"
+            android:maxLines="2"
+            android:text="【★女性2席限定無料ご招待★】平日個室お見合いパー..."
+            android:textColor="@color/colorFontTextBlack"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/tvShortContent"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvContent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:lineSpacingExtra="7dp"
+            android:maxLines="2"
+            android:text="【連絡先交換自由】1年以内に結婚相手を見つけたい方限定"
+            android:textColor="@color/colorFontTextBlack"
+            android:textSize="12dp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tvShortContent"
+            android:layout_marginTop="10dp"
+            android:background="#C9C9C9" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_below="@+id/view"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvAgeMan"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/imageView2"
+            android:includeFontPadding="false"
+            android:text="30歳〜 43歳位"
+            android:textColor="@color/colorFontTextBlack"
+            android:textSize="11dp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_below="@+id/tvAgeMan"
+            android:layout_marginTop="7dp" />
+
+        <TextView
+            android:id="@+id/tvAgeOfWomen"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAgeMan"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/imageView2"
+            android:includeFontPadding="false"
+            android:text="30歳〜 43歳位"
+            android:textColor="@color/colorFontTextBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/tvPriceOfMan"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:includeFontPadding="false"
+            android:text="3,000円"
+            android:textColor="@color/colorFontTextBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/tvPriceOfWomen"
+            style="@style/text_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPriceOfMan"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="7dp"
+            android:includeFontPadding="false"
+            android:text="3,000円"
+            android:textColor="@color/colorFontTextBlack"
+            android:textSize="11dp" />
+
+        <TextView
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPriceOfWomen"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:includeFontPadding="false"
+            android:text="特割中 0円"
+            android:textColor="#C6A277"
+            android:textSize="11dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rl_container_ImageView"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="#C6A47A" />
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cb_child"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="15dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="4dp"
+    android:background="@drawable/cus_background_title_change_area">
+
+    <ImageView
+        android:id="@+id/cbCounty"
+        android:layout_width="33dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:paddingVertical="13dp"
+        android:src="@drawable/ic_unchecked" />
+
+    <TextView
+        android:id="@+id/tvCounty"
+        style="@style/text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_toEndOf="@id/cbCounty"
+        android:gravity="center"
+        android:text="銀座"
+        android:textColor="@color/colorFontTextBlack"
+        android:textSize="14dp" />
+
+</RelativeLayout>

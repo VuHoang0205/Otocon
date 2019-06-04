@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="activity"
+            type="org.atmarkcafe.otocon.function.party.register.card.ConfirmCardFragment" />
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.party.register.card.ConfirmCardPresenter" />
+        <variable
+            name="card"
+            type="org.atmarkcafe.otocon.model.CreditCard" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/confirm_card_title" />
+        </android.support.v7.widget.Toolbar>
+
+        <include
+            android:id="@+id/step"
+            layout="@layout/layout_register_step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            bind:step="@{4}" />
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
+            app:layout_constraintTop_toBottomOf="@id/step">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="35dp">
+
+                <View
+                    android:id="@+id/viewTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.75dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/price_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/viewTop" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.75dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintTop_toBottomOf="@id/price_recyclerview" />
+
+
+                <TextView
+                    android:id="@+id/message_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/cus_bg_notification_email"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:padding="10dp"
+                    android:text="@{presenter.messageError}"
+                    android:textColor="@color/colorRed"
+                    android:textSize="13sp"
+                    android:visibility="@{presenter.messageError.isEmpty() ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/view1" />
+
+
+                <TextView
+                    android:id="@+id/txt_use_card"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginBottom="33dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/use_card"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/message_error" />
+
+                <ImageView
+                    android:id="@+id/tv_use_card"
+                    android:layout_width="103dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/creditcard"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_use_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/txt_use_card" />
+
+
+                <TextView
+                    android:id="@+id/txt_card_number"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="33dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/card_number"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_use_card" />
+
+                <TextView
+                    android:id="@+id/tv_card_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="@{card.cardNumberSecurity()}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/txt_card_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_card_number"
+                    app:layout_constraintTop_toBottomOf="@id/txt_use_card" />
+
+
+                <TextView
+                    android:id="@+id/txt_date_card"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="22dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/date_card"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_card_number" />
+
+                <TextView
+                    android:id="@+id/tv_date_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="@{card.getExpiredText()}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/txt_date_card"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_security_code"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="22dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/security_code"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_date_card" />
+
+                <TextView
+                    android:id="@+id/tv_security_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/colorBlack"
+                    android:textSize="34sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/txt_security_code"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="7.5dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@{card.securityCode.length()==4? @drawable/ic_secure_4: @drawable/ic_secure_3}"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_security_code"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_security_code" />
+
+                <TextView
+                    android:id="@+id/outsourcing_bussiness_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="8dp"
+                    android:breakStrategy="simple"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/outsourcing_bussiness_confirm"
+                    android:textColor="@color/color161616"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_security_code" />
+
+                <ImageView
+                    android:id="@+id/logo_veritrans"
+                    android:layout_width="111dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_veritrans"
+                    app:layout_constraintBottom_toTopOf="@+id/info_veri_trans"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/outsourcing_bussiness_confirm" />
+
+                <TextView
+                    android:id="@+id/info_veri_trans"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="40dp"
+                    android:breakStrategy="simple"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/info_veri_trans"
+                    android:textColor="@color/color161616"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/logo_veritrans" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.75dp"
+            android:background="#ABABAB"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <include
+            android:id="@+id/bottom"
+            layout="@layout/layout_register_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:click="@{(view)-> activity.onSubmit()}"
+            bind:text="@{@string/register_confirm_party_button}" />
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

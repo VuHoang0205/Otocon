@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.dialog.SelectionPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@color/color_F0F0F1"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvCancel"
+                style="@style/text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginEnd="14dp"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/color_black_000000"
+                android:textSize="14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDone"
+                style="@style/text_normal"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="14dp"
+                android:gravity="center"
+                android:onClick="@{()->presenter.onClose()}"
+                android:text="@string/done"
+                android:textColor="@color/color_black_000000"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <org.atmarkcafe.otocon.view.loopview.LoopView
+                android:id="@+id/loopView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/color_D0D4D9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDone"
+                app:notLoop="@{true}"
+                app:setItems="@{presenter.itemList}"
+                app:setCurrentPosition="@{presenter.currentPosition}"
+                app:setListener="@{presenter.onItemSelectedListener}"
+                app:textSize="@{14}" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

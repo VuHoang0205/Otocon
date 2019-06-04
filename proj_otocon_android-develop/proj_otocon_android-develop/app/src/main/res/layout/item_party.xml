@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ItemPartyBinding">
+
+        <import type="android.view.View" />
+
+        <import type="org.atmarkcafe.otocon.R" />
+
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.function.home.items.ItemParty" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:onClick="@{()->item.listener.onClickItem(item.respone)}">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:alpha="@{item.respone.isFull() ? 0.5f : 1.0f}"
+            android:background="@drawable/xml_background_item_party"
+            android:paddingLeft="8dp"
+            android:paddingTop="10dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/ivImageItem"
+                android:layout_width="110dp"
+                android:layout_height="132dp"
+                android:background="@drawable/xml_background_image_default"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_image_default"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadCorrnerImage="@{item.respone.picture}"
+                app:riv_corner_radius="5dp" />
+
+            <ImageView
+                android:id="@+id/iv_like"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="5dp"
+                android:visibility="@{item.respone.enableLike()? View.VISIBLE: View.INVISIBLE}"
+                android:onClick="@{()->item.listener.onClickLike(item.respone)}"
+                android:src="@{item.respone.getLike() == 1? @drawable/ic_heard_red: @drawable/ic_heard_white}"
+                app:layout_constraintRight_toRightOf="@id/ivImageItem"
+                app:layout_constraintTop_toTopOf="@id/ivImageItem" />
+
+            <TextView
+                android:alpha="@{item.respone.isFull() || item.respone.isExpired() ? 0.5f : 1.0f}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_bg_special"
+                android:gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:text="特別"
+                android:textColor="@color/colorWhite"
+                android:textSize="8.97sp"
+                android:visibility="@{item.respone.isSpecial()? View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_like"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_like" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="9dp"
+                app:layout_constraintEnd_toEndOf="@id/ivImageItem"
+                app:layout_constraintStart_toStartOf="@id/ivImageItem"
+                app:layout_constraintTop_toBottomOf="@id/ivImageItem">
+
+                <TextView
+                    android:id="@+id/province"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/xlm_bg_addrees_left"
+                    android:backgroundTint="@{item.respone.getAreaColor()}"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@{item.respone.getAreaName()}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="9sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/district" />
+
+                <TextView
+                    android:id="@+id/district"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/xlm_bg_addrees__right_tranfer"
+                    android:backgroundTint="@{item.respone.getAreaColor()}"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@{item.respone.getCityName()}"
+                    android:textColor="@{item.respone.getAreaColor()}"
+                    android:textSize="9sp"
+                    app:layout_constraintLeft_toRightOf="@id/province"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivImageItem"
+                app:layout_constraintTop_toTopOf="@id/ivImageItem">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="23dp"
+                    android:background="@drawable/xml_background_text_item_party"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingTop="0dp"
+                    android:paddingRight="3dp"
+                    android:paddingBottom="0dp"
+                    android:text="@{item.respone.getTextEventDate()}"
+                    android:textColor="@color/color_F7648F"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    style="@style/text_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="9dp"
+                    android:maxLines="2"
+                    android:text="@{item.respone.name}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+                <TextView
+                    android:id="@+id/tvShortContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="7dp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="9dp"
+                    android:maxLines="2"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="@{item.respone.getSubName()}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_content" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.75dp"
+                    android:layout_marginTop="6dp"
+                    android:background="#ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/tvShortContent" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:src="@drawable/ic_icon_gender_man"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_male_message"
+                    app:layout_constraintTop_toBottomOf="@+id/view"
+                    app:layout_constraintTop_toTopOf="@id/layout_male_message" />
+
+                <TextView
+                    android:id="@+id/tvAgeMan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="bottom"
+                    android:includeFontPadding="false"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="@{item.respone.getRoundAgeMale()}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView2"
+                    app:layout_constraintLeft_toRightOf="@id/imageView2"
+                    app:layout_constraintTop_toTopOf="@id/imageView2" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/layout_male_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="4dp"
+                    app:layout_constraintEnd_toStartOf="@id/price_man_default"
+                    app:layout_constraintStart_toEndOf="@id/tvAgeMan"
+                    app:layout_constraintTop_toBottomOf="@+id/view">
+
+                    <TextView
+                        android:id="@+id/txt_reserved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/xml_background_status_party"
+                        android:backgroundTint="@{item.respone.getEntryMale()}"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:lines="1"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@{item.respone.getNameStatusM()}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="7.5sp" />
+                </android.support.constraint.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:src="@drawable/ic_icon_gender_women"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_female_message"
+                    app:layout_constraintTop_toTopOf="@id/layout_female_message" />
+
+                <TextView
+                    android:id="@+id/tvAgeGrils"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_marginLeft="5dp"
+                    android:includeFontPadding="false"
+                    android:text="@{item.respone.getRoundAgeFemale()}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView3"
+                    app:layout_constraintLeft_toRightOf="@id/imageView3"
+                    app:layout_constraintTop_toTopOf="@id/imageView3" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/layout_female_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginRight="4dp"
+                    app:layout_constraintEnd_toStartOf="@id/price_girls_default"
+                    app:layout_constraintStart_toEndOf="@id/tvAgeGrils"
+                    app:layout_constraintTop_toBottomOf="@id/price_man">
+
+                    <TextView
+                        android:id="@+id/txt_temp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/xml_background_status_party"
+                        android:backgroundTint="@{item.respone.getEntryFemale()}"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:lines="1"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@{item.respone.getNameStatusF()}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="7.5sp" />
+                </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/price_man_default"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.respone.formatStrikePriceMale(item.respone.feeCustomerM) }"
+                    android:textAppearance="@{item.respone. hasPriceSaleFeMale() ? R.style.text_normal : R.style.text_bold }"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tvAgeMan"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/price_man_special"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@{item.respone.getTextSpecialMale()}"
+                    android:textColor="#14A9DE"
+                    android:textSize="10sp"
+                    android:includeFontPadding="false"
+                    android:visibility="@{item.respone.hasSpecialMale() ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_male_message" />
+
+                <TextView
+                    android:id="@+id/price_man"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@{item.respone.getTextBenefitMale()}"
+                    android:textColor="#E30A2F"
+                    android:textSize="10sp"
+                    android:includeFontPadding="false"
+                    android:visibility="@{ item.respone.hasBenefitlMale()  ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/price_man_special" />
+
+                <TextView
+                    android:id="@+id/price_girls_default"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.respone.formatStrikePriceFeMale(item.respone.feeCustomerF) }"
+                    android:textAppearance="@{item.respone. hasPriceSaleFeMale() ? R.style.text_normal : R.style.text_bold}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tvAgeGrils"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/price_girls_special"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@{item.respone.getTextSpecialFemale()}"
+                    android:textColor="#14A9DE"
+                    android:textSize="10sp"
+                    android:includeFontPadding="false"
+                    android:visibility="@{item.respone.hasSpecialFemale() ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_female_message" />
+
+                <TextView
+                    android:id="@+id/price_girls"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:includeFontPadding="false"
+                    android:text="@{item.respone.getTextBenefitFemale()}"
+                    android:textColor="#E30A2F"
+                    android:textSize="10sp"
+                    android:visibility="@{ item.respone.hasBenifit() ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/price_girls_special" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_bg_expires"
+            android:gravity="center"
+            android:visibility="@{item.respone.isFull() ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:rotation="315"
+            android:text="満席"
+            android:textColor="@color/colorWhite"
+            android:textSize="8sp"
+            android:visibility="@{item.respone.isFull() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- <item name="android:typeface">monospace</item> -->
+
+
+    <style name="AppTheme" parent="AppThemeV21">
+        <!-- Status bar stuff. -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+</resources>

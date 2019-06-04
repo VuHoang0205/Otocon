@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="coupon"
+            type="org.atmarkcafe.otocon.model.Coupon" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/coupon_title"
+            style="@style/text_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="true"
+            android:text="@{coupon.getTextTitleToolbarCouponDetail(context)}"
+            android:textColor="@color/color161616"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/coupon_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/coupon_image"
+            android:layout_width="match_parent"
+            android:layout_height="153dp"
+            android:layout_marginTop="10dp"
+            android:alpha="@{coupon.apply == 0 ? 1.0f: 0.5f}"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_photo_unavailable"
+            app:layout_constraintTop_toBottomOf="@+id/coupon_title"
+            app:loadImageUrl="@{coupon.image}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/color_ADADAD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coupon_image" />
+
+        <ImageView
+            android:id="@+id/coupon_detail_using"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_using"
+            android:visibility="@{coupon.apply == 0 ? View.GONE: View.VISIBLE}"
+            app:layout_constraintTop_toTopOf="@+id/coupon_image" />
+
+        <TextView
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="315"
+            android:text="@string/coupon_detail_using"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            android:visibility="@{coupon.apply == 0 ? View.GONE: View.VISIBLE}"
+            app:layout_constraintCircle="@+id/coupon_detail_using"
+            app:layout_constraintCircleAngle="315"
+            app:layout_constraintCircleRadius="12dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

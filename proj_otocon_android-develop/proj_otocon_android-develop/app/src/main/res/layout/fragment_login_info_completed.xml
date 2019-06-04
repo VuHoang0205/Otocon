@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="org.atmarkcafe.otocon.function.mypage.profile.LoginInfoCompletedFragment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:clickable="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/header_toolbar"
+                android:text="@string/title_change_login_info_success" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/compledted_forgot_password_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:lineSpacingExtra="10dp"
+            android:text="@string/profile_setting_completed_changed_password"
+            android:textColor="@color/color161616"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/completed_button_submit"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/completed_button_submit"
+            style="@style/Button.GreenBold"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="37dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="@{()-> fragment.onComplete()}"
+            android:text="@string/forgot_password_completed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/compledted_forgot_password_message" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

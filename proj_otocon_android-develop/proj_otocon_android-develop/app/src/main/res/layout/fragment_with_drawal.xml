@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="param"
+            type="org.atmarkcafe.otocon.model.parameter.WidDrawParams" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/title_with_drawal" />
+        </android.support.v7.widget.Toolbar>
+
+
+        <Button
+            android:id="@+id/button_with_drawal"
+            style="@style/Button.GreenBold"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/xml_background_button_dark"
+            android:text="@string/with_drawal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_applied_party"
+            style="@style/Button.GreenBold"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="13dp"
+            android:text="@string/with_drawal_confirm_apply_party"
+            app:layout_constraintBottom_toTopOf="@+id/button_with_drawal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_password_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="15dp"
+            app:errorTextAppearance="@style/ErrorText"
+            app:hintEnabled="false"
+            app:layout_constraintBottom_toTopOf="@+id/button_applied_party"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/xml_background_input_register"
+                android:gravity="center_vertical|left"
+                android:inputType="textPassword"
+                android:maxLength="45"
+                android:paddingStart="15dp"
+                android:paddingTop="0dp"
+                android:lineSpacingExtra="10dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="0dp"
+                android:text="@={param.password}"
+                android:textColor="@color/color161616"
+                android:textSize="14sp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/password_hint"
+            style="@style/text_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="9dp"
+            android:gravity="center_vertical|left"
+            android:includeFontPadding="false"
+            android:text="@string/login_password"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/input_password_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/password_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:fillViewport="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="10dp"
+                android:paddingLeft="37dp"
+                android:paddingRight="37dp"
+                android:text="@string/with_drawal_message"
+                android:textColor="@color/color161616"
+                android:textSize="16sp" />
+
+        </ScrollView>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

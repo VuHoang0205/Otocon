@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.dialog.multiple.MultipleModel" />
+    </data>
+
+        <CheckBox
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/xml_advanced_search_item_row"
+            android:paddingTop="5dp"
+            android:layout_marginBottom="4dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:checked="@={item.checked}"
+            android:text="@{item.title}"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/xml_advanced_search_checkbox"
+            android:drawablePadding="8dp"
+            android:button="@null"
+            android:textColor="@color/color161616"
+            android:textSize="14sp" />
+</layout>

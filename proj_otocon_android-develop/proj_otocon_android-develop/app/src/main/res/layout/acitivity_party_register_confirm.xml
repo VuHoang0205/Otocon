@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="org.atmarkcafe.otocon.R" />
+        <variable
+            name="activity"
+            type="org.atmarkcafe.otocon.function.party.register.ConfirmRegisterPartyFragment" />
+
+        <variable
+            name="party"
+            type="org.atmarkcafe.otocon.model.response.PartyDetailData" />
+
+        <variable
+            name="model"
+            type="org.atmarkcafe.otocon.model.RegisterPartyModel"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left"
+            >
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/confirmation_of_application_contents" />
+        </android.support.v7.widget.Toolbar>
+
+        <include
+            android:id="@+id/step"
+            layout="@layout/layout_register_step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:step="@{2}" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            android:paddingBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
+            app:layout_constraintTop_toBottomOf="@+id/step">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/contrain_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <include
+                    android:id="@+id/party"
+                    layout="@layout/layout_register_party"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:gender="@{Integer.parseInt(model.gender)}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:party="@{party}" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:background="#EBEBEB"
+                    android:gravity="center"
+                    android:text="@string/enter_login_information"
+                    android:textColor="@color/colorFontTextBlack"
+                    style="@style/text_bold"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/party" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="59dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/mail_address"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="59dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.email}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+                <View
+                    android:visibility="@{activity.isLogin ? View.GONE : View.VISIBLE}"
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+                <TextView
+                    android:visibility="@{activity.isLogin ? View.GONE : View.VISIBLE}"
+                    android:id="@+id/textView3"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/password"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+                <TextView
+                    android:visibility="@{activity.isLogin ? View.GONE : View.VISIBLE}"
+                    android:id="@+id/tvPass"
+                    android:layout_width="0dp"
+                    android:layout_height="53dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:inputType="textPassword"
+                    android:text="@{model.passWord}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:background="#EBEBEB"
+                    android:gravity="center"
+                    android:text="@string/basic_information"
+                    android:textColor="@color/colorFontTextBlack"
+                    style="@style/text_bold"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPass" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_name"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{@string/name_format(model.nameSei, model.nameMei)}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/phonetic"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                <TextView
+                    android:id="@+id/tvPhonetic"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{@string/name_format(model.nameKanasei, model.nameKanamei)}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhonetic" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_gender"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.genderName}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView7"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/birthday"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                <TextView
+                    android:id="@+id/tvBirthday"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.getBirthdayText(context)}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/prefectures"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                <TextView
+                    android:id="@+id/tvPrefectures"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.prefectureName}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView9"
+                    app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPrefectures" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/cell_phone_number"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.tel}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView10"
+                    app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/number_of_reserved_people"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+                <TextView
+                    android:id="@+id/tvNumberPeople"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{@string/number_of_reserved_people_format(model.friend)}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+                <View
+                    android:visibility="@{model.hasFriend(model.friend) ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/view8"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNumberPeople" />
+
+                <TextView
+                    android:visibility="@{model.hasFriend(model.friend) ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/textView12"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/your_friend"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view8" />
+
+                <TextView
+                    android:visibility="@{model.hasFriend(model.friend) ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/tvYourFriend1"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.friend1}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView12"
+                    app:layout_constraintTop_toBottomOf="@+id/view8" />
+
+                <View
+                    android:visibility="@{model.hasTwoFriend(model.friend) ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/view20"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvYourFriend1" />
+
+                <TextView
+                    android:visibility="@{model.hasTwoFriend(model.friend) ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/textView20"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/your_friend"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvYourFriend1" />
+
+                <TextView
+                    android:visibility="@{model.hasTwoFriend(model.friend) ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/tvYourFriend2"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.friend2}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView12"
+                    app:layout_constraintTop_toBottomOf="@+id/tvYourFriend1" />
+
+
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="@{model.pontaID == null || model.pontaID.isEmpty()? View.GONE: View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@+id/tvYourFriend2" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/Ponta_ID"
+                    android:visibility="@{model.pontaID == null || model.pontaID.isEmpty()? View.GONE: View.VISIBLE}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+                <TextView
+                    android:id="@+id/tvPontaID"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:visibility="@{model.pontaID == null || model.pontaID.isEmpty()? View.GONE: View.VISIBLE}"
+                    android:text="@{model.pontaID}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView13"
+                    app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPontaID" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_payment_method"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+                <TextView
+                    android:id="@+id/tvPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.payment == 1 ? @string/confirm_credit_card : @string/cash_payment_on_the_day}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView14"
+                    app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutCoupon"/>
+
+                <CheckBox
+                    android:clickable="false"
+                    android:checked="true"
+                    android:id="@+id/check_box"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/xml_advanced_search_checkbox"
+                    android:lineSpacingExtra="6dp"
+                    android:paddingStart="6dp"
+                    android:text="@string/text_checkbox_confirm"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view11"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:visibility="@{model.applyCoupon==1 ? View.VISIBLE : View.GONE}"
+                    android:id="@+id/layoutCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPayment">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="29dp"
+                        android:background="#EBEBEB"
+                        android:gravity="center"
+                        style="@style/text_bold"
+                        android:text="@string/coupon_code"
+                        android:textColor="@color/colorFontTextBlack"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        style="@style/text_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="15dp"
+                        android:gravity="center"
+                        android:text="@string/use_coupon_code"
+                        android:textColor="@color/colorFontTextBlack"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                    <TextView
+                        android:id="@+id/tvCodeCoupon"
+                        style="@style/text_bold"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="15dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:gravity="center_vertical|end"
+                        android:text="@{model.couponCode}"
+                        android:textColor="@color/colorFontTextBlack"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView16"
+                        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="15dp"
+                        android:lineSpacingExtra="8dp"
+                        android:text="@string/note_coupon"
+                        android:textColor="@color/colorFontTextBlack"
+                        android:textSize="11sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCodeCoupon" />
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/bottom"
+            layout="@layout/layout_register_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:click="@{(view)-> activity.onSubmit()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:text="@{@string/confirm_your_application_details}"  />
+
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

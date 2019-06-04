@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="dialog"
+            type="org.atmarkcafe.otocon.dialog.MessageDialog" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:layout_marginStart="28dp"
+            android:background="@drawable/xml_background_dialog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="23dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="10dp"
+                android:text="@string/gps_title"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:lineSpacingExtra="7dp"
+                android:text="@string/gps_denied"
+                android:textColor="@color/colorBlack"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#F8F8F7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <Button
+                android:id="@+id/bnOk"
+                style="@style/text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:onClick="@{() -> dialog.onPressedOk()}"
+                android:text="@string/permission_accept_button"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintStart_toEndOf="@+id/line2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line"/>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:background="#F8F8F7"
+                app:layout_constraintTop_toBottomOf="@+id/line"
+                app:layout_constraintStart_toEndOf="@+id/bnOk"
+                app:layout_constraintEnd_toStartOf="@+id/cancel"/>
+
+            <Button
+                android:background="@android:color/transparent"
+                android:id="@+id/cancel"
+                style="@style/text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:onClick="@{() -> dialog.onPressedCancel()}"
+                android:text="@string/permission_deny_button"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line"
+                app:layout_constraintEnd_toStartOf="@+id/line2" />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

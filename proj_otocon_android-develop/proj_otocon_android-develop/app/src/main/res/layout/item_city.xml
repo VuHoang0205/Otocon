@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="city"
+            type="org.atmarkcafe.otocon.model.response.City" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/background_item_city"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="31dp"
+            android:button="@drawable/xml_advanced_search_checkbox"
+            android:checked="@={city.check}"
+            android:clickable="false"
+            android:paddingStart="9dp"
+            android:text="@{city.name}"
+            android:textColor="#161616"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintWidth_max="190dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="7dp"
+            android:gravity="center_vertical"
+            android:text="@{city.stringTotalParty}"
+            android:textColor="#161616"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

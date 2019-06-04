@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="org.atmarkcafe.otocon.function.mypage.profile.LoginInfoFragment" />
+        <variable
+            name="user"
+            type="org.atmarkcafe.otocon.model.Account" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                android:id="@+id/title_confirm"
+                style="@style/header_toolbar"
+                android:text="@string/title_login_info" />
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <TextView
+                android:id="@+id/info_key"
+                style="@style/text_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:includeFontPadding="false"
+                android:text="@string/login_user"
+                android:textColor="@color/color161616"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/info_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|right"
+                android:lineSpacingExtra="6dp"
+                android:maxLines="1"
+                android:text="@{user.email}"
+                android:textColor="@color/color161616"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/info_key"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/info_key" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/color_ADADAD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info_value" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <include
+            android:id="@+id/passworld"
+            layout="@layout/item_info_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/email"
+            bind:key="@{@string/login_password}"
+            bind:value="@{@string/profile_setting_password}" />
+
+        <include
+            android:id="@+id/contrain_layout"
+            layout="@layout/layout_register_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            bind:click="@{(view) -> fragment.onSubmit()}"
+            bind:text="@{fragment.textSubmit}" />
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

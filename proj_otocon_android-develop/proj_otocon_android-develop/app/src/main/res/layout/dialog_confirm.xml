@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/lnContainerDialogConfirm"
+    android:background="@color/colorBlackOpacity65"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/background_corrner_dialog_confirm">
+
+        <ImageView
+            android:id="@+id/ivExit"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_exit" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/text_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivExit"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="22dp"
+            android:gravity="center"
+            android:text="パーティー申込がユーザー登録を含む"
+            android:textColor="@color/colorBlack"
+            android:textSize="15dp"
+          />
+
+        <Button
+            android:id="@+id/bnOk"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/tvTitle"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginBottom="31dp"
+            android:background="@drawable/background_dialog_confirm"
+            android:text="@string/ok"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

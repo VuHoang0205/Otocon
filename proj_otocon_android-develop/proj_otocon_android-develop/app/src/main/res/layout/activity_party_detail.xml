@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="org.atmarkcafe.otocon.model.response.PartyDetailData" />
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.party.PartyDetailPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffff">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar3"
+            style="@style/toolbar"
+            android:background="#33F7648F"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left_pink" >
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            style="@style/text_bold"
+            android:text="@{viewModel.getTitleParty()}"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="#F7648F"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="28dp"
+            android:elevation="1.5dp"
+            app:layout_constraintTop_toTopOf="@+id/toolbar3"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/btn_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar3">
+
+            <include
+                android:id="@+id/layout_container_top"
+                layout="@layout/layout_container_header_appbar_party_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:viewModel="@{viewModel}" />
+
+            <include
+                android:id="@+id/layout_container_bottom_appbar"
+                layout="@layout/layout_caution_party_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </android.support.design.widget.CoordinatorLayout>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            style="@style/Button.GreenBold"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
+            android:layout_marginBottom="38dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/coordinator"
+            android:layout_marginEnd="70dp"
+            android:layout_marginStart="70dp"
+            android:gravity="center"
+            android:text="@string/party_detail_application"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:visibility="@{viewModel.isFull() || viewModel.isRegistered() ? View.GONE: View.VISIBLE}"
+            android:enabled="@{viewModel.isExpired() ? false : true}"
+            android:alpha="@{viewModel.isExpired() ? 0.5f : 1f}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/viewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorWhite"/>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{presenter.isShowProgress ? View.VISIBLE: View.GONE}" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+

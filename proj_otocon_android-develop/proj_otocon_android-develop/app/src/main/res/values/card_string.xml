@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="card_title_edit_card">クレジットカード情報</string>
+    <string name="card_title_list_card">クレジットカード情報</string>
+    <string name="card_btn_delte">削除</string>
+    <string name="card_bottom">※ご登録したクレジットカード情報は、\n左にスワイプ操作すると、削除することができます。</string>
+
+    <string name="card_bnt_update_premium_rematch">連絡先情報を送り続けます</string>
+
+    <string name="card_text_add_new_card">別のクレジットカードを追加</string>
+
+    <color name="color_card_delete_background">#E24F49</color>
+    <color name="color_card_delete_text">@android:color/white</color>
+
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="ItemMatchingBinding">
+
+        <import type="org.atmarkcafe.otocon.R"/>
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.function.rematch.MatchingItem" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@{item.respone.isHighLighted() ? @drawable/xml_background_rematch : @drawable/xml_background_read_party}"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="23dp">
+
+        <TextView
+            android:id="@+id/title_party"
+            android:textAppearance="@{item.respone.read_at==null? R.style.text_bold :R.style.text_normal}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="5dp"
+            android:text="@{item.respone.subName}"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="6dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:background="@drawable/xml_background_text_item_party_opacity_20"
+            android:text="@{item.respone.getTextEventDate()}"
+            android:textAppearance="@{item.respone.read_at==null? R.style.text_bold :R.style.text_normal}"
+            android:textColor="@color/color_F7648F"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/area"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_party" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/area"
+            android:layout_width="100dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_party">
+
+            <TextView
+                android:id="@+id/province"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/xlm_bg_addrees_left"
+                android:backgroundTint="@{item.respone.getAreaColor()}"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@{item.respone.getAreaName()}"
+                android:textColor="@color/colorWhite"
+                android:textSize="9sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/district" />
+
+
+            <TextView
+                android:id="@+id/district"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/xlm_bg_addrees__right_tranfer"
+                android:backgroundTint="@{item.respone.getAreaColor()}"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@{item.respone.getCityName()}"
+                android:textColor="@{item.respone.getAreaColor()}"
+                android:textSize="9sp"
+                app:layout_constraintLeft_toRightOf="@id/province"
+                app:layout_constraintRight_toRightOf="parent" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

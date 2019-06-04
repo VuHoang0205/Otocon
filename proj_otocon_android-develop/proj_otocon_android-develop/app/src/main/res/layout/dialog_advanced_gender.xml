@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dialog"
+            type="org.atmarkcafe.otocon.function.advancedsearch.AdvancedGenderDialog" />
+
+        <variable
+            name="gender"
+            type="int" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/xlm_background_rules"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:gravity="center"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:includeFontPadding="false"
+                android:text="@string/advanced_search_title_gender"
+                android:textColor="@color/color_black_2D2D2D"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="7dp"
+                android:layout_height="11dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/ic_left"
+                android:onClick="@{() -> dialog.onBack()}"
+                app:layout_constraintBottom_toBottomOf="@+id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/title" />
+
+
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="51dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/xml_advanced_search_button_reset"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:onClick="@{()-> dialog.onReset()}"
+                android:text="@string/reset"
+                android:textSize="11dp"
+                android:textColor="@drawable/xml_text_reset_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <RadioGroup
+                android:id="@+id/rg_gender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="6dp"
+                android:checkedButton="@{gender == 1 ?  @id/male : gender == 2 ?@id/female : 0}"
+                android:onCheckedChanged="@{dialog.onCheckedChanged}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reset">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    style="@style/advanced_gender_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="@string/confirm_information_male" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    style="@style/advanced_gender_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/confirm_information_Female" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/confirm"
+                style="@style/Button.Green"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="53dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="25dp"
+                android:onClick="@{() -> dialog.onConfrim()}"
+
+                android:text="@string/advanced_search_change_search_condition"
+                android:textAppearance="@style/text_normal"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rg_gender" />
+
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="14dp"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_advanced_search_arrow_right"
+                android:tint="@color/colorWhite"
+
+                app:layout_constraintBottom_toBottomOf="@+id/confirm"
+                app:layout_constraintEnd_toEndOf="@+id/confirm"
+                app:layout_constraintTop_toTopOf="@+id/confirm"/>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>

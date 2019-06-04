@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="edittext_height">130dp</dimen>
+	<dimen name="dimen_marginTop_8">8dp</dimen>
+	<dimen name="dimen_marginTop_30">31dp</dimen>
+	<dimen name="recylerview_max_height">304dp</dimen>
+	<dimen name="top_line_three_text">20dp</dimen>
+	<dimen name="tab_line_spacing_extra">6sp</dimen>
+</resources>

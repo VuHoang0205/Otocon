@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/slider_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="223.5dp"
+            android:layout_marginBottom="1.5dp"
+            app:layout_constraintBottom_toTopOf="@+id/recommend_recycler_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recommend_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/schedule_text"
+            app:layout_constraintTop_toBottomOf="@+id/slider_view_pager" />
+
+        <TextView
+            android:id="@+id/schedule_text"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/husbandry_party_schedule"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawablePadding="5.5dp"
+            android:textColor="@color/color161616"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recommend_recycler_view" />
+
+        <TextView
+            android:id="@+id/schedule_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/schedule_hint"
+            android:textColor="#808080"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/schedule_text" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

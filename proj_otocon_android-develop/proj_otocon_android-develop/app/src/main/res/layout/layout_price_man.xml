@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="org.atmarkcafe.otocon.R" />;
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="org.atmarkcafe.otocon.model.response.PartyDetailData" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/xml_background_item_reserved"
+        android:paddingLeft="14dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_icon_sofa" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:background="@drawable/xml_background_button_paty_detail_border_reserved"
+                android:backgroundTint="@{viewModel.getColorStatusMale(context)}"
+                android:includeFontPadding="false"
+                android:paddingLeft="7dp"
+                android:paddingTop="2dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="2dp"
+                android:text="@{viewModel.getNameStatusMale(context)}"
+                android:textColor="#FAFAFA"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                app:layout_constraintStart_toEndOf="@+id/imageView6"
+                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28"
+                app:srcCompat="@drawable/ic_icon_gender_man" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:includeFontPadding="false"
+                android:text="@{viewModel.getLimitAgeMale(context)}"
+                android:textColor="#3A3A3A"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                app:layout_constraintStart_toEndOf="@id/imageView7"
+                app:layout_constraintTop_toTopOf="@+id/imageView7"
+
+                />
+
+            <View
+                android:id="@+id/view9"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#C9C9C9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view9"
+                app:srcCompat="@drawable/ic_icon_yen" />
+
+            <TextView
+                android:id="@+id/textView30"
+                style="@style/text_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:includeFontPadding="false"
+                android:text="@{ viewModel.formatStrikePriceMale(context, viewModel.getFeeCustomerM) }"
+                android:textAppearance="@{!viewModel.hasDiscountMale() ? R.style.text_bold : R.style.text_normal }"
+                android:textColor="#3A3A3A"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                app:layout_constraintStart_toEndOf="@+id/imageView8"
+                app:layout_constraintTop_toTopOf="@+id/imageView8"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="（税込）"
+                android:textColor="@color/colorBlack"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <View
+                android:id="@+id/view38"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="9dp"
+                android:visibility="@{ viewModel.isNoSpecialDiscountMale() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+            <View
+                android:id="@+id/lineThreeText"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="9dp"
+                android:visibility="@{ viewModel.hasThreeTextMale() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view38" />
+
+            <TextView
+                android:id="@+id/textView22"
+                style="@style/text_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.getTextPriceSpecial(context, viewModel.specialPriceM)}"
+                android:textColor="#14A9DE"
+                android:textSize="12sp"
+                android:visibility="@{viewModel.hasSpecialMale() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toStartOf="@id/textView21"
+                app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="（税込）"
+                android:textColor="#14A9DE"
+                android:textSize="8sp"
+                android:visibility="@{ viewModel.hasSpecialMale() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBaseline_toBaselineOf="@id/textView22"
+                app:layout_constraintBottom_toBottomOf="@+id/textView22"
+                app:layout_constraintEnd_toEndOf="@id/view9" />
+
+            <TextView
+                android:id="@+id/textView24"
+                style="@style/text_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.getTextPriceBenifit(context, viewModel.benefitEarlyMale)}"
+                android:textColor="#E30A2F"
+                android:textSize="12sp"
+                android:visibility="@{ viewModel.hasBenifit() ? View.VISIBLE : View.GONE }"
+                app:layout_constraintEnd_toStartOf="@id/textView25"
+                app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="（税込）"
+                android:textColor="#E30A2F"
+                android:textSize="8sp"
+                android:visibility="@{viewModel.hasBenifit() ? View.VISIBLE : View.GONE }"
+                app:layout_constraintBaseline_toBaselineOf="@id/textView24"
+                app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                app:layout_constraintEnd_toEndOf="@id/view9" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>
+

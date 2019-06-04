@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="area"
+            type="org.atmarkcafe.otocon.model.response.Area" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/background_item_area"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="9dp"
+            android:button="@drawable/xml_advanced_search_checkbox"
+            android:checked="@={area.check}"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingStart="9dp"
+            android:text="@{area.name}"
+            android:textColor="#161616"
+            android:textSize="14sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIdArea"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvIdArea"
+            app:layout_constraintWidth_max="190dp" />
+
+        <TextView
+            android:id="@+id/tvIdArea"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="7dp"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@{area.stringTotalParty}"
+            android:textColor="#161616"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_down_black_advanced"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIdArea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvIdArea" />
+
+        <View
+            android:id="@+id/viewCheck"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:layout_constraintEnd_toStartOf="@+id/viewExpan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvIdArea" />
+
+        <View
+            android:id="@+id/viewExpan"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewCheck"
+            app:layout_constraintTop_toTopOf="@+id/tvIdArea" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

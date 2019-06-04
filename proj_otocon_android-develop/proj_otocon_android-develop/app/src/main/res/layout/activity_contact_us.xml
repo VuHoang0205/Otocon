@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.menu.contactus.ContactPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/contact_us_title" />
+        </android.support.v7.widget.Toolbar>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/step"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_bg_step_1"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <TextView
+                android:id="@+id/step1"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/contact_step_1"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/step2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/step2"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/contact_step_2"
+                android:textColor="@color/colorBlack"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/step1"
+                app:layout_constraintRight_toLeftOf="@id/step3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/step3"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/contact_step_3"
+                android:textColor="@color/colorBlack"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/step2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/contrain_layout"
+            app:layout_constraintTop_toBottomOf="@+id/step">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="@{()-> presenter.hideKeyBoard()}"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/tv_notification_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/cus_bg_notification_email"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:padding="10dp"
+                    android:text="@={presenter.messageError}"
+                    android:textColor="@color/colorRed"
+                    android:textSize="13sp"
+                    android:visibility="@{presenter.completed ? View.GONE : (presenter.isError ? View.VISIBLE: View.GONE)}"/>
+
+                <TextView
+                    android:id="@+id/tv_noti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:lineSpacingExtra="10dp"
+                    android:text="@string/contact_us_noti"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_notification_email"  />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/contrain_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_noti">
+
+                    <TextView
+                        android:id="@+id/tv_last_name"
+                        style="@style/text_bold_reigster"
+                        android:layout_marginLeft="14dp"
+                        android:setTextEndColor="@{@string/contact_sei}"
+                        app:layout_constraintLeft_toLeftOf="parent" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layout_edt_sei"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="6dp"
+                        app:errorEnabled="@{presenter.completed ? false : (presenter.errorSei ? true: false)}"
+                        app:errorTextAppearance="@style/ErrorText"
+                        app:hintEnabled="false"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/layout_edt_mei"
+                        app:layout_constraintTop_toBottomOf="@id/tv_last_name"
+                        app:setErrors="@{presenter.messageSei}">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edt_kana_sei"
+                            style="@style/text_normal_reigster"
+                            android:layout_marginLeft="14dp"
+                            android:background="@drawable/xml_background_input_register"
+                            android:inputType="textPersonName"
+                            android:text="@={presenter.sei}" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tv_first_name"
+                        style="@style/text_bold_reigster"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="15dp"
+                        android:setTextEndColor="@{@string/contact_mei}"
+                        app:layout_constraintBaseline_toBaselineOf="@id/tv_last_name"
+                        app:layout_constraintStart_toStartOf="@id/layout_edt_mei" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layout_edt_mei"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="14dp"
+                        app:errorEnabled="@{presenter.completed ? false : (presenter.errorMei ? true: false)}"
+                        app:errorTextAppearance="@style/ErrorText"
+                        app:hintEnabled="false"
+                        app:layout_constraintLeft_toRightOf="@id/layout_edt_sei"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_last_name"
+                        app:setErrors="@{presenter.messageMei}">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/edt_mei"
+                            style="@style/text_normal_reigster"
+                            android:layout_marginLeft="14dp"
+                            android:background="@drawable/xml_background_input_register"
+                            android:inputType="textPersonName"
+                            android:text="@={presenter.mei}" />
+                    </android.support.design.widget.TextInputLayout>
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/contrain_kana_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/contrain_name">
+
+                    <TextView
+                        android:id="@+id/tv_say"
+                        style="@style/text_bold_reigster"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="10dp"
+                        android:setTextEndColor="@{@string/contact_kana_sei}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@+id/tv_mei"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layout_edt_kana_sei"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="7dp"
+                        app:errorEnabled="@{presenter.completed ? false : (presenter.errorKanaSei ? true: false)}"
+                        app:errorTextAppearance="@style/ErrorText"
+                        app:hintEnabled="false"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/tv_mei"
+                        app:layout_constraintTop_toBottomOf="@id/tv_say"
+                        app:setErrors="@{presenter.messageKanaSei}">
+
+                        <android.support.design.widget.TextInputEditText
+                            style="@style/text_normal_reigster"
+                            android:layout_marginLeft="13dp"
+                            android:layout_marginRight="13dp"
+                            android:background="@drawable/xml_background_input_register"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:text="@={presenter.kanaSei}" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tv_mei"
+                        style="@style/text_bold_reigster"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="14dp"
+                        android:setTextEndColor="@{@string/contact_kana_mei}"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tv_say"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_say" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/layout_edt_kana_mei"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="1dp"
+                        app:errorEnabled="@{presenter.completed ? false : (presenter.errorKanaMei ? true: false)}"
+                        app:errorTextAppearance="@style/ErrorText"
+                        app:hintEnabled="false"
+                        app:layout_constraintLeft_toRightOf="@id/tv_say"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_mei"
+                        app:setErrors="@{presenter.messageKanaMei}">
+
+                        <android.support.design.widget.TextInputEditText
+                            style="@style/text_normal_reigster"
+                            android:layout_marginLeft="13dp"
+                            android:layout_marginRight="13dp"
+                            android:background="@drawable/xml_background_input_register"
+                            android:inputType="textPersonName"
+                            android:text="@={presenter.kanaMei}" />
+                    </android.support.design.widget.TextInputLayout>
+                </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/txt_gender"
+                    style="@style/text_bold_reigster"
+                    android:layout_marginTop="14dp"
+                    android:setTextEndColor="@{@string/contact_gender}"
+                    app:layout_constraintStart_toStartOf="@id/tv_email"
+                    app:layout_constraintTop_toBottomOf="@id/contrain_kana_name" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_edt_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorEnabled="@{presenter.completed ? false : (presenter.errorGender ? true: false)}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_gender"
+                    app:setErrors="@{presenter.messageGender}">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{() -> presenter.selectGender()}"
+                        android:paddingEnd="12dp"
+                        android:text="@{presenter.gender}" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/txt_birthday"
+                    style="@style/text_bold_reigster"
+                    android:layout_marginTop="14dp"
+
+                    app:layout_constraintStart_toStartOf="@id/tv_email"
+                    app:layout_constraintTop_toBottomOf="@id/layout_edt_gender" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_birthday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    android:setTextError="@{presenter.messageDate}"
+                    app:errorEnabled="@{presenter.errorYear}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_edt_gender">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txt_birthday_year"
+                            style="@style/text_bold_reigster"
+                            android:setTextEndColor="@{@string/contact_year}"
+                            app:layout_constraintStart_toStartOf="@id/birthday_year"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/birthday_year"
+                            style="@style/text_normal_reigster"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@{presenter.errorYear ? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                            android:drawableRight="@drawable/ic_arrow_down"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:onClick="@{()->presenter.showBirthdayDialog(0)}"
+                            android:singleLine="true"
+                            android:text="@{presenter.year}"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/birthday_month"
+                            app:layout_constraintTop_toBottomOf="@id/txt_birthday_year" />
+
+
+                        <TextView
+                            android:id="@+id/txt_birthday_month"
+                            style="@style/text_bold_reigster"
+                            android:setTextEndColor="@{@string/contact_month}"
+                            app:layout_constraintStart_toStartOf="@id/birthday_month"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/birthday_month"
+                            style="@style/text_normal_reigster"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@{presenter.errorMonth ? @drawable/xml_background_input_register_error: @drawable/xml_background_input_register}"
+                            android:drawableRight="@drawable/ic_arrow_down"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:onClick="@{()->presenter.showBirthdayDialog(1)}"
+                            android:singleLine="true"
+                            android:text="@={presenter.month}"
+                            app:layout_constraintLeft_toRightOf="@id/birthday_year"
+                            app:layout_constraintRight_toLeftOf="@+id/birthday_day"
+                            app:layout_constraintTop_toBottomOf="@id/txt_birthday_month" />
+
+                        <TextView
+                            android:id="@+id/txt_birthday_day"
+                            style="@style/text_bold_reigster"
+                            android:setTextEndColor="@{@string/contact_day}"
+                            app:layout_constraintStart_toStartOf="@id/birthday_day"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/birthday_day"
+                            style="@style/text_normal_reigster"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@{presenter.errorDay ? @drawable/xml_background_input_register_error: @drawable/xml_background_input_register}"
+                            android:clickable="false"
+                            android:drawableRight="@drawable/ic_arrow_down"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:onClick="@{()->presenter.showBirthdayDialog(2)}"
+                            android:singleLine="true"
+                            android:text="@={presenter.day}"
+                            app:layout_constraintLeft_toRightOf="@+id/birthday_month"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/txt_birthday_day" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txt_tel"
+                    style="@style/text_bold_reigster"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="15dp"
+                    android:setTextEndColor="@{@string/contact_tel}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_birthday" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_phone_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:setTextError="@{presenter.messageTel}"
+                    app:errorEnabled="@{presenter.errorTel1}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_tel">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/tel_1"
+                            style="@style/text_normal_reigster"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@{presenter.errorTel1 ? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                            android:gravity="center"
+                            android:inputType="numberSigned"
+                            android:maxLength="3"
+                            android:text="@={presenter.tel1}"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/tel_2" />
+
+                        <View
+                            android:layout_width="4.2dp"
+                            android:layout_height="1.2dp"
+                            android:background="@color/color161616"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/tel_1"
+                            app:layout_constraintRight_toLeftOf="@+id/tel_2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/tel_2"
+                            style="@style/text_normal_reigster"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@{presenter.errorTel1 ? @drawable/xml_background_input_register_error: @drawable/xml_background_input_register}"
+                            android:gravity="center"
+                            android:inputType="numberSigned"
+                            android:maxLength="4"
+                            android:text="@={presenter.tel2}"
+                            app:layout_constraintLeft_toRightOf="@+id/tel_1"
+                            app:layout_constraintRight_toLeftOf="@+id/tel_3" />
+
+                        <View
+                            android:layout_width="4.2dp"
+                            android:layout_height="1.2dp"
+                            android:background="@color/color161616"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/tel_2"
+                            app:layout_constraintRight_toLeftOf="@+id/tel_3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/tel_3"
+                            style="@style/text_normal_reigster"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@{presenter.errorTel1 ? @drawable/xml_background_input_register_error: @drawable/xml_background_input_register}"
+                            android:gravity="center"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberSigned"
+                            android:maxLength="4"
+                            android:singleLine="true"
+                            android:text="@={presenter.tel3}"
+                            app:layout_constraintLeft_toRightOf="@+id/tel_2"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/txt_address"
+                    style="@style/text_bold_reigster"
+                    android:layout_marginTop="15dp"
+                    android:setTextEndColor="@{@string/register_address}"
+                    app:layout_constraintStart_toStartOf="@id/tv_email"
+                    app:layout_constraintTop_toBottomOf="@id/input_phone_number" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tv_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorEnabled="@{presenter.completed ? false : (presenter.errorAdrress ? true: false)}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/txt_address"
+                    app:setErrors="@{presenter.messageAdrress}">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{() -> presenter.selectAdrress()}"
+                        android:text="@={presenter.address}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    style="@style/text_bold_reigster"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="18dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:setTextEndColor="@{@string/contact_email}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_address" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_edt_email"
+                    style="@style/text_bold_reigster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    app:errorEnabled="@{presenter.completed ? false : (presenter.errorEmail ? true: false)}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tv_email"
+                    app:setErrors="@{presenter.messageEmail}">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:inputType="textEmailAddress"
+                        android:text="@={presenter.email}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_note"
+                    style="@style/text_bold_reigster"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="18dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:setTextEndColor="@{@string/contact_content}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_edt_email" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_edt_note"
+                    style="@style/text_bold_reigster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    app:errorEnabled="@{presenter.completed ? false : (presenter.errorContent ? true: false)}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/tv_note"
+                    app:setErrors="@{presenter.messageContent}">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:paddingTop="7dp"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:gravity="top"
+                        android:maxLines="10"
+                        app:setInternalScrollEnable="@{true}"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:lineSpacingExtra="10dp"
+                        android:text="@={presenter.content}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/contact_term"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center"
+                    android:onClick="@{()-> presenter.openTerm()}"
+                    android:text="@string/contact_us_term"
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_edt_note" />
+
+                <CheckBox
+                    android:id="@+id/check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={presenter.isReadRules}"
+                    android:lineSpacingExtra="92dp"
+                    android:paddingLeft="5dp"
+                    android:text="@string/contact_check"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/contact_term" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+                    android:text="@{presenter.messageTerm}"
+                    android:textColor="@color/colorRed"
+                    android:textSize="11sp"
+                    android:visibility="@{presenter.errorTerm? View.VISIBLE: View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/check_box"
+                    app:layout_constraintStart_toStartOf="@+id/check_box"
+                    app:layout_constraintTop_toBottomOf="@+id/check_box" />
+
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contrain_layout"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/confirm_register"
+                style="@style/Button.Register"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="38dp"
+                android:onClick="@{() -> presenter.callApi()}"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:text="@string/contact_button_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <include
+            android:id="@+id/progress"
+            layout="@layout/layout_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{presenter.isLoading? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

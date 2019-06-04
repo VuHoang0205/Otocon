@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="org.atmarkcafe.otocon.function.party.register.SuccessRegisterPartyFragment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/application_completed" />
+        </android.support.v7.widget.Toolbar>
+        <include
+            android:id="@+id/step"
+            layout="@layout/layout_register_step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:step="@{5}" />
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/bottom"
+            app:layout_constraintTop_toBottomOf="@+id/step">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/contrain_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+
+                <WebView
+                    android:id="@+id/webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_toTop"
+                style="@style/Button.GreenBold"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginEnd="37dp"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="20dp"
+                android:onClick="@{() -> activity.toTheTopScreen()}"
+                android:text="@string/to_the_top_screen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/Button.GreenBold"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="35dp"
+                android:layout_marginEnd="37dp"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_button_pink"
+                android:onClick="@{() -> activity.onGotoMyPartyList()}"
+                android:text="@string/to_the_application_party_list"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_toTop" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

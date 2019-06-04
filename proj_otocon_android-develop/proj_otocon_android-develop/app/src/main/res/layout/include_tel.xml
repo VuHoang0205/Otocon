@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_Tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/tel_first_digits"
+        style="@style/CornersRounded"
+        android:layout_width="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:labelFor="@id/tel_first_digits"
+        android:maxLength="3"
+        android:padding="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/contact_us_first_dash"
+        app:layout_constraintTop_toBottomOf="@id/tv_Tel" />
+
+
+    <include
+        android:id="@+id/contact_us_first_dash"
+        layout="@layout/view_dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/tel_first_digits"
+        app:layout_constraintLeft_toRightOf="@id/tel_first_digits"
+        app:layout_constraintRight_toLeftOf="@id/tel_second_digits" />
+
+    <EditText
+        android:id="@+id/tel_second_digits"
+        style="@style/CornersRounded"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:labelFor="@id/tel_second_digits"
+        android:maxLength="4"
+        android:padding="0dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tel_first_digits"
+        app:layout_constraintLeft_toRightOf="@id/contact_us_first_dash"
+        app:layout_constraintRight_toLeftOf="@id/contact_us_second_dash" />
+
+
+    <include
+        android:id="@+id/contact_us_second_dash"
+        layout="@layout/view_dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/tel_first_digits"
+        app:layout_constraintLeft_toRightOf="@id/tel_second_digits"
+        app:layout_constraintRight_toLeftOf="@id/tel_last_digits" />
+
+    <EditText
+        android:id="@+id/tel_last_digits"
+        style="@style/CornersRounded"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:labelFor="@id/tel_last_digits"
+        android:maxLength="4"
+        android:padding="0dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tel_first_digits"
+        app:layout_constraintLeft_toRightOf="@id/contact_us_second_dash"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

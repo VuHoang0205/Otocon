@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="org.atmarkcafe.otocon.R" />
+
+        <variable
+            name="party"
+            type="org.atmarkcafe.otocon.model.response.PartyDetailData" />
+
+        <variable
+            name="gender"
+            type="int" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/xml_background_item_party"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/xml_background_text_item_party"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@{party.getTextEventShortDate(context)}"
+                android:textColor="@color/color_F7648F"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/area"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/area"
+                android:layout_width="100dp"
+                android:layout_height="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/province"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/xlm_bg_addrees_left"
+                    android:backgroundTint="@{party.getAreaColor()}"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@{party.getAreaName()}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="9sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/district" />
+
+                <TextView
+                    android:id="@+id/district"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/xlm_bg_addrees__right_tranfer"
+                    android:backgroundTint="@{party.getAreaColor()}"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@{party.getCityName()}"
+                    android:textColor="@{party.getAreaColor()}"
+                    android:textSize="9sp"
+                    app:layout_constraintLeft_toRightOf="@id/province"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tv_content"
+                style="@style/text_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="2"
+                android:text="@{party.getSubName()}"
+                android:textColor="@color/color161616"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="6dp"
+                android:background="#C9C9C9"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout9"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="0dp"
+                android:visibility="@{gender==0 ? View.VISIBLE : gender==1 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@+id/line">
+
+                <View
+                    android:id="@+id/center_line"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:background="#C9C9C9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout10"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/age"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_gender_man"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@{gender== 1 ? party.getRoundAgeMale(context) : party.getRoundAgeFemale(context)}"
+                    android:textColor="#3A3A3A"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout10"
+                    app:layout_constraintTop_toTopOf="@+id/constraintLayout10"
+                    app:layout_constraintWidth_percent="0.5" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constraintLayout10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.5">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/contrain_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <TextView
+                            android:id="@+id/value1"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:drawableLeft="@drawable/ic_icon_yen"
+                            android:drawablePadding="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.formatPriceMale(context, party.getFeeCustomerM)}"
+                            android:textAppearance="@{!party.hasSalePriceM(context) ? R.style.text_bold : R.style.text_normal }"
+                            android:textColor="#3A3A3A"
+                            android:textSize="16sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value1"
+                            app:layout_constraintLeft_toRightOf="@id/value1"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/Contrain_special"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="@{ party.hasSpecialMale() ? View.VISIBLE : View.GONE }"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/contrain_default">
+
+                        <TextView
+                            android:id="@+id/tem2_m"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_special_party"
+                            android:textColor="#14A9DE"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/value2" />
+
+                        <TextView
+                            android:id="@+id/value2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.formatPriceM(context, party.specialPriceM)}"
+                            android:textAppearance="@{party.hasBenifitPriceM() ? R.style.text_normal : R.style.text_bold }"
+                            android:textColor="#14A9DE"
+                            android:textSize="12sp"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintRight_toLeftOf="@id/unit_special" />
+
+                        <TextView
+                            android:id="@+id/unit_special"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="#14A9DE"
+                            android:textSize="8sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value2"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/contrain_early"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="@{party.hasBenifitPriceM()? View.VISIBLE:View.GONE}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/Contrain_special">
+
+                        <TextView
+                            android:id="@+id/tem3_m"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_early_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/value3" />
+
+                        <TextView
+                            android:id="@+id/value3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.formatBenefitM(context, party.benefitEarlyMale)}"
+                            android:textAppearance="@{party.hasBenifitM(context) ? R.style.text_bold : R.style.text_normal }"
+                            android:textColor="#E30A2F"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toStartOf="@id/unit_early" />
+
+                        <TextView
+                            android:id="@+id/unit_early"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="8sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value3"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/contrain_premium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="@{party.hasPremiumPriceM(context)? View.VISIBLE : View.GONE}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/contrain_early">
+
+                        <TextView
+                            android:id="@+id/value4"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.getPricePremium(context, party.feePremiumM)}"
+                            android:textColor="#E30A2F"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toStartOf="@id/unit_premium"
+                            app:layout_constraintLeft_toRightOf="@id/tem1_m" />
+
+                        <TextView
+                            android:id="@+id/unit_premium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="8sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value4"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tem1_m"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_premium_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value4"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/value4" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout9_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="0dp"
+                android:visibility="@{gender==0 ? View.VISIBLE : gender==2 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
+
+                <View
+                    android:id="@+id/center_line_2"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:background="#C9C9C9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout10_2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/age_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_icon_gender_women"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="@{gender== 1 ? party.getRoundAgeMale(context) : party.getRoundAgeFemale(context)}"
+                    android:textColor="#3A3A3A"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout10_2"
+                    app:layout_constraintTop_toTopOf="@+id/constraintLayout10_2"
+                    app:layout_constraintWidth_percent="0.5" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constraintLayout10_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.5">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/contrain_default_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <TextView
+                            android:id="@+id/value1_f"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:drawableLeft="@drawable/ic_yen_women"
+                            android:drawablePadding="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.formatPriceFeeMale(context, party.getFeeCustomerF)}"
+                            android:textAppearance="@{!party.hasSalePriceF(context) ? R.style.text_bold : R.style.text_normal }"
+                            android:textColor="#3A3A3A"
+                            android:textSize="16sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value1_f"
+                            app:layout_constraintLeft_toRightOf="@id/value1_f"
+                            app:layout_constraintRight_toRightOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/Contrain_special_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="@{ party.hasSpecialFeeMale()? View.VISIBLE : View.GONE }"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/contrain_default_f">
+
+                        <TextView
+                            style="@style/text_bold"
+                            android:id="@+id/tem2_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_special_party"
+                            android:textColor="#14A9DE"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value2_f"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/value2_f" />
+
+                        <TextView
+                            android:id="@+id/value2_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.formatPriceF(context, party.specialPriceF)}"
+                            android:textAppearance="@{party.hasBenifitPriceF() ? R.style.text_normal : R.style.text_bold }"
+                            android:textColor="#14A9DE"
+                            android:textSize="12sp"
+                            app:layout_constraintHorizontal_bias="1"
+                            app:layout_constraintRight_toLeftOf="@id/unit_special_f" />
+
+                        <TextView
+                            android:id="@+id/unit_special_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="#14A9DE"
+                            android:textSize="8sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value2_f"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/contrain_early_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="@{party.hasBenifitPriceF()? View.VISIBLE:View.GONE}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/Contrain_special_f">
+
+                        <TextView
+                            style="@style/text_bold"
+                            android:id="@+id/tem3_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_early_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value3_f"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/value3_f" />
+
+                        <TextView
+                            android:id="@+id/value3_f"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:textAppearance="@{party.hasBenifitF(context) ? R.style.text_bold : R.style.text_normal }"
+                            android:text="@{party.formatBenefitF(context, party.benefitEarlyFeeMale)}"
+                            android:textColor="#E30A2F"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toStartOf="@id/unit_early_f" />
+
+                        <TextView
+                            android:id="@+id/unit_early_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="8sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value3_f"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/contrain_premium_f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="@{party.hasPremiumPriceF(context)? View.VISIBLE : View.GONE}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/contrain_early_f">
+
+                        <TextView
+                            android:id="@+id/tem1_f"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:text="@string/price_premium_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="10sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value4_f"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/value4_f" />
+
+                        <TextView
+                            android:id="@+id/value4_f"
+                            style="@style/text_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="@{party.getPricePremium(context, party.feePremiumF)}"
+                            android:textColor="#E30A2F"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toStartOf="@id/unit_premium_f"
+                            app:layout_constraintLeft_toRightOf="@id/tem1_f" />
+
+                        <TextView
+                            android:id="@+id/unit_premium_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/price_reigster_party"
+                            android:textColor="#E30A2F"
+                            android:textSize="8sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/value4_f"
+                            app:layout_constraintEnd_toEndOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

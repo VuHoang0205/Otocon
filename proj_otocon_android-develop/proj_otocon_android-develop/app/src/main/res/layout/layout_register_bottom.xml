@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="text"
+            type="String" />
+        <variable
+            name="click"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="disable"
+            type="Boolean"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="wrap_content"
+        android:alpha="@{disable? 0.5f: 1.0f}">
+        <Button
+            android:id="@+id/btn_submit"
+            style="@style/Button.GreenBold"
+            android:onClick="@{(view)-> click.onClick(view)}"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="35dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginEnd="37dp"
+            android:text="@{text}"
+            android:enabled="@{!disable}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

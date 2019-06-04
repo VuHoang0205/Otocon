@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="org.atmarkcafe.otocon.model.login.LoginParams" />
+
+        <variable
+            name="fragment"
+            type="org.atmarkcafe.otocon.function.login.LoginFragment" />
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.login.LoginPresenter" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/rll_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/bg_login"
+            android:clickable="false"
+            />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar2"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/login" />
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/contrain_login"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_otocon"
+                    android:layout_width="152dp"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="24dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/logo_login"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/todo" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/container_input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_otocon">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        style="@style/text_normal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/bg_error_login"
+                        android:gravity="center"
+                        android:lineSpacingExtra="7dp"
+                        android:text="@{presenter.errMessAge}"
+                        android:textColor="#F20606"
+                        android:textSize="13sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        style="@style/text_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="36dp"
+                        android:layout_marginStart="36dp"
+                        android:layout_marginTop="8dp"
+                        android:includeFontPadding="false"
+                        android:text="@string/login_user"
+                        android:textColor="#161616"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/text_input_error"
+                        android:setTextError="@{presenter.errorEmail}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="36dp"
+                        android:layout_marginStart="26dp"
+                        app:errorTextAppearance="@style/ErrorText"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/xml_backgroung_text_input_layout_login"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+                        <EditText
+                            android:id="@+id/edAcount"
+                            style="@style/text_normal"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/xml_background_edittext"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@={viewModel.email}"
+                            android:textColor="@color/color161616"
+                            android:textSize="14sp" />
+                    </android.support.design.widget.TextInputLayout>
+                </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="16dp"
+                    android:includeFontPadding="false"
+                    android:inputType="textEmailAddress"
+                    android:text="@string/login_password"
+                    android:textColor="#161616"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_input_email" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/text_input_Passworld"
+                    android:setTextError="@{presenter.errorPassworld}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="36dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/xml_backgroung_text_input_layout_login"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+                    <EditText
+                        android:id="@+id/edPassWord"
+                        style="@style/text_normal"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/xml_background_edittext"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@={viewModel.password}"
+                        android:textColor="@color/color161616"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvForgotPassworld"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{(view)->fragment.forgotPassword()}"
+                    android:text="@string/login_forgot"
+                    android:textColor="#161616"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_input_Passworld" />
+
+                <Button
+                    android:id="@+id/bnLogin"
+                    style="@style/Button.Login"
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="36dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="21dp"
+                    android:onClick="@{(view)->fragment.submit()}"
+                    android:stateListAnimator="@animator/state_click_animator"
+                    android:text="@string/login_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvForgotPassworld" />
+
+                <Button
+                    android:id="@+id/tvRegister"
+                    style="@style/text_bold"
+                    android:layout_width="0dp"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="36dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="21dp"
+                    android:background="@drawable/xlm_background_button_register"
+                    android:gravity="center"
+                    android:onClick="@{(view)->fragment.register()}"
+                    android:stateListAnimator="@animator/state_click_animator"
+                    android:text="@string/register_button"
+                    android:textColor="#3498DB"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textView16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bnLogin" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="150dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:onClick="@{(view)->fragment.showExplainRegister()}"
+                    android:text="@string/login_explain_register"
+                    android:textColor="#161616"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{presenter.isShowProgressBar ? View.VISIBLE: View.GONE}" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="org.atmarkcafe.otocon.function.party.register.card.CreditCardPresenter" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context=".function.party.register.card.CreditCardActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/header_toolbar"
+                android:text="@string/title_credit_card" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <View
+            android:id="@+id/line_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/ColorLineMenuBottom"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <include
+            android:id="@+id/step"
+            layout="@layout/layout_register_step"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            bind:step="@{3}" />
+
+        <include
+            android:id="@+id/bottom_button_layout"
+            layout="@layout/layout_register_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:click="@{(view)-> presenter.submit()}"
+            bind:text="@{@string/next}" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_button_layout"
+            app:layout_constraintTop_toBottomOf="@+id/step">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/scroll_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/text_enter_following_item"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="15dp"
+                    android:includeFontPadding="false"
+                    android:paddingBottom="9dp"
+                    android:text="@string/enter_following_item"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    android:visibility="@{presenter.hasMessageHeader &amp;&amp; presenter.newCreditCard? View.VISIBLE: View.GONE}"
+                    app:layout_constraintBottom_toTopOf="@+id/line_step"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/line_step"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/ColorLineMenuBottom"
+                    app:layout_constraintTop_toBottomOf="@+id/text_enter_following_item" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/price_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/line_price"
+                    app:layout_constraintTop_toBottomOf="@+id/line_step">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:id="@+id/line_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="9dp"
+                    android:background="@color/ColorLineMenuBottom"
+                    app:layout_constraintTop_toBottomOf="@+id/price_recyclerview" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/credit_card_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingBottom="16dp"
+                    android:visibility="@{presenter.newCreditCard? View.GONE: View.VISIBLE}"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/new_credit_card_item"
+                    app:layout_constraintTop_toBottomOf="@+id/line_price">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <View
+                    android:id="@+id/line_new_credit_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/ColorLineMenuBottom"
+                    android:visibility="@{presenter.newCreditCard || presenter.selectedNewCreditCard? View.GONE: View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@+id/credit_card_recyclerview" />
+
+                <View
+                    android:id="@+id/new_credit_card_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:background="@{presenter.selectedNewCreditCard ? @color/color_EBEBEB: @color/colorWhite}"
+                    android:visibility="@{presenter.newCreditCard? View.GONE: View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@+id/line_new_credit_card" />
+
+                <CheckBox
+                    android:id="@+id/new_credit_card_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:button="@drawable/ic_advanced_gender_radio"
+                    android:checked="@{presenter.selectedNewCreditCard}"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:visibility="@{presenter.newCreditCard? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/new_credit_card_item"
+                    app:layout_constraintStart_toStartOf="@+id/new_credit_card_item"
+                    app:layout_constraintTop_toTopOf="@+id/new_credit_card_item" />
+
+                <TextView
+                    android:id="@+id/new_credit_card_text"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="37dp"
+                    android:gravity="center_vertical|left"
+                    android:includeFontPadding="false"
+                    android:text="@string/new_credit_card"
+                    android:textColor="@color/color161616"
+                    android:visibility="@{presenter.newCreditCard? View.GONE: View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/new_credit_card_item"
+                    app:layout_constraintStart_toStartOf="@+id/new_credit_card_item"
+                    app:layout_constraintTop_toTopOf="@+id/new_credit_card_item" />
+
+                <ImageView
+                    android:id="@+id/credit_card_validate_image"
+                    android:layout_width="103dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_bank_card"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:layout_constraintStart_toEndOf="@+id/credit_card_validate"
+                    app:layout_constraintTop_toBottomOf="@+id/new_credit_card_check_box" />
+
+                <TextView
+                    android:id="@+id/credit_card_validate"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/credit_card_validate"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/credit_card_validate_image"
+                    app:layout_constraintEnd_toStartOf="@+id/credit_card_validate_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/credit_card_validate_image" />
+
+
+                <TextView
+                    android:id="@+id/credit_card_error_message"
+                    style="@style/ErrorText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:breakStrategy="simple"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@{presenter.errorMessage}"
+                    android:visibility="@{presenter.selectedNewCreditCard? (!presenter.errorMessage.isEmpty()? View.VISIBLE: View.GONE): View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/credit_card_validate_image" />
+
+                <TextView
+                    android:id="@+id/card_number_hint"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/credit_card_number"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/credit_card_number_layout" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/credit_card_number_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="15dp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/credit_card_date_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/credit_card_error_message">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/card_number_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:background="@{presenter.hasNumberError? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                            android:digits="1234567890"
+                            android:gravity="center"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:maxLength="16"
+                            android:padding="0dp"
+                            android:text="@={presenter.creditCardNumber}"
+                            android:textColor="@color/color161616"
+                            android:textSize="14sp" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/card_date_hint"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/credit_card_date"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/credit_card_date_layout" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/credit_card_date_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="105dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@+id/credit_card_number_layout">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/card_month"
+                            style="@style/text_bold"
+                            android:layout_width="18dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|right"
+                            android:text="@string/credit_month"
+                            android:textColor="@color/color161616"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/card_year"
+                            style="@style/text_bold"
+                            android:layout_width="18dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:gravity="center_vertical|right"
+                            android:text="@string/credit_year"
+                            android:textColor="@color/color161616"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/card_month_input"
+                            app:layout_constraintStart_toEndOf="@+id/card_year_input"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/card_year_input"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:background="@{presenter.hasYearError? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                            android:drawableRight="@drawable/ic_arrow_down"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:inputType="numberSigned"
+                            android:paddingTop="0dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="0dp"
+                            android:text="@={presenter.creditCardDateYear}"
+                            android:textColor="@color/color161616"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toStartOf="@+id/card_year"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <EditText
+                            android:id="@+id/card_month_input"
+                            android:layout_width="0dp"
+                            android:layout_height="38dp"
+                            android:background="@{presenter.hasMonthError? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                            android:drawableRight="@drawable/ic_arrow_down"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:inputType="numberSigned"
+                            android:paddingTop="0dp"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="0dp"
+                            android:text="@={presenter.creditCardDateMonth}"
+                            android:textColor="@color/color161616"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toStartOf="@+id/card_month"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toEndOf="@+id/card_year" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/credit_card_security_code_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:errorEnabled="false"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/security_code_text"
+                    app:layout_constraintTop_toBottomOf="@+id/credit_card_date_layout">
+
+                    <EditText
+                        android:id="@+id/security_code_input"
+                        android:layout_width="88dp"
+                        android:layout_height="38dp"
+                        android:background="@{presenter.hasSecureError? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                        android:digits="1234567890"
+                        android:gravity="center"
+                        android:inputType="phone"
+                        android:maxLength="4"
+                        android:padding="0dp"
+                        android:text="@={presenter.creditCardSecurityCode}"
+                        android:textColor="@color/color161616"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/security_code_text"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/security_code"
+                    android:textColor="@color/color161616"
+                    android:textSize="14sp"
+                    android:visibility="@{presenter.selectedNewCreditCard? View.VISIBLE: View.GONE}"
+                    app:layout_constraintEnd_toStartOf="@+id/credit_card_security_code_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/credit_card_security_code_layout" />
+
+                <TextView
+                    android:id="@+id/outsourcing_bussiness_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginEnd="8dp"
+                    android:breakStrategy="simple"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/outsourcing_bussiness_confirm"
+                    android:textColor="@color/color161616"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/credit_card_security_code_layout" />
+
+                <ImageView
+                    android:id="@+id/logo_veritrans"
+                    android:layout_width="111dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_veritrans"
+                    app:layout_constraintBottom_toTopOf="@+id/info_veri_trans"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/outsourcing_bussiness_confirm" />
+
+                <TextView
+                    android:id="@+id/info_veri_trans"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="40dp"
+                    android:breakStrategy="simple"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="8dp"
+                    android:text="@string/info_veri_trans"
+                    android:textColor="@color/color161616"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/logo_veritrans" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{presenter.isLoading? View.VISIBLE: View.GONE}" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="org.atmarkcafe.otocon.function.mypage.profile.ViewUserInfoFragment"/>
+        <variable
+            name="model"
+            type="org.atmarkcafe.otocon.model.UserInfo"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/title_view_info_basic_user" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/bottom"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/contrain_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_name"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.fullName}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView5"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/phonetic"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                <TextView
+                    android:id="@+id/tvPhonetic"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.fullNameKana}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhonetic" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_gender"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.textGender}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView7"
+                    app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/birthday"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                <TextView
+                    android:id="@+id/tvBirthday"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.birthdayText}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/prefectures"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                <TextView
+                    android:id="@+id/tvPrefectures"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.namePrefexture(context)}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView9"
+                    app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPrefectures" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/cell_phone_number"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.tel}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView10"
+                    app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="15dp"
+                    android:gravity="center"
+                    android:text="@string/Ponta_ID"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+                <TextView
+                    android:id="@+id/tvPontaID"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|end"
+                    android:text="@{model.ponta_id}"
+                    android:textColor="@color/colorFontTextBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView13"
+                    app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#ABABAB"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPontaID" />
+
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:onClick="@{() -> fragment.onSubmit()}"
+                style="@style/Button.GreenBold"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="37dp"
+                android:layout_marginBottom="35dp"
+                android:text="@string/edit_introduce"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

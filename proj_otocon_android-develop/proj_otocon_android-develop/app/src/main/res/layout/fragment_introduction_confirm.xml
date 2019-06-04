@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="org.atmarkcafe.otocon.function.mypage.item.ProfileNameModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/title_introduction_view" />
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/contrain_layout"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/hobby"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:key="@{@string/hobby_introduce}"
+                    bind:value="@{model.common_hobby}" />
+
+                <include
+                    android:id="@+id/nick_name_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/hobby"
+                    bind:key="@{@string/nick_name_introduce}"
+                    bind:value="@{model.nickname}" />
+
+                <include
+                    android:id="@+id/house_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/nick_name_introduce"
+                    bind:key="@{@string/house_introduce}"
+                    bind:value="@={model.basic_housing}" />
+
+                <include
+                    android:id="@+id/address_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/house_introduce"
+                    bind:key="@{@string/address_introduce}"
+                    bind:value="@{model.address}" />
+
+                <include
+                    android:id="@+id/residential_form_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/address_introduce"
+                    bind:key="@{@string/residence_introduce}"
+                    bind:value="@{model.basic_residence}" />
+
+                <include
+                    android:id="@+id/residence_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/address_introduce"
+                    bind:key="@{@string/residence_introduce}"
+                    bind:value="@{model.basic_residence}" />
+
+                <include
+                    android:id="@+id/height_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/residence_introduce"
+                    bind:key="@{@string/height_introduce}"
+                    bind:value="@{model.basic_height}" />
+
+                <include
+                    android:id="@+id/blood_type_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/height_introduce"
+                    bind:key="@{@string/blood_type_introduce}"
+                    bind:value="@{model.basic_blood_type}" />
+
+                <include
+                    android:id="@+id/family_composition_inroduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/blood_type_introduce"
+                    bind:key="@{@string/family_composition_inroduce}"
+                    bind:value="@{model.family_composition_inroduce}" />
+
+                <include
+                    android:id="@+id/marital_status_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/family_composition_inroduce"
+                    bind:key="@{@string/wedding_introduce}"
+                    bind:value="@{model.basic_marital_status}" />
+
+                <include
+                    android:id="@+id/presence_children_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/marital_status_introduce"
+                    bind:key="@{@string/children_introduce}"
+                    bind:value="@{model.presence_children_introduce}" />
+                <include
+                    android:id="@+id/career_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/presence_children_introduce"
+                    bind:key="@{@string/career_introduce}"
+                    bind:value="@{model.car_ownership_introduce}" />
+
+                <include
+                    android:id="@+id/service_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/career_introduce"
+                    bind:key="@{@string/service_introduce}"
+                    bind:value="@{model.job_location}" />
+
+                <include
+                    android:id="@+id/annual_income_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/service_introduce"
+                    bind:key="@{@string/annual_income_introduce}"
+                    bind:value="@{model.job_salary}" />
+
+                <include
+                    android:id="@+id/final_education_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/annual_income_introduce"
+                    bind:key="@{@string/final_education_introduce}"
+                    bind:value="@{model.final_education_introduce}" />
+
+                <include
+                    android:id="@+id/state_academ_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/final_education_introduce"
+                    bind:key="@{@string/state_academ_introduce}"
+                    bind:value="@{model.last_educational_qualification}" />
+
+                <include
+                    android:id="@+id/sake_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/state_academ_introduce"
+                    bind:key="@{@string/sake_introduce}"
+                    bind:value="@{model.lifestyle_sake}" />
+                <include
+                    android:id="@+id/smoking_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/sake_introduce"
+                    bind:key="@{@string/tobacco_introduce}"
+                    bind:value="@{model.smoking_introduce}" />
+                <include
+                    android:id="@+id/car_ownership_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/smoking_introduce"
+                    bind:key="@{@string/car_introduce}"
+                    bind:value="@{model.lifestyle_have_car}" />
+
+                <TextView
+                    android:id="@+id/ranking_introduce"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/ranking_introduce"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_ownership_introduce" />
+
+                <TextView
+                    android:id="@+id/ranking_introduce_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="1位"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintRight_toLeftOf="@id/ranking_data_introduce_1"
+                    app:layout_constraintStart_toStartOf="@id/ranking_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce" />
+
+                <TextView
+                    android:id="@+id/ranking_introduce_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="2位"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/ranking_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce_1" />
+
+                <TextView
+                    android:id="@+id/ranking_introduce_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="3位"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/ranking_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce_2" />
+
+                <TextView
+                    android:maxLines="2"
+                    android:id="@+id/ranking_data_introduce_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="end"
+                    android:ellipsize="end"
+                    android:text="@{model.ranking_data_introduce_1}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintLeft_toRightOf="@id/ranking_introduce_1"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ranking_introduce_1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce_1" />
+
+                <TextView
+                    android:id="@+id/ranking_data_introduce_2"
+                    android:layout_width="0dp"
+                    android:maxLines="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="end"
+                    android:ellipsize="end"
+                    android:text="@{model.ranking_data_introduce_2}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintLeft_toRightOf="@id/ranking_introduce_2"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ranking_introduce_2"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce_2" />
+
+                <TextView
+                    android:maxLines="2"
+                    android:id="@+id/ranking_data_introduce_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="end"
+                    android:ellipsize="end"
+                    android:text="@{model.ranking_data_introduce_3}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintLeft_toRightOf="@id/ranking_introduce_3"
+                    app:layout_constraintBaseline_toBaselineOf="@id/ranking_introduce_3"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce_3" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@id/ranking_introduce_3" />
+
+                <include
+                    android:id="@+id/holiday_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/view"
+                    bind:key="@{@string/holiday_introduce}"
+                    bind:value="@{model.lifestyle_holiday}" />
+
+                <include
+                    android:id="@+id/time_marriage_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/holiday_introduce"
+                    bind:key="@{@string/parent_introduce}"
+                    bind:value="@{model.time_marriage}" />
+
+                <include
+                    android:id="@+id/poit_emphasize_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/time_marriage_introduce"
+                    bind:key="@{@string/poit_emphasize_introduce}"
+                    bind:value="@{model.marriage_partner_selection}" />
+
+                <include
+                    android:id="@+id/spend_holiday_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/poit_emphasize_introduce"
+                    bind:key="@{@string/spend_holiday_introduce}"
+                    bind:value="@{model.marriage_holiday}" />
+
+                <include
+                    android:id="@+id/idea_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/spend_holiday_introduce"
+                    bind:key="@{@string/marriage_ideal_wife}"
+                    bind:value="@{model.marriage_ideal_wife}" />
+
+                <include
+                    android:id="@+id/work_after_marriage_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/idea_introduce"
+                    bind:key="@{@string/working_introduce}"
+                    bind:value="@{model.after_marriage_job}" />
+
+                <include
+                    android:id="@+id/after_marriage_committed"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/work_after_marriage_introduce"
+                    bind:key="@{@string/idea_introduce}"
+                    bind:value="@{model.after_marriage_committed}" />
+                <include
+                    android:id="@+id/type_preference_introduce"
+                    layout="@layout/item_info_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/after_marriage_committed"
+                    bind:key="@{@string/type_preference_introduce}"
+                    bind:value="@{model.type_of_preference}" />
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contrain_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btnEdit"
+                style="@style/text_bold"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="38dp"
+                android:background="@drawable/xlm_background_button_login"
+                android:text="@string/edit_introduce"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+        <include
+            android:id="@+id/loading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

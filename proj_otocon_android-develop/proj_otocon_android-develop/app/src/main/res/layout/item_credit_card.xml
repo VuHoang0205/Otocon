@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="org.atmarkcafe.otocon.model.CreditCard" />
+
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.function.party.register.card.items.CreditCardItem" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:button="@drawable/ic_advanced_gender_radio"
+            android:checked="@{item.selected}"
+            android:clickable="false"
+            android:enabled="false"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="@+id/background_credit_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background_credit_card" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/background_credit_card"
+            android:layout_width="0dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="15dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_credit_card" />
+
+        </android.support.v7.widget.CardView>
+
+        <ImageView
+            android:id="@+id/credit_card_type"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
+            android:src="@{item.creditCard.getCardType() == CreditCard.TYPE_MASTER ?@drawable/ic_master:@drawable/ic_visa}"
+            app:layout_constraintStart_toStartOf="@+id/background_credit_card"
+            app:layout_constraintTop_toTopOf="@+id/background_credit_card" />
+
+        <TextView
+            android:id="@+id/credit_card_number_prefix"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="64dp"
+            android:includeFontPadding="false"
+            android:text=""
+            android:textColor="@color/colorWhite"
+            android:textSize="19sp"
+            app:layout_constraintEnd_toStartOf="@+id/credit_card_number"
+            app:layout_constraintStart_toStartOf="@+id/background_credit_card"
+            app:layout_constraintTop_toTopOf="@+id/background_credit_card" />
+
+        <TextView
+            android:id="@+id/credit_card_number"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="59dp"
+            android:includeFontPadding="false"
+            android:text="@{item.creditCard.getNumberShow()}"
+            android:textColor="@color/colorWhite"
+            android:textSize="19sp"
+            app:layout_constraintStart_toEndOf="@+id/credit_card_number_prefix"
+            app:layout_constraintTop_toTopOf="@+id/background_credit_card" />
+
+        <ImageView
+            android:id="@+id/credit_card_default"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="17dp"
+            android:src="@{item.creditCard.isDefault()? @drawable/ic_credit_card_checked: @drawable/ic_credit_card_uncheck}"
+            app:layout_constraintBottom_toBottomOf="@+id/background_credit_card"
+            app:layout_constraintEnd_toEndOf="@+id/background_credit_card"
+            app:layout_constraintTop_toTopOf="@+id/background_credit_card" />
+
+        <TextView
+            android:id="@+id/enter_security_code_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:includeFontPadding="false"
+            android:text="@string/enter_security_code_again"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/background_credit_card"
+            app:layout_constraintTop_toBottomOf="@+id/background_credit_card" />
+
+        <TextView
+            android:id="@+id/security_code_text"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:gravity="center_vertical"
+            android:text="@string/security_code"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/security_code_input_layout"
+            app:layout_constraintStart_toStartOf="@+id/background_credit_card"
+            app:layout_constraintTop_toTopOf="@+id/security_code_input_layout" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/security_code_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            app:errorEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@+id/background_credit_card"
+            app:layout_constraintStart_toEndOf="@+id/security_code_text"
+            app:layout_constraintTop_toBottomOf="@+id/enter_security_code_again">
+
+            <EditText
+                android:id="@+id/security_code_input"
+                android:layout_width="100dp"
+                android:layout_height="38dp"
+                android:background="@{!item.errorMessage.isEmpty()? @drawable/xml_background_input_register_error : @drawable/xml_background_input_register}"
+                android:digits="1234567890"
+                android:gravity="center"
+                android:inputType="phone"
+                android:maxLength="4"
+                android:padding="0dp"
+                android:text="@={item.securityCode}"
+                android:textColor="@color/color161616"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/security_code_text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            style="@style/ErrorText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="10dp"
+            android:breakStrategy="simple"
+            android:lineSpacingExtra="8dp"
+            android:text="@{item.errorMessage}"
+            android:visibility="@{item.selected ? (item.errorMessage.isEmpty()? View.GONE : View.VISIBLE): View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/background_credit_card"
+            app:layout_constraintTop_toBottomOf="@+id/security_code_input_layout" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

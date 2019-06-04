@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="UserBinding">
+
+        <variable
+            name="user"
+            type="org.atmarkcafe.otocon.function.rematch.item.UserItem" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="79dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <ImageView
+                android:layout_width="158dp"
+                android:layout_height="158dp"
+                android:scaleType="centerCrop"
+                app:loadImageUrl="@{user.response.picture}" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/text_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="@={user.response.nickname}"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardView" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@={user.response.online_status}"
+            android:textColor="#F7648F"
+            android:textSize="9sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/color_ADADAD"
+            app:layout_constraintTop_toBottomOf="@id/status" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="@{user.response.getAgePrefecture(context)}"
+            android:textColor="@color/colorBlack"
+            android:textSize="9sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view" />
+
+        <TextView
+            android:id="@+id/time_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/xml_background_list_user"
+            android:backgroundTint="@{user.response.getColor(user.response.rematch_color)}"
+            android:gravity="center"
+            android:paddingLeft="7dp"
+            android:paddingTop="3dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="3dp"
+            android:text="@={user.response.rematch_status}"
+            android:textColor="@color/colorWhite"
+            android:textSize="9sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info" />
+
+        <TextView
+            android:id="@+id/status_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/xml_background_list_user"
+            android:backgroundTint="@{user.response.getColor(user.response.install_app_color)}"
+            android:gravity="center"
+            android:paddingLeft="7dp"
+            android:paddingTop="3dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="3dp"
+            android:text="@={user.response.install_app_status_title}"
+            android:textColor="@color/colorWhite"
+            android:textSize="9sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_online" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

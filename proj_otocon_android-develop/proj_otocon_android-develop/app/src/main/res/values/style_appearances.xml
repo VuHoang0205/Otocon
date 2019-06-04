@@ -1,0 +1,190 @@
+<resources>
+
+    <style name="text_normal">
+        <item name="android:fontFamily">@font/hiragino_kaku_gothic_pro_w3</item>
+    </style>
+
+    <style name="text_bold">
+        <item name="android:fontFamily">@font/hiragino_kaku_gothic_pro_w6</item>
+    </style>
+
+    <style name="tabCustomStyle" parent="Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabIndicatorColor">#FFFEEFC4</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabSelectedTextColor">#FFFEEFC4</item>
+    </style>
+
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">13dp</item>
+        <item name="tabTextColor">@android:color/white</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="NoShadowButton" parent="android:style/Widget.Button">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="ContactUSViewCornersRounded">
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/xml_contact_us_view_corners_rounded</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/color_black_absolute</item>
+        <item name="android:layout_height">38dp</item>
+    </style>
+
+    <style name="ContactUSTitle">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlackTextMenu</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="scrollbar_shape_style">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">false</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">true</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_vertical_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scrollbar_vertical_track</item>
+        <item name="android:scrollbarSize">6dp</item>
+    </style>
+
+    <style name="SearchDialogTitle">
+        <item name="android:textColor">@color/colorFontTextBlack</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SearchDialogCheckBox">
+        <item name="android:textColor">@color/colorFontTextBlack</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CornersRounded">
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/xml_contact_us_view_corners_rounded</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/color_black_absolute</item>
+        <item name="android:layout_height">38dp</item>
+    </style>
+
+    <style name="advanced_gender_radio">
+        <item name="android:background">@drawable/xml_type_title</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@color/color161616</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableLeft">@drawable/ic_advanced_gender_radio</item>
+        <item name="android:paddingLeft">8dp</item>
+    </style>
+
+    <style name="text_noti_bold" parent="text_bold">
+        <item name="android:textSize">12.5sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle"></item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:layout_marginLeft">14dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="text_noti_normal" parent="text_normal">
+        <item name="android:textSize">12.5sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle"></item>
+        <item name="android:layout_marginLeft">14dp</item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="text_normal_reigster" parent="text_normal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingLeft">13dp</item>
+        <item name="android:paddingRight">13dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        
+    </style>
+
+    <style name="text_bold_reigster" parent="text_bold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="text_note_reigster" parent="text_normal">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">14dp</item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+    </style>
+
+    <style name="Text_step" parent="text_bold">
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="android:textSize">7dp</item>
+    </style>
+
+    <style name="style_radio_register_party" parent="advanced_gender_radio">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="style_input_party">
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="text_normal_register_party" parent="text_normal_reigster">
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+    <style name="text_normal_introduce" parent="text_normal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+       <item name="android:layout_marginRight">15dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="text_bold_introduce" parent="text_bold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+</resources>

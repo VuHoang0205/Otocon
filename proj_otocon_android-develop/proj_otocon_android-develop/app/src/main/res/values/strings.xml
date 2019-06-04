@@ -1,0 +1,1092 @@
+<resources>
+    <string name="app_name">OTOCON</string>
+
+    <string name="email">メールアドレス</string>
+    <string name="passworld">Passworld</string>
+    <string name="username">Username</string>
+    <string name="male">男性</string>
+    <string name="female">女性</string>
+    <string name="privacy">privacy</string>
+
+    <string name="gender">Gender</string>
+    <string name="empty">メールアドレスを入力してください。<br>パスワードを入力してください。</br>></string>
+    <string name="email_empty">メールアドレスを入力してください。</string>
+    <string name="content_empty">Content not blank</string>
+    <string name="passworld_emty">パスワードを入力してください。</string>
+    <string name="name_emty">Name can not be blank</string>
+    <string name="email_emty">Email can not be blank</string>
+    <string name="email_isValid">メールアドレスには正しい形式で入力してください。</string>
+    <string name="gender_emty">  性別を選択してください。</string>
+    <string name="phone_is_Vaild">携帯番号9~11文字で入力してください。</string>
+    <string name="address_is_Vaild">Adrress can not be blank</string>
+    <string name="title_toolbar_home">Home</string>
+    <string name="title_toolbar_splash">Splash</string>
+    <string name="title_toolbar_login">Login</string>
+    <string name="title_toolbar_register">Register</string>
+    <string name="title_toolbar_forgot_passworld">Forgot passworld</string>
+    <string name="title_search">Search</string>
+
+    <string name="send">Send</string>
+    <string name="repeat_passworld">Repeat passworld</string>
+    <string name="token">Token</string>
+    <string name="login_facebook_error">Login Facebook error</string>
+    <string name="login_normal_error">Login fail</string>
+    <string name="register_normal_error">Register fail</string>
+    <string name="register_facebook_error">Register Facebook fail</string>
+    <string name="login_facebook">Login With Facebook</string>
+
+    <string name="ok">OK</string>
+    <string name="coupon_title_fomat">%s%d円OFF</string>
+
+    <string name="tab1">ホーム</string>
+    <string name="tab2">特別企画</string>
+    <string name="tab3">近くのパーティー</string>
+    <string name="tab4">Re Match</string>
+    <string name="tab5">メニュー</string>
+
+    <string name="title_after_party">After party</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_home">Home</string>
+    <string name="title_more">More</string>
+    <string name="party_detail">Party Detail</string>
+    <string name="default_notification_channel_id">100</string>
+
+    <string name="message_press_back_to_exit">終了する場合は、もう一度バックボタンを押してください</string>
+
+    <!-- menu screen -->
+    <string name="venue_information">会場紹介</string>
+    <string name="benefits_and_deals">特典・お得情報</string>
+    <string name="faq">FAQ</string>
+    <string name="contact_us">お問い合わせ</string>
+    <string name="news">お知らせ</string>
+    <string name="new_arrivals">新着パーティー</string>
+
+    <!-- fogot password-->
+    <string name="text_notification_fogot">パスワードをお忘れの方は、下記にご登録のメールアドレスを記入してください。\nメールアドレス宛てに、パスワード再送メールをお送りいたします。</string>
+    <string name="input_email">メールアドレスを入力してください。</string>
+    <string name="confirm_forgot">トップ画面へ</string>
+    <string name="forgot_password">送信</string>
+    <string name="forgot_password_completed">ログイン画面へ</string>
+
+    <!--reset password-->
+    <string name="text_notification_reset_pass">ご入力いただいたメールアドレス宛てに、パスワード再送メールをお送りしました。\nメールの内容をチェックし、パスワードをご確認ください。</string>
+    <string name="title_reset_password">会員ログインパスワード再送完了</string>
+
+    <!-- faq screen -->
+    <string name="title_faq">FAQ</string>
+    <string name="faq_menu1">お申込み前に多い質問</string>
+    <string name="faq_menu2">パーティー当日までに多い質問</string>
+    <string name="faq_menu3">その他の質問</string>
+
+    <!--Contact Us Screen-->
+
+    <string name="contact_us_left_field_title_at_row_1">姓（本名）</string>
+    <string name="contact_us_right_field_title_at_row_1">名（本名）</string>
+    <string name="contact_us_left_field_title_at_row_2">セイ</string>
+    <string name="contact_us_right_field_title_at_row_2">メイ</string>
+    <string name="contact_us_left_field_title_at_row_3">性別</string>
+    <string name="contact_us_right_field_title_at_row_3">生年月日</string>
+    <string name="contact_us_field_title_at_row_4">TEL</string>
+    <string name="contact_us_field_title_at_row_5">都道府県</string>
+    <string name="contact_us_field_title_at_row_6">メールアドレス</string>
+    <string name="contact_us_field_title_at_row_7">問合せ内容</string>
+    <string name="contact_us_field_title_at_row_8"><u>利用規約はこちら</u></string>
+    <string name="contact_us_field_title_at_row_9">同意する</string>
+    <string name="contact_us_field_title_at_row_10">確認する</string>
+    <string name="contact_us_dash">-</string>
+    <string name="contact_us_prefecture_emty">Address can not be blank!</string>
+    <string name="contact_us_check_box_no_check">You must agree terms to continue!</string>
+
+    <string name="contact_us_term_title">利用規約はこちら</string>
+    <string name="contact_us_title">お問い合わせ</string>
+    <string name="contact_us_noti">いつもOTOCONをご利用いただきありがとうございます。\nOTOCONではお客様が安心してご利用いただけるよう、しっかりサポート致します。\n「よくあるご質問」にないお問い合わせにつきましても、どうぞお気軽にお問い合わせください。</string>
+    <string name="contact_sei">姓(本名)</string>
+    <string name="contact_mei">名(本名)</string>
+    <string name="contact_kana_sei">セイ</string>
+    <string name="contact_kana_mei">メイ</string>
+    <string name="contact_gender">性別</string>
+    <string name="contact_year">年</string>
+    <string name="contact_month">月</string>
+    <string name="contact_day">日</string>
+    <string name="contact_tel">携帯電話番号</string>
+    <string name="contact_address">都道府県</string>
+    <string name="contact_email">メールアドレス</string>
+    <string name="contact_content">お問い合わせ内容</string>
+    <string name="contact_us_term"><u>利用規約はこちら</u></string>
+    <string name="contact_check">上記おとコン利用規約に同意します。</string>
+    <string name="contact_button_text">同意の上、送信する</string>
+    <string name="contact_step_1"><u>STEP 1</u>\n 入力</string>
+    <string name="contact_step_2"><u>STEP 2</u>\n 確認</string>
+    <string name="contact_step_3"><u>STEP 3</u>\n 完了</string>
+
+    <!--Contact Us Confirm-->
+    <string name="contact_us_confirm_content">お問合せありがとうございます。\n
+        まもなくご確認のメールが届きます。\n
+        万一、届かない場合はparty@p-a.jpを受信\n
+        可能な設定にして頂けますようお願い申し上げます。</string>
+    <string name="contact_us_confirm_button_text">トップへ戻る</string>
+
+    <!--Contact Confirm-->
+    <string name="contact_us_confirm_title">お問い合わせ</string>
+    <string name="contact_us_name">お名前</string>
+    <string name="contact_us_kana_name">フリガナ</string>
+    <string name="contact_us_gender">性別</string>
+    <string name="contact_us_birthday">生年月日</string>
+    <string name="contact_us_address">都道府県</string>
+    <string name="contact_us_tel">携帯電話番号</string>
+    <string name="contact_us_email">メールアドレス</string>
+    <string name="contact_us_content">お問い合わせ内容</string>
+    <string name="contact_us_text_button">同意の上、送信する</string>
+
+    <!--Contact dialog confirm-->
+    <string name="contact_title_dialog">お問い合わせ完了</string>
+    <string name="contact_content_dialog">お問合せありがとうございます。\nまもなくご確認のメールが届きます。\n万が一、届かない場合はparty@p-a.jpを受信\n可能な設定にして頂きますようお願い申し上げます。</string>
+    <string name="contact_button_dialog">トップ画面へ</string>
+
+    <!-- register screen-->
+    <string name="register_title">無料会員登録</string>
+    <string name="register_text_button">次へ</string>
+    <string name="register">無料会員登録はこちら</string>
+    <string name="register_notification">携帯電話のメールアドレスは、お知らせ等が届かないケースが頻発しております。登録はPCメールアドレスを推奨いたします</string>
+    <string name="register_email">メールアドレス</string>
+    <string name="register_password">パスワード(半角・英数字8桁以上)</string>
+    <string name="register_password_confirm">パスワード(確認)</string>
+    <string name="password_not_match"> パスワードが一致しません。</string>
+    <string name="register_pass_confirm_empty"> パスワードを入力してください。</string>
+    <string name="notification_pass">※英字、数字、記号など組み合わせると、セキュリティが強化されます。</string>
+    <string name="register_last_name">姓(本名)</string>
+    <string name="register_first_name">名(本名)</string>
+    <string name="register_say">セイ(フリガナ)</string>
+    <string name="register_mei">メイ(フリガナ)</string>
+    <string name="register_gender">性別</string>
+    <string name="register_birthday_year">年</string>
+    <string name="register_birthday_month">月</string>
+    <string name="register_birthday_day">日</string>
+    <string name="register_tel">携帯電話番号</string>
+    <string name="notification_tel">※必ず携帯電話の番号を入力してください。</string>
+    <string name="notification_birthday">※当日受付にて身分証明書で年齢確認を行います。</string>
+    <string name="notification_end">※予約数は正しく設定してください。\n※友人が【異性】の場合は必ずお電話にてお申込みください。</string>
+    <string name="register_address">都道府県</string>
+    <string name="register_about_infomation"><u>弊社における個人情報と取扱について</u></string>
+    <string name="register_text_confirm">上記、個人情報の取り扱いに関して同意する</string>
+    <string name="kana_mei_empty">メイ（フリガナ）を入力してください。</string>
+    <string name="year_empty">年を選択してください。</string>
+    <string name="date_empty">生年月日を入力してください。</string>
+    <string name="month_empty">月を選択してください。</string>
+    <string name="day_empty">日を選択してください。</string>
+    <string name="kana_sei_empty"> セイ（フリガナ）を入力してください。</string>
+    <string name="sei_empty">性（本名）を入力してください。</string>
+    <string name="mei_empty">名（本名）を入力してください。</string>
+    <string name="tel_empty"> 携帯電話番号を入力してください。</string>
+    <string name="address_emty">都道府県を選択してください。</string>
+    <string name="check_confirm">Please agree to the terms</string>
+    <string name="birth_day_emty">Birth day can not be blank</string>
+    <string name="tel_incorrect">Tel is incorrect</string>
+    <string name="notification_email">携帯電話のメールアドレスは、お知らせ等が届かないケースが頻発しております。登録はPCメールアドレスを推奨いたします</string>
+    <string name="notification_2">party@p-a.jpを受信可能にしてください。\n携帯電話のアドレスはメールが届かない場合が多く見受けられますので、PCアドレスを推奨いたします。</string>
+    <string name="title_recommend">お勧めする</string>
+    <string name="title_book_party">Book Party</string>
+    <string name="noti_1">無料会員登録はこちら</string>
+    <string name="noti_2">新規登録する方はこちらから登録をお願いします。\n会員登録をすると…</string>
+    <string name="noti_3">＊ 毎回の情報入力を省略することができて申込みが簡単に！</string>
+    <string name="noti_4">ログイン状態でお申込みに進んで頂くと、会員登録時に登録したプロフィール情報が自動反映するため、【3秒程度】でパーティー申込みをすることができます！</string>
+    <string name="noti_5">＊ 無料会員様だけの特別な機能が無料で使いたい放題！</string>
+    <string name="noti_6">・検討中リスト機能</string>
+    <string name="noti_7">「一度、検討中リストにパーティーを登録すると、後日同じパーティーをすぐに確認できるようになります」</string>
+    <string name="noti_plus1">・お客様だけにオススメパーティーの告知（サイト内）</string>
+    <string name="noti_plus2">「お客様のお住まいや年齢など、様々な条件に合わせて、直近開催のパーティーから優先的にサイト内でご案内いたします」</string>
+    <string name="noti_plus3">※確認のため、もう一度入力してください。</string>
+    <string name="noti_plus4">「お客様のお住まいや年齢など、様々な条件に合わせて、直近開催のパーティーから優先的にサイト内でご案内いたします」</string>
+    <string name="noti_8">・申込み履歴情報</string>
+    <string name="noti_9">「現在、どのパーティーに申し込んでいるか、過去どのようなパーティーに参加したかなど、簡単に確認できます」</string>
+    <string name="noti_10">＊ 特別企画などの最新パーティー情報が届きます！</string>
+    <string name="noti_11">会員登録して頂くと当社の最新のおすすめパーティー情報をメルマガにてお届けしますので情報を逃すことがありません。</string>
+    <string name="noti_12">＊ 会員登録をしなくともパーティー申込みは可能です！</string>
+    <string name="noti_13">まずは一度パーティーに参加してみたいというお客様は会員登録をしなくてもパーティー申込みは可能です。</string>
+    <string name="noti_14">入力項目</string>
+    <string name="term_is_valid">You must agree terms to continue!</string>
+    <string name="rules_title_dialog">弊社における個人情報と取扱について</string>
+    <string name="register_expired">登録用URLは期限が切れています。</string>
+    <string name="mess_error_register">入力された内容にエラーがあります。\nご確認の上、再度入力してください。</string>g
+
+    <!--regiter confirm dialog-->
+    <string name="register_confirm">会員登録受付完了</string>
+    <string name="register_confirm_dialog">トップ画面へ</string>
+    <string name="register_confirm_notification"> 会員登録を受け付けました。\n
+本登録用のURLを記載したメールをお送りし\nますので、そちらより本登録をお願いします。</string>
+
+    <!--regiter confirm -->
+    <string name="register_confirm_title">無料会員登録の確認</string>
+    <string name="email_register_confirm">メールアドレス</string>
+    <string name="password_register_confirm">パスワード</string>
+    <string name="name_register_confirm">お名前</string>
+    <string name="phonetic_name_register_confirm">フリガナ</string>
+    <string name="gender_register_confirm">性別</string>
+    <string name="birthday_register_confirm">生年月日</string>
+    <string name="tel_register_confirm">携帯電話番号</string>
+    <string name="address_register_confirm">都道府県</string>
+    <string name="register_confirm_fragment">登録する</string>
+
+    <!-- Home -->
+    <string name="schedule_hint">※複数選択ができます</string>
+    <string name="husbandry_party_schedule">婚活パーティースケジュール</string>
+    <string name="result_search" formatted="false">検索結果：%d件</string>
+    <string name="all">すべて</string>
+    <string name="marriage_party_schedule">婚活パーティスケジュール</string>
+    <string name="recommended_area">エリアによるお勧め</string>
+    <string name="recommended_day">今日のお薦め</string>
+    <string name="recommendation_gender">性別によるお勧め</string>
+    <string name="recommended_age">年齢によるお勧め</string>
+    <string name="match_making">お見合い</string>
+    <string name="half_room">半個室</string>
+    <string name="small_scale">小規模</string>
+    <string name="massive">大規模</string>
+    <string name="medium_scale">中規模</string>
+    <string name="seminar">セミナー</string>
+    <string name="special_event">特別企画</string>
+    <string name="talk_with_everyone">全員と話せる</string>
+    <string name="special">特別</string>
+
+    <!--rules-->
+    <string name="title_rules"> 弊社における個人情報と取扱について</string>
+    <string name="title_chooser_gender">Chooser Gender</string>
+    <string name="title_chooser_address">Chooser Address</string>
+    <string name="title_term_1">1. 個人情報取り扱い事業者の氏名または名称</string>
+    <string name="content_term_1">株式会社パートナーエージェント</string>
+    <string name="title_term_2">2. 個人情報を取得する際の利用目的および取扱について</string>
+    <string name="content_term_2">(1) 資料請求、各種お問い合わせ、イベント等へのお申し込みをいただいた際の個人情報についてはパートナーエージェントからの資料送付、お知らせ、連絡にのみ利用します。また、ご入会にあたり、パートナーエージェントが入会審査をするために、機微な個人情報の開示にご同意いただきます(ご入会時に取得する情報以外の機微情報を、同一契約期間中に追加で取得することはありません。但し、サービス内容の変更等により、契約更新時に、追加で機微情報の取得、既に取得している機微情報に関する現況確認をさせていただく場合があります)。
+個人情報を提供いただくことは任意ですが、個人情報を提供されない場合には資料請求やお問い合わせ、各種お申し込み、入会審査に対応できない場合があります。&lt;br&gt;(2) 結婚情報サービスの利用者(会員)に関する個人情報は、お相手とのマッチング、紹介、パートナーエージェントからのお知らせ、連絡にのみ利用します。また個人情報の取扱いについては以下の通りです。&lt;br&gt;
+ご紹介に関る情報の双方への開示については、お客様のプライバシーを十分考慮した上でパートナーエージェントが開示項目と開示基準を設定いたします。&lt;br&gt;
+ご紹介、もしくはお引き合わせの段階で、お客様に了承を得た範囲の個人情報をお相手に通知します。&lt;br&gt;ご紹介にあたっては、これまでにご紹介したお相手と重複することがないよう、システム上で過去のご紹介およびご交際の履歴との照合を行います。&lt;br&gt;
+パートナーエージェントは、お客様個人が特定されることがないと判断する情報については、サンプリング、または統計資料としてこれを利用する場合があります。&lt;br&gt;その他、お客様に了承を得た範囲で、グループ会社からのご案内をいたします。&lt;br&gt;
+個人情報を提供いただくことは任意ですが、個人情報を提供されない場合にはご紹介のサービス等をご利用いただけません。&lt;br&gt; (3) 退会後の個人情報の取り扱いについては以下の通りです。&lt;br&gt;弊社は、お客様が退会された場合ご提出いただいている書類については返却いたしませんが、関係する法令規範の定めに従い、保管期間を経過した後に滅却します。&lt;br&gt;(4) 社員募集に際しての個人情報は、選考およびパートナーエージェントからのお知らせ、連絡にのみ利用します。個人情報を提供いただくことは任意ですが、個人情報を提供されない場合には選考の対象とすることができません。&lt;br&gt;</string>
+    <string name="title_term_3">3. 開示対象個人情報 ※1の利用目的</string>
+    <string name="content_term_3">前記「個人情報を取得する際の利用目的」に同じです。</string>
+    <string name="title_term_4">4. 個人情報の共同利用</string>
+    <string name="content_term_4">当社は、お客様の個人情報を、グループ会社間で共同利用いたします。&lt;br&gt; 共同利用者の範囲:&lt;br&gt; 株式会社パートナーエージェント、株式会社アニバーサリーウエディング、株式会社シンクパートナーズ&lt;br&gt; 利用項目&lt;br&gt;
+お客様の氏名、住所、電話番号等連絡先、グループ会社の利用の意向に関する事項 &lt;br&gt; 利用目的&lt;br&gt; (1) お客様からのお問合せやご相談等に対応するため&lt;br&gt; (2) お申込いただいたサービス等を提供するため&lt;br&gt;(3) 上記サービスに付帯する各種業務の履行のため&lt;br&gt; (4) 従業員募集に際して応募者へのご連絡等、採用業務での利用のため</string>
+    <string name="title_term_5">5. 個人情報の第三者提供について</string>
+    <string name="content_term_5">本人の同意がある場合又は法令に基づく場合を除き、取得した個人情報を第三者に提供することはありません&lt;br&gt; 前記「個人情報を取得する際の利用目的」に同じです。&lt;br&gt; </string>
+    <string name="title_term_6">6. 委託について</string>
+    <string name="content_term_6">上記の利用目的の達成の範囲内で、個人情報の取扱いを委託することがあります。委託先にあたっては、弊社の基準に基づいて個人情報の適切な管理を行っている事業者を選択し、同事業者を監督するとともに、非開示契約を締結することにより必要な個人情報の安全性を確保します。</string>
+    <string name="title_term_7">7. 開示対象個人情報の利用目的の通知及び開示対象個人情報の開示に係る手数料の額並びに開示等の求めの手続き</string>
+    <string name="content_term_7">(1) 開示等の求めの手続き&lt;br&gt; 下記問い合わせ先までお電話、郵便、電子メールでご連絡ください。ご連絡に従い、手続きの詳細な方法を、ご案内いたします。なお、手続きにあたっては、ご本人であることを確認するための書類をご提出いただきます。&lt;br&gt; (2) 手数料の額&lt;br&gt;
+開示対象個人情報の利用目的の通知、開示につきましては、1回の請求ごとに所定の手数料を申し受けます。また、内容により、作業工数が大きい場合は作業量に応じた手数料をいただく場合がございます。その場合は事前に手数料を見積もり、ご連絡いたします。</string>
+    <string name="title_term_8">8. 個人情報の取り扱いに関する苦情及び問い合わせの申し出先</string>
+    <string name="content_term_8">個人情報の取り扱いに関する苦情、及び問い合わせは、下記までお願いします。&lt;br&gt; &lt;\n個人情報苦情及び相談窓口&gt; &lt;br&gt; 株式会社パートナーエージェント 個人情報ご相談窓口&lt;br&gt; 〒141-0032 東京都品川区大崎1-20-3 イマス大崎ビル4F &lt;br&gt;
+        電話番号 03-5759-2702（年末年始を除く11:00～18:00）&lt;br&gt; メールアドレス service@p-a.jp &lt;br&gt; 加盟する認定個人情報保護団体について&lt;br&gt; 弊社は、次の認定個人情報保護団体の対象事業者です。&lt;br&gt;
+    対象事業者の個人情報の取扱いに関する苦情・相談は下記でも受け付けております。&lt;br&gt; 一般財団法人日本情報経済社会推進協会&lt;br&gt; 個人情報保護苦情相談室&lt;br&gt; 〒106-0032 東京都港区六本木1-9-9 六本木ファーストビル12F &lt;br&gt; 電話番号 03-5860-7565/0120-700-779&lt;br&gt;
+    ※1「開示対象個人情報」とは、電子計算機を用いて検索することができるように体系的に構成した情報の集合物又は一定の規則に従って整理、分類し、目次、索引、符合などを付すことによって特定の個人情報を容易に検索できるように体系的に構成した情報の集合物を構成する個人情報であって、当社が、本人から求められる開示、内容の訂正、追加又は削除、利用の停止、消去及び第三者への提供の停止の求めのすべてに応じることができる権限を有するものをいいます。詳しくは、「個人情報苦情及びご相談窓口」までご連絡ください。</string>
+
+    <!-- PartyDetail -->
+    <string name="party_detail_note">※募集年齢は、記載年齢の前後２歳の方までが対象となります。</string>
+    <string name="party_detail_price">%s円</string>
+    <string name="party_detail_age_limit">%s歳~ %s歳位</string>
+    <string name="party_detail_entry_status_male">%s 人程度</string>
+    <string name="party_detail_early_bird">%s 早割中</string>
+    <string name="party_detail_special_discount">特割中 %s円</string>
+    <string name="party_detail_special_benifit_early">早割中 %s円</string>
+    <string name="party_detail_place">場所</string>
+    <string name="party_detail_people">人数</string>
+    <string name="number_of_people">人数</string>
+    <string name="party_detail_benifit_friend">友割</string>
+    <string name="party_detail_benifit_birthday">誕生月割</string>
+    <string name="party_detail_benifit_early">早割締切日</string>
+    <string name="party_detail_condition">条件</string>
+    <string name="party_detail_text_discount">特別</string>
+    <string name="party_detail_developer">特別</string>
+    <string name="party_detail_application">お申込み</string>
+    <string name="party_detail_benifit">特典</string>
+    <string name="party_detail_title_note">パーティー内容</string>
+    <string name="party_detail_title_caution">注意事項</string>
+    <string name="party_detail_title_get_cancle_notice">キャンセル料について</string>
+
+    <!-- PartyRegisterFragment -->
+    <string name="party_register_email">メールアドレス</string>
+    <string name="party_register_passworld">パスワード</string>
+    <string name="party_register_enter_login_information">ログイン情報の新規入力</string>
+    <string name="party_register_repeat_passworld">パスワード（確認)</string>
+    <string name="party_register_last_name">姓（本名）</string>
+    <string name="party_register_first_name">名（本名）</string>
+    <string name="party_register_say">セイ</string>
+    <string name="party_register_business">決済業務の外部委託について、こちらをご確認ください。</string>
+    <string name="party_register_mei">メイ</string>
+    <string name="party_register_gender">性別</string>
+    <string name="party_register_birthday">生年月日</string>
+    <string name="party_register_prefectures">都道府県</string>
+    <string name="party_register_tel">TEL</string>
+    <string name="party_register_number_reserved_people">予約人数</string>
+    <string name="party_register_friend_optional">ご友人 任意</string>
+    <string name="party_register_payment_method">決済方法</string>
+    <string name="party_register_terms_of_service"><u>利用規約はこちら</u></string>
+    <string name="party_register_ponta_id">Ponta ID</string>
+    <string name="party_register_basic_information">基本情報</string>
+    <string name="party_register_credit_card">クレジットカード</string>
+    <string name="party_register_cash_payment_day">当日会場現金払い</string>
+    <string name="party_register_infomation">情報確認 </string>
+    <string name="party_register_terms_conditional_a">私は20歳以上の独身者で、上記おとコン利用規約に同意します。</string>
+    <string name="party_register_warning_ponta"><font fgcolor='#EF6262'>Ponta IDは【15桁】の数字です。\n
+        Ponta IDは数字のみ【半角数字】でご入力ください。\n </font>
+        数字以外の値（スペース含む）が入力されている場合は加算対象外です。\n
+        十分にお気を付けください。\n
+        ※Pontaポイントの加算タイミングは <font fgcolor='#EF6262'>【参加月の翌月末加算】</font>です。
+    </string>
+    <string name="emty_ponta_id">Ponta id can not be blank</string>
+    <string name="emty_friend_optional">Friend Optional can not be blank</string>
+    <string name="emty_prefectures">Prefectures can not be blank</string>
+    <string name="emty_number_people">Number People can not be blank</string>
+    <string name="emty_passworld">Passworld can not be blank</string>
+    <string name="emty_repeat_passworld">Repeat passworld can not be blank</string>
+    <string name="emty_repeat_passworld_not_validate">Repeat passworld not validate</string>
+    <string name="emty_payment">Payment not validate</string>
+    <string name="choose_people_number">Choose people number</string>
+    <string name="emty_tel">tel can not empty</string>
+    <string name="passworld_isValid">passworld is incorrect</string>
+    <string name="passworld_isValid_8">８桁以上で指定してください。</string>
+    <string name="passworld_isConfirmation">passworld is not match</string>
+    <string name="tel">TEL</string>
+
+    <!-- ConfirmInformationFragment -->
+    <string name="confirm_information_fragment">お申込み 確認</string>
+    <string name="people">人</string>
+    <string name="name">お名前</string>
+    <string name="name_katana">お名前(フリガナ）</string>
+    <string name="name_fullName">お名前</string>
+    <string name="payment_method">決済方法</string>
+    <string name="confirm_information_male">男性</string>
+    <string name="confirm_information_Female">女性</string>
+    <string name="confirm_information_year">年</string>
+    <string name="confirm_information_month">月</string>
+    <string name="confirm_information_day">日</string>
+
+
+    <!--3 search 1-->
+    <string name="close_icon">close</string>
+    <string name="search_dialog_3_search_1_title">エリアを選択してください。</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_1">銀座</string>
+    <string name="search_dialog_3_search_1_item_2_of_area_1">新宿</string>
+    <string name="search_dialog_3_search_1_item_3_of_area_1">丸の内</string>
+    <string name="search_dialog_3_search_1_item_4_of_area_1">上野</string>
+    <string name="search_dialog_3_search_1_item_5_of_area_1">池袋</string>
+    <string name="search_dialog_3_search_1_item_6_of_area_1">八重洲</string>
+    <string name="search_dialog_3_search_1_item_7_of_area_1">渋谷</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_2">横浜</string>
+    <string name="search_dialog_3_search_1_item_2_of_area_2">大宮</string>
+    <string name="search_dialog_3_search_1_item_3_of_area_2">船橋</string>
+    <string name="search_dialog_3_search_1_item_4_of_area_2">高崎</string>
+    <string name="search_dialog_3_search_1_item_5_of_area_2">水戸</string>
+    <string name="search_dialog_3_search_1_item_6_of_area_2">馬コン</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_3">梅田</string>
+    <string name="search_dialog_3_search_1_item_2_of_area_3">心斎橋</string>
+    <string name="search_dialog_3_search_1_item_3_of_area_3">神戸</string>
+    <string name="search_dialog_3_search_1_item_4_of_area_3">京都</string>
+    <string name="search_dialog_3_search_1_item_5_of_area_3">姫路</string>
+    <string name="search_dialog_3_search_1_item_6_of_area_3">奈良</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_4">名駅</string>
+    <string name="search_dialog_3_search_1_item_2_of_area_4">栄</string>
+    <string name="search_dialog_3_search_1_item_3_of_area_4">岡崎</string>
+    <string name="search_dialog_3_search_1_item_4_of_area_4">静岡</string>
+    <string name="search_dialog_3_search_1_item_5_of_area_4">岐阜</string>
+    <string name="search_dialog_3_search_1_item_6_of_area_4">浜松</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_5">札幌</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_6">天神</string>
+    <string name="search_dialog_3_search_1_item_2_of_area_6">北九州</string>
+    <string name="search_dialog_3_search_1_item_3_of_area_6">福岡</string>
+    <string name="search_dialog_3_search_1_item_1_of_area_7">広島</string>
+    <string name="search_dialog_3_search_1_button_text">続ける</string>
+
+    <!--Credit card-->
+    <string name="title_credit_card">決済情報入力</string>
+    <string name="enter_following_item">以下の項目を入力してください。</string>
+    <string name="enter_security_code_again">セキュリティーコードを再入力してください。</string>
+    <string name="new_credit_card">別のクレジットカードを使用する</string>
+    <string name="credit_card_validate">ご利用頂けるカード</string>
+    <string name="credit_card_date">有効期限</string>
+    <string name="credit_card_number_prefix">*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;*&#160;</string>
+    <string name="outsourcing_bussiness_confirm">※決済業務の外部委託については、こちらをご確認ください。</string>
+    <string name="here">こちら</string>
+    <string name="info_veri_trans">※ご入力情報は、ベリトランス株式会社にて保管いたします。</string>
+
+    <string name="credit_card">カード情報</string>
+    <string name="credit_money">決済金額</string>
+    <string name="credit_money_temp">3,000円</string>
+    <string name="credit_payment_method">決済方法</string>
+    <string name="credit_card_deadline">カード期限</string>
+    <string name="credit_card_number">カード番号</string>
+    <string name="credit_month">月</string>
+    <string name="credit_year">年</string>
+    <string name="title_chooser_month">Chooser Month</string>
+    <string name="title_chooser_year">Chooser Year</string>
+
+    <string name="credit_card_blank">カード情報を全て入力してください。</string>
+    <string name="credit_card_unavailable">こちらのカードは現在ご利用できません。\nカード情報を再度ご確認頂くか、カード会社へお問合せください。</string>
+
+    <!-- Dialog register party successful -->
+    <string name="dialog_register_party_successful_title">パーティー申し込み成功</string>
+    <string name="dialog_register_party_successful_thank_you">パーティーにお申込みいただき、\n誠にありがとうございます。</string>
+    <string name="dialog_register_party_successful_complete_email">ご登録いただいたアドレスに\n【申込完了メール（自動配信）】\nを送信いたしました。</string>
+    <string name="dialog_register_party_successful_description">【申込完了メール（自動配信）】は、\n参加を確定する案内ではなく、\n申込完了を通知するメールです。</string>
+    <string name="dialog_register_party_successful_back_to_top">トップへ戻る</string>
+
+    <!--GPS location-->
+    <string name="gps_user_denied_title">位置情報サービスへアクセスできません。</string>
+    <string name="gps_user_denied_message">設定-OTOCON-位置情報サービスにしてください。</string>
+
+    <!-- Dialog change age recommend-->
+    <string name="reset">リセット</string>
+    <string name="select_age">年代を選択</string>
+    <string name="done">完了</string>
+    <!-- Dialog change area recommend -->
+    <string name="select_an_area">エリアを選択</string>
+
+    <!--Advanced search-->
+    <string name="advanced_search">パーティー検索</string>
+    <string name="advanced_search_title">エリア</string>
+    <string name="advanced_menu_area">エリア</string>
+    <string name="advanced_menu_event_date">開催日</string>
+    <string name="advanced_menu_day_of_week">曜日</string>
+    <string name="advanced_menu_your_gender">あなたの性別</string>
+    <string name="advanced_menu_your_age">あなたの年齢</string>
+    <string name="advanced_menu_age_of_opponent">お相手の年代</string>
+    <string name="advanced_search_reset">リセット</string>
+    <string name="advanced_search_party_style">パーティー形式</string>
+    <string name="advanced_search_multiple_choice_possible">複数選択可</string>
+    <string name="advanced_search_change_search_condition">検索条件変更</string>
+
+    <string name="advanced_search_choice_date_of_week">曜日を入力してください</string>
+    <string name="advanced_search_choice_date_of_week_hint">※複数選択ができます。</string>
+    <string name="advanced_search_age_format" formatted="false">%d歳</string>
+    <string name="advanced_search_event_date_format" formatted="false">%s(%s)~%s(%s)</string>
+    <string name="advanced_search_dot">・</string>
+    <string name="advanced_search_early_20s">20代前半</string>
+    <string name="advanced_search_late_20s">20代後半</string>
+    <string name="advanced_search_early_30s">30代前半</string>
+    <string name="advanced_search_late_30s">30代後半</string>
+    <string name="advanced_search_early_40s">40代前半</string>
+    <string name="advanced_search_late_40s">40代後半</string>
+    <string name="advanced_search_date_of_week_submit">検索条件変更</string>
+
+    <!-- Error -->
+    <string name="error_no_network">Have not network.</string>
+    <string name="error_connect_timeout">Connect timeout.</string>
+    <string name="error_cannot_connect">Can not connect</string>
+
+    <!-- Dialog pick date-->
+    <string name="pick_date">完了</string>
+
+    <string name="material_calendar_monday">月</string>
+    <string name="material_calendar_tuesday">火</string>
+    <string name="material_calendar_wednesday">水</string>
+    <string name="material_calendar_thursday">木</string>
+    <string name="material_calendar_friday">金</string>
+    <string name="material_calendar_saturday">土</string>
+    <string name="material_calendar_sunday">日</string>
+    <array name="material_calendar_months_array">
+        <item>1月</item>
+        <item>2月</item>
+        <item>3月</item>
+        <item>4月</item>
+        <item>5月</item>
+        <item>6月</item>
+        <item>7月</item>
+        <item>8月</item>
+        <item>9月</item>
+        <item>10月</item>
+        <item>11月</item>
+        <item>12月</item>
+    </array>
+
+    <!-- After party -->
+    <string name="for_those_who_do_not_match">マッチングしていない方へ</string>
+    <string name="fateful_person">選んだ人だけが運命の人ではない。\n選んでくれた人が運命の人かもしれない。</string>
+    <string name="re_match_function_appeared">帰ってからもトークタイムの続きができる\nRe-match機能が登場</string>
+
+    <string name="number_count">%s件の結果</string>
+
+    <!-- dialog popup message error -->
+    <string name="network_error_title">モバイルデータ通信はオフです。</string>
+    <string name="network_error_content">データにアクセスするには、モバイルデータ通信をオンにするかWi-Fiを使用してください。</string>
+    <string name="button_name_dialog">OK</string>
+
+    <!--advanced search-->
+    <string name="advanced_search_title_gender">あなたの性別を選択してください</string>
+    <string name="format_advanced_dot">・</string>
+
+    <string name="error_title_Connect_server_fail">エラー</string>
+    <string name="error_content_Connect_server_fail">サーバーエラーが発生しました。しばらくしてから、再度お試しください。</string>
+    <string name="next">次へ</string>
+    <string name="save">保存する</string>
+
+    <string name="title_default_search_city">お探しのエリアを１つ以上選択してください</string>
+    <string name="title_default_search_age">あなたの年齢を選択してください</string>
+    <string name="find_a_party">パーティを探す！</string>
+    <string name="format_advanced_menu_age">%s歳</string>
+    <string name="format_advanced_menu_generation">%s代</string>
+
+    <string-array name="day_of_week">
+        <!-- sunday-->
+
+        <item>月</item>
+        <item>火</item>
+        <item>水</item>
+        <item>木</item>
+        <item>金</item>
+        <item>土</item>
+        <item>日</item>
+    </string-array>
+
+    <string name="advanced_menu_title">パーティー検索</string>
+    <string name="advanced_menu_btn_search">この条件で検索</string>
+    <string name="advanced_menu_only_paties">空席のあるパーティーのみ表示</string>
+    <string name="text_detail_menu"><u>詳しくはコチラ⇒</u></string>
+
+    <string name="error_city_blank">お探しのエリアを選択してください。</string>
+    <string name="error_age_blank"> あなたの年齢を入力してください。</string>
+    <string name="error_age_outofthreshold">募集年齢外のため、参加できません。</string>
+
+    <string name="advanced_search_title_city">お探しのエリアを選択してください</string>
+    <string name="multiple_selection_is_possible">※複数選択ができます。</string>
+    <string name="change_search_condition">検索条件変更</string>
+
+    <!-- menu list news-->
+    <string name="menu_list_news_title">お知らせ</string>
+
+    <!--Login Activity-->
+    <string name="login_user">メールアドレス</string>
+    <string name="login_password">パスワード</string>
+    <string name="login_forgot"><u>パスワードをお忘れの方</u></string>
+    <string name="forgot_passworld">パスワードをお忘れの方</string>
+    <string name="login">会員登録・ログイン</string>
+    <string name="login_button">ログイン</string>
+    <string name="register_button">新規登録はこちら（無料）</string>
+    <string name="login_explain_register"><u>会員登録するメリットはこちら</u></string>
+    <string name="header_error_login">入力された内容にエラーがあります。\n ご確認の上、再度入力してください。 </string>
+    <string name="header_title_dialog_about_information">会員登録するメリットはこちら</string>
+    <string name="text_not_login">ログイン</string>
+    <string name="text_has_login">マイページ</string>
+
+    <string name="age">歳</string>
+    <string name="advanced_search_title_event_date">開催日を選択</string>
+    <string name="advanced_search_event_date_month" formatted="false">%d月</string>
+    <string name="advanced_search_event_date_text_show" formatted="false">%s~%s</string>
+    <string name="todo" />
+    <string name="advanced_search_title_date_by_age">お相手の年代を入力してください</string>
+    <string name="advanced_search_hint_title_date_by_age">お相手の年代を入力してください</string>
+    <string name="advanced_search_by_age_party_title">お相手の年代を入力してください</string>
+    <string name="advanced_search_by_age_party_title_hint">※複数選択ができます。</string>
+    <string name="advanced_search_by_age_button_title">検索条件変更</string>
+    <string name="advanced_search_by_age_error_text">お探しのエリアを選択してください</string>
+    <string name="dot">・</string>
+    <string-array name="advanced_search_ages">
+        <item>20～29歳</item>
+        <item>30～34歳</item>
+        <item>35～39歳</item>
+        <item>40～44歳</item>
+        <item>45～49歳</item>
+        <item>50歳以上</item>
+    </string-array>
+
+    <string name="in_development">開発中</string>
+
+    <!-- Item Party-->
+    <string name="format_round_age">%s歳〜 %s歳位</string>
+    <string name="text_status_1">予約可</string>
+    <string name="text_status_2">残りわずか</string>
+    <string name="text_status_3">キャンセル待ち</string>
+    <string name="text_status_4">満席</string>
+
+    <string-array name="entry_status">
+        <item>予約可</item>
+        <item>残りわずか</item>
+        <item>キャンセル待ち</item>
+        <item>満席</item>
+    </string-array>
+    <string name="party_special_discount">特割中 %s円</string>
+    <string name="party_benefit_discount">早割中 %s円</string>
+    <string name="party_price">%s円</string>
+    <string name="party_empty">条件にあうイベントが見つかりませんでした。\n条件を変えて、もう一度、探してみましょう！</string>
+    <string name="list_new_empty">現在、お知らせはございません。</string>
+
+    <string-array name="register_party_step">
+        <item>お申込み\n入力</item>
+        <item>お申込み\n入力確認</item>
+        <item>決済情報\n入力</item>
+        <item>決済情報\n確認</item>
+        <item>お申込み\n完了</item>
+
+    </string-array>
+
+    <!--Register party-->
+    <string name="party_register_title">お申込み入力画面</string>
+    <string name="party_register_noti_1">ログイン情報の新規入力</string>
+    <string name="party_register_noti_3">基本情報</string>
+    <string name="party_register_noti_2">party@p-a.jpを受信可能にしてください。\n携帯電話のアドレスはメールが届かない場合が多く見受けられますので、\nPCアドレスを推奨いたします</string>
+    <string name="party_register_noti_4">※当日受付にて身分証明書で年齢確認を行います。</string>
+    <string name="party_register_noti_5">※必ず携帯電話の番号を入力してください。</string>
+    <string name="party_register_noti_6">※予約数は正しく設定してください。\n※友人が【異性】の場合は必ずお電話にてお申込みください。</string>
+    <string name="party_register_noti_7">上記で複数人を回答した方は2人目・3人目の方の氏名をお書きください。(フルネーム)\n※申込者様の名前は入力しないでください。\n※友人様のお名前以外の入力は避けてくださいませ。</string>
+    <string name="party_register_noti_8">Ponta IDは【15桁】の数字です。\nPonta IDは数字のみ【半角数字】でご入力ください。\n数字以外の値（スペース含む）が入力されている場合は加算対象外です。\n十分にお気を付けください。\n※Pontaポイントの加算タイミングは【参加月の翌月末加算】です。</string>
+    <string name="party_register_noti_9">決済方法</string>
+    <string name="party_register_noti_10">※決済業務の外部委託について、こちらをご確認ください。</string>
+    <string name="party_register_noti_11">※特割料金は併用不可。\n※早割、友割、誕生月は併用可能だが０円の場合は５００円で参加。</string>
+    <string name="register_party_email">メールアドレス</string>
+    <string name="register_party_password">パスワード(半角・英数字8桁以上)</string>
+    <string name="register_party_password_confirm">パスワード(確認)</string>
+    <string name="notification_party_pass">※英字、数字、記号など組み合わせると、セキュリティが強化されます。</string>
+    <string name="noti_party_pass_confirm">※確認のため、もう一度入力してください。</string>
+    <string name="register_party_sei">姓(本名)</string>
+    <string name="register_party_mei">名(本名)</string>
+    <string name="register_party_kanaSei">セイ(フリガナ)</string>
+    <string name="register_party_kanaMei">メイ(フリガナ)</string>
+    <string name="register_party_gender">性別</string>
+    <string name="register_party_adddress">都道府県</string>
+    <string name="register_party_birthday_year">年</string>
+    <string name="register_party_birthday_month">月</string>
+    <string name="register_party_birthday_day">日</string>
+    <string name="register_party_tel">携帯電話番号</string>
+    <string name="register_party_number_person">予約人数</string>
+    <string name="register_party_your_friend">ご友人</string>
+    <string name="register_party_ponta_id">Ponta ID (任意)</string>
+    <string name="register_party_credit_card">クレジットカード</string>
+    <string name="register_party_pay_money">当日会場現金払い</string>
+    <string name="register_party_term"><u>利用規約・個人情報の取り扱いはこちら</u></string>
+    <string name="register_party_check">私は20歳以上の独身者で、上記おとコン利用規約に同意します。</string>
+    <string name="register_party_button">次へ</string>
+    <string name="register_party_cash_payment_day">当日会場現金払い</string>
+    <string name="register_party_coupon_code">使用中クーポンコード</string>
+    <string name="title_coupon_code_register_party">クーポンを選択</string>
+    <string name="register_party_use">使用する</string>
+    <string name="register_party_not_use">使用しない</string>
+    <string name="register_party_check_active">既に登録されている会員</string>
+
+
+    <string name="tax_included">（税込）</string>
+
+    <!--Activity Confirm Card-->
+    <string name="confirm_card_title">決済情報確認</string>
+    <string name="listed_price">定価料金</string>
+    <string name="discounted_rate">割引料金</string>
+    <string name="payment_money">決済金額</string>
+    <string name="use_card">ご利用頂けるカード</string>
+    <string name="card_number">カード番号</string>
+    <string name="date_card">有効期限</string>
+    <string name="security_code">セキュリティコード</string>
+    <string name="register_party_price">(税込)</string>
+    <string name="register_confirm_party_button">次へ</string>
+
+    <!-- Register Party confirm -->
+    <string name="confirmation_of_application_contents">お申込み内容の確認</string>
+    <string name="enter_login_information">ログイン情報の新規入力</string>
+    <string name="mail_address">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="basic_information">基本情報</string>
+    <string name="confirm_name">お名前</string>
+    <string name="phonetic">フリガナ</string>
+    <string name="confirm_gender">性別</string>
+    <string name="birthday">生年月日</string>
+    <string name="prefectures">都道府県</string>
+    <string name="cell_phone_number">携帯電話番号</string>
+    <string name="number_of_reserved_people">予約人数</string>
+    <string name="number_of_reserved_people_format">%s人</string>
+    <string name="your_friend">ご友人</string>
+    <string name="Ponta_ID">Ponta ID</string>
+    <string name="confirm_payment_method">決済方法</string>
+    <string name="confirm_credit_card">クレジットカード</string>
+    <string name="cash_payment_on_the_day">当日会場現金払い</string>
+    <string name="text_checkbox_confirm">私は20歳以上の独身者で、上記おとコン利用規約に同意します。</string>
+    <string name="coupon_code">クーポンコード</string>
+    <string name="use_coupon_code">使用中クーポンコード</string>
+    <string name="note_coupon">※特割料金は併用不可。\n※早割、友割、誕生月は併用可能だが０円の場合は５００円で参加。</string>
+    <string name="confirm_your_application_details">お申込み内容を確定する</string>
+
+    <!--fix bug register-->
+    <string name="cancel">キャンセル</string>
+    <string name="ok_jp">設定</string>
+
+    <!-- coupon -->
+    <string name="title_coupon_list">クーポン一覧</string>
+    <string name="coupon_list_no_data">現在、ご利用頂けるクーポンはございません。</string>
+    <string name="coupon_detail_note">こちらのボタンはスタッフが操作する部分です。\nボタンを押すとクーポンを利用できなくなります。</string>
+    <string name="coupon_detail_use">クーポンを使う</string>
+    <string name="coupon_detail_valid_date">有効期限：</string>
+    <string name="coupon_detail_body">注意事項： </string>
+    <string name="coupon_detail_using">使用中</string>
+    <string name="gps_title">“OTOCONアプリ“に位置情報の利用を許可しますか？</string>
+    <string name="gps_denied">あなたにピッタリのパーティー情報をお知らせするために、位置情報を利用します。</string>
+    <string name="yen">円</string>
+    <string name="fomat_message_change_coupon">あなたは、クーポン%1$sの代わりに、クーポン%2$sを適用しました。\n従って、システムはクーポン%2$sを消費します。</string>
+
+    <string name="price">%s円</string>
+    <string name="price_reigster_party">(税込)</string>
+    <string name="price_register_party">%s円</string>
+    <string name="price_special_party">特割中</string>
+    <string name="price_early_party">早割中</string>
+    <string name="price_premium_party">プレミアム割</string>
+    <string name="title_rules_register_party">利用規約</string>
+    <string name="title_security_party_register">個人情報の取扱いについて</string>
+
+    <!--Activity Success register party -->
+    <string name="to_the_top_screen">トップ画面へ</string>
+    <string name="to_the_application_party_list">お申込み済みパーティー一覧へ</string>
+    <string name="application_completed">お申込み完了</string>
+
+
+    <string name="my_page_title">マイページ</string>
+    <string name="my_page_message_guide">あなたの運命の人が、あなたの写真を待っています！\n写真を追加すると、Re Matchでリクエストされやすくなります。</string>
+    <string name="my_page_rematch_flow_using"><u>Re Matchご利用の流れ</u></string>
+    <string name="my_page_edit_profile">プロフィール設定</string>
+    <string name="my_page_print_introduction">自己紹介カードを印刷</string>
+    <string name="my_page_party_list">お申込み済みのパーティー履歴</string>
+    <string name="my_page_favorite">お気に入りのパーティー</string>
+    <string name="my_page_calendar">カレンダー連携</string>
+    <string name="my_page_coupon">クーポン一覧</string>
+    <string name="my_page_rematch_request">Re Matchリクエスト</string>
+    <string name="my_page_notification_setting">通知設定</string>
+    <string name="my_page_with_drawal">退会</string>
+    <string name="loading_location">現在、近隣のパーティー会場から、あなたにピッタリのパーティーを探しています</string>
+    <string name="message_permission_pgs"></string>
+    <string name="name_format" formatted="false">%s %s</string>
+
+    <!-- With drawal -->
+    <string name="title_with_drawal">会員退会</string>
+    <string name="with_drawal_message">【退会】ボタンを押したタイミングで退会手続きが完了します。\nマイページの全ての機能が使用できなり、履歴なども全て破棄されますのでご注意ください。\nまた、退会をされても【既に申込み済みをされているご予約】は無効になりません。\nもしキャンセルなどされる場合は所定の方法にてキャンセル手続きをお願いします。\nまた、退会をされても、既に発生している利用料金支払い債務（キャンセル料など）、その他の債務の履行は免れませんので、予めご注意ください。</string>
+    <string name="with_drawal_confirm_apply_party">申込済みパーティーを確認</string>
+    <string name="with_drawal">退会</string>
+    <string name="with_deawal_name">退会者</string>
+
+    <!-- Profile Settings -->
+    <string name="title_profile_setting">プロフィール設定</string>
+    <string name="profile_setting_login_info" formatted="false">ログイン情報 （%d／%d）</string>
+    <string name="profile_setting_user_info" formatted="false">基本情報 （%d／%d）</string>
+    <string name="profile_setting_self_introduction_card" formatted="false">自己紹介カードの追加情報 （%d／%d）</string>
+    <string name="profile_setting_rematch_info" formatted="false">Re Matchの追加情報 （%d／%d）</string>
+    <string name="profile_setting_credit_card_manager">クレジットカード管理</string>
+    <string name="profile_setting_upgrade_premium">プレミアム会員へアップグレード</string>
+    <string name="profile_setting_leave_premium">会員資格変更</string>
+    <string name="profile_setting_password">••••••••</string>
+    <string name="profile_setting_current_password">現在のパスワード</string>
+    <string name="profile_setting_new_password">新しいパスワード</string>
+    <string name="profile_setting_confirm_password">新しいパスワード（確認）</string>
+    <string name="profile_setting_completed_changed_password">ログイン情報の変更が完了いたしました。\n新しいログイン情報で再ログインしてください。</string>
+
+    <string name="title_setting">通知設定</string>
+    <string name="title_calendar_collaboration">カレンダー連携</string>
+    <string name="title_login_info">ログイン情報</string>
+    <string name="title_user_info">基本情報変更</string>
+    <string name="title_rematch_info">Re Matchの追加情報変更</string>
+    <string name="title_self_introduction_card">自己紹介カードの追加情報変更</string>
+    <string name="title_credit_card_manager">クレジットカード情報</string>
+    <string name="title_change_login_info_success">ログイン情報変更</string>
+    <string name="title_edit_info_login_user">ログイン情報変更</string>
+    <string name="message_popup_delete_card">削除します。よろしいですか？</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+
+    <string name="calendar_collaboration_message">カレンダー連携機能を使って、\nあなたが選んだお気に入りパーティー情報と、\nあなたがお申込みしたパーティ情報のスケジュール\nを忘れないようにしておきましょう！</string>
+    <string name="calendar_collaboration_google">Google カレンダーと連携する</string>
+    <string name="calendar_collaboration_apple">iOSカレンダー連携</string>
+
+    <string name="calendar_collaboration_permission_title_first">“OTOCON”にこの端末のカレンダー情報へのアクセスを許可しますか？</string>
+    <string name="calendar_collaboration_permission_description_first">“OTOCON”が、この端末のカレンダーにアクセスし、イベント表示と作成を行います。</string>
+    <string name="calendar_collaboration_permission_accept_button_first">OK </string>
+    <string name="calendar_collaboration_permission_deny_button_first">許可しない</string>
+    <string name="calendar_collaboration_permission_title">カレンダーへアクセスできません。</string>
+    <string name="calendar_collaboration_permission_description">設定-OTOCON-カレンダーをオンにしてください。</string>
+    <string name="permission_accept_button">設定する</string>
+    <string name="permission_deny_button">キャンセル</string>
+
+    <string name="title_next_week_party_list">来週開催のパーティー</string>
+    <string name="title_early_benefit">お相手が先行受付中\n満席のパーティー</string>
+    <string name="title_special_discount">特割中のパーティー</string>
+    <string name="title_new_party">新着パーティー</string>
+
+    <string name="title_like_party_list">お気に入りのパーティー</string>
+    <string name="like_party_list_format_number_count">お気に入りのパーティー: %d件</string>
+    <string name="like_party_list_no_data">検討中リストに追加されたパーティーはありません。</string>
+
+    <string name="title_registered_party_list">お申込み済みのパーティー履歴</string>
+    <string name="tab_before_party">参加前パーティー</string>
+    <string name="before_party_list_format_number_count">参加前パーティー: %d件</string>
+    <string name="before_party_list_no_data">参加前パーティーに追加されたパーティーはありません。</string>
+
+    <string name="party_like_fomat_number_count">お気に入りのパーティー: %d件</string>
+    <string name="party_like_list_no_data">検討中リストに追加されたパーティーはありません。</string>
+
+    <string name="tab_joined_party">参加済みパーティー</string>
+    <string name="joined_party_list_format_number_count">参加済みパーティー: %d件</string>
+    <string name="joined_party_list_no_data">参加済みパーティーに追加されたパーティーはありません。</string>
+
+    <string name="title_dialog_expired">OTOCON</string>
+    <string name="content_dialog_expired">このパーティーの開催は終了しました。</string>
+
+    <string name="message_confirm_request">あなたがお相手に連絡先を送信するには課金が発生します。\nお相手からの返信を保証するものではありませんので、ご了承ください。</string>
+    <string name="message_send_request_success">決済処理は正常に完了しました。\n引き続き、Re Matchをお楽しみください！</string>
+    <string name="message_send_request_success_by_coupon">クーポンを正常に使えました\n引き続き、Re Matchをお楽しみください！</string>
+    <string name="do_not_display_next_time">次回から表示しない</string>
+    <string name="upgrade_to_premium_members">プレミアム会員へアップグレード</string>
+
+    <string name="title_leave_premium">会員資格変更</string>
+    <string name="leave_premium_message">【会員資格変更】ボタンを押したタイミングでプレミアム資格解除手続きが完了します。\nプレミアム会員専用の機能は、%sまでにご利用でいます。\n来月から普通会員の機能しかご利用できません。\n予めご注意ください。</string>
+
+    <string name="change_basic_user_information">基本情報変更</string>
+    <string name="title_view_info_basic_user">基本情報</string>
+    <string name="change_user_information_noti1">※予約数は正しく設定してください。\n※友人が【異性】の場合は必ずお電話にてお申込みください。</string>
+    <string name="ponta_id">Ponta ID</string>
+
+    <string name="title_view_information_rematch">Re Matchの追加情報</string>
+    <string name="change_information_on_rematch">Re Matchの追加情報変更</string>
+    <string name="change_information_on_rematch_noti1">もっとあなたのプロフィールをご登録して、Re Matchからアプローチされる確率をアップさせましょう！</string>
+    <string name="self_introduction">自己紹介</string>
+    <string name="more_characters_600">あと600文字</string>
+    <string name="talkable_language">話せる言語</string>
+    <string name="body_type">体型</string>
+    <string name="occupation_details">職業詳細</string>
+    <string name="school_name">出身学校名</string>
+    <string name="character">性格</string>
+    <string name="sociability">社交性</string>
+    <string name="charm_point">チャームポイント</string>
+    <string name="cohabitant">同居人</string>
+    <string name="hope_until_meeting">出会うまでの希望</string>
+    <string name="i_would_like_to_see_my_friends">友達と一緒に会いたい</string>
+    <string name="first_date_cost">初回デート費用</string>
+    <string name="sharing_hobbies">趣味の共有</string>
+    <string name="role_assignment_of_housework">家事の役割分担</string>
+    <string name="parenting">子育て</string>
+
+    <!--Re match-->
+    <string name="title_rematch">Re Match</string>
+    <string name="rematch_button_confirm">Re Matchリクエスト一覧へ</string>
+    <string name="rematch_content_header">選んだ人だけが運命の人ではない。\n選んでくれた人が運命の人かもしれない。</string>
+    <string name="rematch_content_1">パーティーが終わってからも、トークが出来ます。\nあなたの運命の人にアプローチしてみませんか？</string>
+    <string name="rematch_content_2">Re Matchは、参加したパーティーのお相手全員\nにアプローチできるのが特徴です！</string>
+    <string name="rematch_flow"><u>Re Matchご利用の流れ</u></string>
+    <string name="rematch_friend_party">あなたが参加したパーティー</string>
+    <string name="rematch_no_party">Re Matchは、あなたが参加した\nパーティー参加者にアプローチできる、\n素敵なコンテンツです！\nぜひ一度パーティーにご参加くださいね！</string>
+    <string name="rematch_notification_party">Re Matchは、あなたが参加した\nパーティー参加者にアプローチできる、\n素敵なコンテンツです！\nぜひ一度パーティーにご参加くださいね！</string>
+    <string name="rematch_party_participated_with">%sさんとご一緒に参加したパーティー</string>
+    <string name="rematch_party_participated_with_drawal">参加済みパーティー</string>
+    <string name="rematch_party_successful">%sさんがあなたの連絡先を受け取りました！\n交換した連絡方法による、%sさんからのアプローチを待ちましょう！</string>
+    <string name="rematch_profile_completed">%s%% プロフィール完成度</string>
+    <string name="rematch_to_request_list"><u>リクエスト一覧へ</u></string>
+    <string name="rematch_send_request">リクエストを送信</string>
+    <string name="rematch_approve">リクエストを承認</string>
+    <string name="rematch_approve_message">Re Matchリクエストを受け取ったあなたは課金が発生しませんので、\nご安心ください！\n最初にRe Matchリクエストを\n送信したユーザーに、課金が発生します。</string>
+    <string name="rematch_reject">ごめんなさい</string>
+    <string name="rematch_reject_message">お相手からのRe Matchリクエストを一度「ごめんなさい」したら、\n取り消すことができませんが、\n宜しいでしょうか？</string>
+    <string name="rematch_detail_title">%sさん</string>
+    <string name="rematch_detail_title_with_drawal">退会者</string>
+
+
+    <string name="title_input_request_rematch">お相手に交換する連絡方法\nをご入力してください</string>
+    <string name="noti1_input_request_rematch">※メールアドレス、電話番号のいずれかは必須項目になります。</string>
+    <string name="line_id">Line ID</string>
+    <string name="phone_number">電話番号</string>
+
+    <string name="noti_choose_payment_rematch">連絡先を送信するには課金発生します。\nお相手からの返信を保証するものではありません。</string>
+    <string name="one_time_free_coupon">Re Match １回無料クーポン</string>
+
+
+    <!--introduce -->
+    <string name="title_introduce">自己紹介カードの追加情報変更</string>
+    <string name="hobby_introduce">趣味</string>
+    <string name="word_40_introduce">あと４０字</string>
+    <string name="nick_name_introduce">ニックネーム</string>
+    <string name="word_20_introduce">あと２０字</string>
+    <string name="temp_nick_name_introduce">※自己紹介カードの「氏名」の欄に表示される項目になります。</string>
+    <string name="house_introduce">住まい</string>
+    <string name="address_introduce">現住所</string>
+    <string name="residence_introduce">住居</string>
+    <string name="height_introduce">身長</string>
+    <string name="blood_type_introduce">血液型</string>
+    <string name="family_composition_inroduce">家族構成</string>
+    <string name="wedding_introduce">婚歴</string>
+    <string name="children_introduce">子供</string>
+    <string name="career_introduce">職業</string>
+    <string name="service_introduce">勤務地</string>
+    <string name="prefectures_introduce">都道府県</string>
+    <string name="overseas_introduce">海外</string>
+    <string name="annual_income_introduce">年収</string>
+    <string name="final_education_introduce">最終学歴</string>
+    <string name="state_academ_introduce">最終学歴の状態</string>
+    <string name="sake_introduce">お酒</string>
+    <string name="tobacco_introduce">たばこ</string>
+    <string name="car_introduce">車</string>
+    <string name="favorite_rankings_introduce">私の好きなランキング</string>
+    <string name="temp2_introduce">※スポーツ、映画、食べ物なんでもOK。</string>
+    <string name="holiday_introduce">休日</string>
+    <string name="parent_introduce">結婚親</string>
+    <string name="poit_emphasize_introduce">パートナー選びで重視する点</string>
+    <string name="spend_holiday_introduce">休日の過ごし方</string>
+    <string name="idea_introduce">私と結婚したら\n〇〇約束します</string>
+    <string name="working_introduce">共働きについて</string>
+    <string name="promise_introduce">私と結婚したら〇〇約束します</string>
+    <string name="type_preference_introduce">好みのタイプ</string>
+    <string name="btn_continue_introduce">続ける</string>
+    <string name="update">保存する</string>
+    <string name="title_introduction_view">自己紹介カードの追加情報</string>
+
+
+    <!---Introduction confirm-->
+    <string name="residential_form_introduce">住居形態</string>
+    <string name="marital_status_introduce">結婚歴</string>
+    <string name="presence_children_introduce">子供の有無</string>
+    <string name="smoking_introduce">喫煙</string>
+    <string name="car_ownership_introduce">車の所有有無</string>
+    <string name="ranking_introduce">好きなものランキング</string>
+    <string name="time_marriage_introduce">結婚の時期</string>
+    <string name="work_after_marriage_introduce">結婚後の仕事</string>
+    <string name="promise_marriage_introduce">結婚したら約束すること</string>
+    <string name="edit_introduce">編集する</string>
+    <string name="btn_introduction_card">自己紹介カードを印刷</string>
+
+    <string name="title_rematch_flow">Re Matchご利用の流れ</string>
+    <string name="title_rematch_status">アイコンのご説明</string>
+
+    <string name="goto_my_page">マイページへ戻る</string>
+    <string name="rematch_btn_update_premium">連絡先情報を送り続けます</string>
+    <string name="marriage_ideal_wife">理想の夫婦像</string>
+
+    <!--List User-->
+    <string name="list_user_title">お相手の参加者一覧</string>
+    <string name="list_user_help">アイコン説明</string>
+
+    <string name="format_name">%s %s</string>
+    <string-array name="country_list">
+        <item>都道府県</item>
+        <item>海外</item>
+    </string-array>
+
+    <string-array name="family_list">
+        <item>父</item>
+        <item>母</item>
+        <item>兄</item>
+        <item>姉</item>
+        <item>弟</item>
+        <item>妹</item>
+    </string-array>
+
+    <string-array name="holiday_list">
+        <item>月</item>
+        <item>火</item>
+        <item>水</item>
+        <item>木</item>
+        <item>金</item>
+        <item>土</item>
+        <item>日</item>
+        <item>祝日</item>
+        <item>不定期</item>
+    </string-array>
+
+
+    <string name="tab_requestto_me">お相手からあなたへ</string>
+    <string name="tab_request_of_me">自分から相手へ</string>
+    <string name="hours_fomat">歳 - </string>
+
+    <string name="list_request_rematch_noti">※Re Matchリクエスト項目は、左にスワイプ操作すると、\n削除することができます。</string>
+
+    <string name="list_request_rematch_noti_nodata">あなたの運命の人がBさんかもしれません。\nあなたの行動力で運命の人にアプローチしてみませんか？\nRe Matchでは、Line ID・メールアドレス・電話番号を交換することができます。</string>
+    <string name="list_request_rematch_noti1">新着の「Re Matchリクエスト」がありません。</string>
+    <string name="list_request_rematch_noti2">Re Matchは運命の人に出会える、お得なチャンスです！\nあなたから運命の人にリクエストを送りましょう！</string>
+
+    <string name="name_item_request_rematch_defaul">退会者</string>
+    <string name="rematch_item_request_rematch_defaul">退会済み</string>
+    <string name="request_item_request_rematch_defaul">この方は既に退会しております。</string>
+
+    <!-- common notification -->
+    <string name="common_notification_title">未読のプッシュ通知</string>
+    <string name="common_notification_note">※各お知らせ項目は、左にスワイプ操作すると、削除することができます。</string>
+    <string name="common_notification_no_data">現在、プッシュ通知はございません。</string>
+    <string name="common_notification_delete_confirm_message">削除します。よろしいですか？</string>
+
+    <string name="fomat_data" formatted="false">%s歳 - %s - %s%% プロフィール完成度</string>
+
+    <!-- notification settings -->
+    <string name="notification_new_party_title">新規・お得情報のお知らせ</string>
+    <string name="notification_new_party_description">最新の情報をいちはやくお届け！！さらに、お得な情報も盛りだくさん</string>
+    <string name="notification_coupon_title">お得なクーポンの通知</string>
+    <string name="notification_coupon_description">見逃し禁止！！参加費割引クーポンをお届けいたします。</string>
+    <string name="notification_liked_party_title">お気に入りのパーティーのリマインド通知</string>
+    <string name="notification_liked_party_description">お気に入りリストに登録頂いているパーティーの\n開催3日前頃にリマインド通知を送りいたします。</string>
+    <string name="notification_party_slot_title">お気に入りのパーティーの定員通知</string>
+    <string name="notification_party_slot_description">お気に入りのパーティーのお席が残りわずかに近づきましたら、お知らせいたします。</string>
+    <string name="notificatin_before_party_joined_title">申込済パーティーのリマインド通知</string>
+    <string name="notificatin_before_party_joined_description">忘れていても安心！？申込済パーティーの前日にリマインド通知いたします。</string>
+    <string name="notification_rematch_title">Re Matchの通知</string>
+    <string name="notification_rematch_description">参加したパーティーのお相手にアプローチできる、運命のお知らせをお届けます。</string>
+
+    <string name="tab_library_choose_picture">ライブラリから選ぶ</string>
+    <string name="tab_camera_choose_picture">写真を撮る</string>
+    <string name="title_fragment_choose_picture">プロフィール写真を登録</string>
+    <string name="to_save">保存す</string>
+
+    <string name="camera_permission_title">カメラへアクセスできません。</string>
+    <string name="camera_permission_message">設定-OTOCON-カメラをオンにしてください。</string>
+    <string name="storage_permission_title">写真へアクセスできません。</string>
+    <string name="storage_permission_message">設定-OTOCON-写真をオンにしてください。</string>
+    <string name="save_completed">保存する</string>
+    <string name="title_confirm_change_info">ログイン情報変更</string>
+
+    <string name="profile_detail_title">プロフィール詳細</string>
+    <string name="profile_nickname">ニックネーム</string>
+    <string name="profile_phonetic">フリガナ</string>
+    <string name="profile_current_address">現住所</string>
+    <string name="profile_gender">性別</string>
+    <string name="profile_birthday">生年月日</string>
+    <string name="profile_prefecture">都道府県</string>
+    <string name="profile_hobby">趣味</string>
+    <string name="profile_residence">住居</string>
+    <string name="profile_height">身長</string>
+    <string name="profile_blood_type">血液型</string>
+    <string name="profile_family_structure">家族構成</string>
+    <string name="profile_marital_status">婚歴</string>
+    <string name="profile_children">子供</string>
+    <string name="profile_profession">職業</string>
+    <string name="profile_annual_income">年収</string>
+    <string name="profile_final_education">最終学歴</string>
+    <string name="profile_final_academic_report">最終学歴の状態</string>
+    <string name="profile_sake">お酒</string>
+    <string name="profile_smocking">たばこ</string>
+    <string name="profile_car">車</string>
+    <string name="profile_favorite_ranking">私の好きなランキング</string>
+    <string name="profile_favorite_ranking_0">１位</string>
+    <string name="profile_favorite_ranking_1">２位</string>
+    <string name="profile_favorite_ranking_2">３位</string>
+    <string name="profile_holliday">休日</string>
+    <string name="profile_married_parents">結婚親</string>
+    <string name="profile_partner_selection">パートナー選びで\n重視する点</string>
+    <string name="profile_to_spend_the_holliday">休日の過ごし方</string>
+    <string name="profile_ideal_couple_statue">理想の夫婦像</string>
+    <string name="profile_working_together">共働きについて</string>
+    <string name="profile_promis_when_married">結婚したら約束すること</string>
+    <string name="profile_type_of_prefecture">好みのタイプ</string>
+    <string name="profile_self_introduction">自己紹介</string>
+    <string name="profile_talkable_language">話せる言語</string>
+    <string name="profile_body_type">体型</string>
+    <string name="profile_occupation_detail">職業詳細</string>
+    <string name="profile_school_name">出身学校名</string>
+    <string name="profile_personality">性格</string>
+    <string name="profile_sociability">社交性</string>
+    <string name="profile_charm_point">チャームポイント</string>
+    <string name="profile_housemate">同居人</string>
+    <string name="profile_hope_util_meeting">出会うまでの希望</string>
+    <string name="profile_like_to_see_my_friends">友達と一緒に会いたい</string>
+    <string name="profile_image_after_marriage">結婚後のイメージ</string>
+    <string name="profile_first_date_cost">初回デート費用</string>
+    <string name="profile_sharing_hobbies">趣味の共有</string>
+    <string name="profile_role_assignment_of_housework">家事の役割分担</string>
+    <string name="profile_parenting">子育て</string>
+
+    <string name="action_edit_photo">プロフィール写真を編集</string>
+    <string name="action_delete_photo">プロフィール写真を削除</string>
+    <string name="message_delete_photo">プロフィール画像を削除します。\nよろしいですか？</string>
+
+    <string name="withdrawal">退会者</string>
+    <string name="unsubscribed">退会済み</string>
+    <string name="person_withdrawal">この方は既に退会しております。</string>
+    <string name="fomat_date">%s-%s-%s</string>
+    <string name="fall">-</string>
+    <string name="fomat_date_view">%s年%s月%s日</string>
+
+
+</resources>

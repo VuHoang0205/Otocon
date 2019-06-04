@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_corrner_dialog_confirm"
+        app:layout_constraintBottom_toTopOf="@+id/layoutWheel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:elevation="1dp"
+            android:id="@+id/tvChange"
+            style="@style/text_normal"
+            android:layout_width="51dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/background_border_line_black_dialog"
+            android:gravity="center"
+            android:text="@string/reset"
+            android:textColor="@color/color_black_2D2D2D"
+            android:textSize="11dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="23dp"
+            android:gravity="center"
+            android:text="@string/select_age"
+            style="@style/text_normal"
+            android:textColor="@color/color_black_2D2D2D"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            android:id="@+id/tvAge"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/background_border_line_black_dialog"
+            android:gravity="center"
+            style="@style/text_normal"
+            android:text="23歳"
+            android:textColor="@color/color_black_2D2D2D"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layoutEdtAge"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="23dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            android:background="@drawable/background_edittext_change_age"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/edAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minWidth="5dp"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:inputType="numberSigned"
+                    style="@style/text_normal"
+                    android:background="@drawable/background_edittext_change_age"
+                    android:textColor="@color/color_black_2D2D2D"
+                    android:textSize="14dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/text_normal"
+                    android:text="歳"
+                    android:gravity="center"
+                    android:textColor="@color/color_black_2D2D2D"
+                    android:textSize="14dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/ivDown"
+            android:layout_width="9dp"
+            android:layout_height="5dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_down_black"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAge"
+            app:layout_constraintEnd_toEndOf="@+id/tvAge"
+            app:layout_constraintTop_toTopOf="@+id/tvAge" />
+
+        <Button
+            android:id="@+id/btnChange"
+            android:layout_width="222dp"
+            android:layout_height="38dp"
+            android:layout_marginBottom="34dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_button_change_search_condition"
+            android:stateListAnimator="@animator/state_click_animator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnChangeFirst"
+            android:stateListAnimator="@animator/state_click_animator"
+            android:layout_width="115dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/background_change_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutEdtAge" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutWheel"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_F0F0F1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvDone"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="14dp"
+                android:gravity="center"
+                style="@style/text_normal"
+                android:text="@string/done"
+                android:textColor="@color/color_black_000000"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <com.weigan.loopview.LoopView
+            android:id="@+id/wheelAge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:background="@color/color_D0D4D9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

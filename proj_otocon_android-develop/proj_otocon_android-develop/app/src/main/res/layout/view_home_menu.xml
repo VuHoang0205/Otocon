@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <org.atmarkcafe.otocon.view.HorizontalCalandarView
+        android:background="@color/colorGray"
+        android:id="@+id/horizontal_calandar_week"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+    </org.atmarkcafe.otocon.view.HorizontalCalandarView>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="8">
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stateListAnimator="@animator/state_click_animator"
+            custom:srcImage="@drawable/icon_half_room"
+            custom:textTitle="@string/half_room" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stateListAnimator="@animator/state_click_animator"
+            custom:srcImage="@drawable/icon_match_making"
+            custom:textTitle="@string/match_making" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stateListAnimator="@animator/state_click_animator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/homeOptionToppage4"
+            app:layout_constraintStart_toEndOf="@+id/homeOptionToppage"
+            app:layout_constraintTop_toTopOf="parent"
+            custom:srcImage="@drawable/icon_small_scale"
+            custom:textTitle="@string/small_scale" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stateListAnimator="@animator/state_click_animator"
+            custom:srcImage="@drawable/icon_medium_scale"
+            custom:textTitle="@string/medium_scale" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            custom:srcImage="@drawable/icon_massive"
+            custom:textTitle="@string/massive" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stateListAnimator="@animator/state_click_animator"
+            custom:srcImage="@drawable/icon_seminar"
+            custom:textTitle="@string/seminar" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:stateListAnimator="@animator/state_click_animator"
+            custom:srcImage="@drawable/icon_special_event"
+            custom:textTitle="@string/special_event" />
+
+        <org.atmarkcafe.otocon.view.HomeOptionToppageView xmlns:custom="http://schemas.android.com/apk/res/org.atmarkcafe.otocon"
+            android:id="@+id/homeOptionToppage8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            custom:srcImage="@drawable/icon_i_can_talk_with_everyone"
+            custom:textTitle="@string/talk_with_everyone" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+</LinearLayout>

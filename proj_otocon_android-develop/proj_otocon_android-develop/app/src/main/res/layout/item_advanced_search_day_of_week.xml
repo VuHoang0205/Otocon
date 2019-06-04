@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.function.advancedsearch.items.DayOfWeekItem" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/item_day_of_week"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="3.5dp"
+        android:background="@drawable/xml_advanced_search_item_row"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:button="@drawable/xml_advanced_search_checkbox"
+            android:checked="@={item.isChecked}"
+            android:paddingLeft="8dp"
+            android:text="@{item.title}"
+            android:textColor="@color/color161616"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

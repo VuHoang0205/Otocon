@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rll_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_app" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerview"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contrain_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingBottom="175dp">
+
+            <ImageView
+                android:id="@+id/iv_otocon"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:layout_marginEnd="72dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="65dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_login_screen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edAcount"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="39dp"
+                android:background="@drawable/xlm_bg_edt_login"
+                android:gravity="center"
+                android:hint="@string/login_user"
+                android:inputType="textEmailAddress"
+                android:maxLength="45"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/color_777777"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_otocon" />
+
+            <EditText
+                android:id="@+id/edPassWord"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/xlm_bg_edt_login"
+                android:gravity="center"
+                android:hint="@string/login_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/color_777777"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edAcount" />
+
+            <TextView
+                android:id="@+id/tvForgotPassworld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:text="@string/login_forgot"
+                android:textColor="@color/color_5B5149"
+                android:textSize="13dp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edPassWord" />
+
+            <Button
+                android:id="@+id/bnLogin"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/xlm_background_button_login"
+                android:gravity="center"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:text="@string/login_button"
+                android:textColor="@color/colorWhite"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvForgotPassworld" />
+
+            <Button
+                android:id="@+id/tvRegister"
+                style="@style/text_bold"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/xlm_background_button_register"
+                android:gravity="center"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:text="@string/register_button"
+                android:textColor="@color/color_C6A277"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bnLogin" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>
+

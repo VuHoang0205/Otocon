@@ -1,0 +1,1385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="org.atmarkcafe.otocon.model.response.ListData" />
+
+        <variable
+            name="data"
+            type="org.atmarkcafe.otocon.function.mypage.item.ProfileNameModel" />
+
+        <variable
+            name="view"
+            type="org.atmarkcafe.otocon.function.mypage.profile.SelfIntroductionCardInfoFragment" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:clickable="false">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_left">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/title_introduce" />
+        </android.support.v7.widget.Toolbar>
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/contrain_layout"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/hobby_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/hobby_introduce"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_40_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/hobby_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_hobby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/hobby_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/xml_bacground_input_introduce"
+                        android:imeOptions="actionNext"
+                        android:maxLength="40"
+                        android:lineSpacingExtra="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.common_hobby}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/nick_name_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/nick_name_introduce"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_hobby" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_20_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/nick_name_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_nick_name_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/nick_name_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/xml_bacground_input_introduce"
+                        android:maxLength="20"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.nickname}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/temp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/temp_nick_name_introduce"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="@id/nick_name_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/layout_nick_name_introduce" />
+
+                <TextView
+                    android:id="@+id/house_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/house_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/temp1" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_house_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/house_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.basicHousings)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.basic_housing}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/address_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/address_introduce"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_house_introduce" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_40_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/address_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_address_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/address_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/xml_bacground_input_introduce"
+                        android:imeOptions="actionNext"
+                        android:maxLength="40"
+                        android:lineSpacingExtra="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.address}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/residence_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/residence_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_address_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_residence_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/residence_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.residences)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.basic_residence}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/height_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/height_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_residence_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_height_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/height_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.height)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.basic_height}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/blood_type_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/blood_type_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_height_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_blood_type_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/blood_type_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.bloodTypes)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.basic_blood_type}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/family_composition_inroduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/family_composition_inroduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_blood_type_introduce" />
+
+                <CheckBox
+                    android:id="@+id/check_father"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.father}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="父"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintRight_toLeftOf="@id/check_mother"
+                    app:layout_constraintStart_toStartOf="@id/hobby_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/family_composition_inroduce" />
+
+                <CheckBox
+                    android:id="@+id/check_mother"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.mother}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="母"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_father"
+                    app:layout_constraintLeft_toRightOf="@id/check_father"
+                    app:layout_constraintRight_toLeftOf="@id/check_brother" />
+
+                <CheckBox
+                    android:id="@+id/check_brother"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.brother}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="兄"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_father"
+                    app:layout_constraintLeft_toRightOf="@id/check_mother"
+                    app:layout_constraintRight_toLeftOf="@id/check_sister" />
+
+                <CheckBox
+                    android:id="@+id/check_sister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.sister}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="姉"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_father"
+                    app:layout_constraintLeft_toRightOf="@id/check_brother"
+                    app:layout_constraintRight_toLeftOf="@id/check_younger_brother" />
+
+                <CheckBox
+                    android:id="@+id/check_younger_brother"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.youngtBrother}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="弟"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_father"
+                    app:layout_constraintLeft_toRightOf="@id/check_sister"
+                    app:layout_constraintRight_toLeftOf="@id/check_sister2" />
+
+                <CheckBox
+                    android:id="@+id/check_sister2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.youngtSister}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="妹"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_father"
+                    app:layout_constraintEnd_toEndOf="@id/layout_hobby"
+                    app:layout_constraintLeft_toRightOf="@id/check_father" />
+
+                <TextView
+                    android:id="@+id/wedding_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/wedding_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/check_father" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_wedding_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/wedding_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.basic_marital_status)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.basic_marital_status}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/children_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/children_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_wedding_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_children_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/children_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.childStatus)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.presence_children_introduce}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/career_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/career_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_children_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_career_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/career_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.jobNames)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.job_name}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/service_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/service_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_career_introduce" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@id/hobby_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/service_introduce">
+
+                    <RadioButton
+                        android:id="@+id/radio_use"
+                        style="@style/style_radio_register_party"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="@={data.inCountry}"
+                        android:includeFontPadding="false"
+                        android:minWidth="150dp"
+                        android:text="@string/prefectures_introduce"
+                        android:textSize="14sp" />
+
+                    <RadioButton
+                        android:id="@+id/radio_not_use"
+                        style="@style/style_radio_register_party"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:includeFontPadding="false"
+                        android:minWidth="150dp"
+                        android:text="@string/overseas_introduce"
+                        android:textSize="14sp" />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_prefecture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    android:visibility="@{data.inCountry?View.VISIBLE:View.GONE}"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/radioGroup">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:text="@{data.prefecture}"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.prefecture)}"
+                        android:paddingEnd="12dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/annual_income_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/annual_income_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_prefecture" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_annual_income_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/annual_income_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.jobSalarys)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.job_salary}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/final_education_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/final_education_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_annual_income_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_final_education_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/final_education_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.finalEducations)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.final_education_introduce}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/state_academ_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/state_academ_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_final_education_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_state_academ_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/state_academ_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.lastEducationalQualifications)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.last_educational_qualification}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/sake_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/sake_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_state_academ_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_sake_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sake_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.lifestyleSakes)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.lifestyle_sake}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tobacco_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/tobacco_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_sake_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_tobacco_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tobacco_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.lifestyleSmokings)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.smoking_introduce}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/car_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/car_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_tobacco_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_car_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/car_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.yesNos)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.lifestyle_have_car}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/favorite_rankings_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/favorite_rankings_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_car_introduce" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_40_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/favorite_rankings_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/favorite1"
+                    style="@style/text_normal_introduce"
+                    android:layout_marginLeft="23dp"
+                    android:text="1位"
+                    app:layout_constraintBottom_toBottomOf="@id/favorite_rankings_introduce1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce"
+                    app:layout_constraintTop_toTopOf="@id/favorite_rankings_introduce1" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/favorite_rankings_introduce1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="14sp"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/favorite1"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/xml_bacground_input_introduce"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="40"
+                        android:lineSpacingExtra="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.ranking_data_introduce_1}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/favorite2"
+                    style="@style/text_normal_introduce"
+                    android:layout_marginLeft="23dp"
+                    android:text="2位"
+                    app:layout_constraintBottom_toBottomOf="@id/favorite_rankings_introduce2"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce1"
+                    app:layout_constraintTop_toTopOf="@id/favorite_rankings_introduce2" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/favorite_rankings_introduce2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="14sp"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/favorite2"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce1">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/xml_bacground_input_introduce"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:lineSpacingExtra="5dp"
+                        android:maxLength="40"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.ranking_data_introduce_2}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/favorite3"
+                    style="@style/text_normal_introduce"
+                    android:layout_marginLeft="23dp"
+                    android:text="3位"
+                    app:layout_constraintBottom_toBottomOf="@id/favorite_rankings_introduce3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce2"
+                    app:layout_constraintTop_toTopOf="@id/favorite_rankings_introduce3" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/favorite_rankings_introduce3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:textSize="14sp"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/favorite2"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce2">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:lineSpacingExtra="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/xml_bacground_input_introduce"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:paddingLeft="8dp"
+                        android:maxLength="40"
+                        android:paddingRight="8dp"
+                        android:text="@={data.ranking_data_introduce_3}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/temp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/temp2_introduce"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="@id/nick_name_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/favorite_rankings_introduce3" />
+
+                <TextView
+                    android:id="@+id/holiday_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/holiday_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/temp2" />
+
+                <CheckBox
+                    android:id="@+id/check_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.one}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="月"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintRight_toLeftOf="@id/check_2"
+                    app:layout_constraintStart_toStartOf="@id/hobby_introduce"
+                    app:layout_constraintTop_toBottomOf="@id/holiday_introduce" />
+
+                <CheckBox
+                    android:id="@+id/check_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.two}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="火"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_1"
+                    app:layout_constraintLeft_toRightOf="@id/check_1"
+                    app:layout_constraintRight_toLeftOf="@id/check_3" />
+
+                <CheckBox
+                    android:id="@+id/check_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.three}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="水"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_1"
+                    app:layout_constraintLeft_toRightOf="@id/check_2"
+                    app:layout_constraintRight_toLeftOf="@id/check_4" />
+
+                <CheckBox
+                    android:id="@+id/check_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.fore}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="木"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_1"
+                    app:layout_constraintLeft_toRightOf="@id/check_3"
+                    app:layout_constraintRight_toLeftOf="@id/check_5" />
+
+                <CheckBox
+                    android:id="@+id/check_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.five}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="金"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_1"
+                    app:layout_constraintEnd_toEndOf="@id/layout_hobby"
+                    app:layout_constraintLeft_toRightOf="@id/check_4" />
+
+                <CheckBox
+                    android:id="@+id/check_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.six}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="土"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@id/check_1"
+                    app:layout_constraintTop_toBottomOf="@id/check_1" />
+
+                <CheckBox
+                    android:id="@+id/check_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.seven}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="日"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_6"
+                    app:layout_constraintStart_toStartOf="@id/check_2" />
+
+                <CheckBox
+                    android:id="@+id/check_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.eight}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="祝日"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_6"
+                    app:layout_constraintStart_toStartOf="@id/check_3" />
+
+                <CheckBox
+                    android:id="@+id/check_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:button="@drawable/xml_checkbox"
+                    android:checked="@={data.nine}"
+                    android:gravity="center"
+                    android:lineSpacingExtra="7dp"
+                    android:paddingLeft="5dp"
+                    android:text="不定期"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/check_6"
+                    app:layout_constraintStart_toStartOf="@id/check_4" />
+
+                <TextView
+                    android:id="@+id/parent_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/parent_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/check_6" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_parent_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/parent_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.marriageTimes)}"
+                        android:paddingEnd="12dp"
+                        android:gravity="center"
+                        android:text="@={data.time_marriage}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/poit_emphasize_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/poit_emphasize_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_parent_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_poit_emphasize_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/poit_emphasize_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.marriagepartnerSelections)}"
+                        android:paddingEnd="12dp"
+                        android:gravity="center"
+                        android:text="@={data.marriage_partner_selection}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/spend_holiday_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/spend_holiday_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_poit_emphasize_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_spend_holiday_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spend_holiday_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.marriageHolidays)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.marriage_holiday}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/idea_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/marriage_ideal_wife"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_spend_holiday_introduce" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_40_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/idea_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_idea_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/idea_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:imeOptions="actionNext"
+                        android:maxLength="40"
+                        android:lineSpacingExtra="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.marriage_ideal_wife}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/working_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/working_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_idea_introduce" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_working_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/working_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        style="@style/text_normal_reigster"
+                        android:singleLine="true"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:drawableRight="@drawable/ic_arrow_down"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:onClick="@{()->view.showAcitonSheet(ListData.afterMarriageJobs)}"
+                        android:paddingEnd="12dp"
+                        android:text="@={data.after_marriage_job}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/promise_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/promise_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_working_introduce" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_40_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/promise_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_promise_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:hintEnabled="false"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/promise_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:imeOptions="actionNext"
+                        android:maxLength="40"
+                        android:lineSpacingExtra="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.after_marriage_committed}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/type_preference_introduce"
+                    style="@style/text_bold_introduce"
+                    android:layout_marginTop="11dp"
+                    android:text="@string/type_preference_introduce"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_promise_introduce" />
+
+                <TextView
+                    style="@style/text_normal_introduce"
+                    android:text="@string/word_40_introduce"
+                    app:layout_constraintBaseline_toBaselineOf="@id/type_preference_introduce"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/layout_type_preference_introduce"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="14dp"
+                    android:focusable="false"
+                    app:errorTextAppearance="@style/ErrorText"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/type_preference_introduce">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/xml_background_input_register"
+                        android:imeOptions="actionNext"
+                        android:maxLength="40"
+                        android:lineSpacingExtra="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@={data.type_of_preference}"
+                        android:textSize="14sp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contrain_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btn_continue"
+                style="@style/Button.Register"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:onClick="@{()->view.changeScreen()}"
+                android:stateListAnimator="@animator/state_click_animator"
+                android:switchTextAppearance="@style/text_bold"
+                android:text="@string/btn_continue_introduce"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <include
+            android:id="@+id/loading"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

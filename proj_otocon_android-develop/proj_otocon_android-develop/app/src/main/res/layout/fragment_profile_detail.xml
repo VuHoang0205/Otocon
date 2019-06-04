@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="org.atmarkcafe.otocon.model.ProfileDetail" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/toolbar"
+            app:navigationIcon="@drawable/ic_nav_close">
+
+            <TextView
+                style="@style/header_toolbar"
+                android:text="@string/profile_detail_title" />
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:visibility="@{item==null? View.GONE: View.VISIBLE}">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/avatar_view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@drawable/ic_photo_unavailable"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintTop_toBottomOf="@+id/avatar_view_pager" />
+
+                <View
+                    android:id="@+id/background_avatar_00"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@{item.selectedAvatar==0 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                    android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:layout_constraintEnd_toStartOf="@+id/background_avatar_01"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/avatar_view_pager" />
+
+                <View
+                    android:id="@+id/background_avatar_01"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@{item.selectedAvatar==1 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                    android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:layout_constraintEnd_toStartOf="@+id/background_avatar_02"
+                    app:layout_constraintStart_toEndOf="@+id/background_avatar_00"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_00" />
+
+                <View
+                    android:id="@+id/background_avatar_02"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@{item.selectedAvatar==2 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                    android:visibility="@{item.getAvatar(2).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:layout_constraintEnd_toStartOf="@+id/background_avatar_03"
+                    app:layout_constraintStart_toEndOf="@+id/background_avatar_01"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_00" />
+
+                <View
+                    android:id="@+id/background_avatar_03"
+                    android:layout_width="53dp"
+                    android:layout_height="53dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@{item.selectedAvatar==3 ? @drawable/xml_background_rematch_detail_avatar : @drawable/xml_transparent}"
+                    android:visibility="@{item.getAvatar(3).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/background_avatar_02"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_00" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_avatar_00"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_avatar_00"
+                    app:layout_constraintEnd_toEndOf="@id/background_avatar_00"
+                    app:layout_constraintStart_toStartOf="@id/background_avatar_00"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_00">
+
+                    <ImageView
+                        android:id="@+id/avatar_00"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#D1D5DA"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male"
+                        app:gender="@{item.gender}"
+                        app:loadAvatar="@{item.getAvatar(0)}" />
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_avatar_01"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:visibility="@{item.getAvatar(1).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_avatar_01"
+                    app:layout_constraintEnd_toEndOf="@id/background_avatar_01"
+                    app:layout_constraintStart_toStartOf="@id/background_avatar_01"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_01">
+
+                    <ImageView
+                        android:id="@+id/avatar_01"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male"
+                        app:gender="@{item.gender}"
+                        app:loadAvatar="@{item.getAvatar(1)}" />
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_avatar_02"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:visibility="@{item.getAvatar(2).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_avatar_02"
+                    app:layout_constraintEnd_toEndOf="@id/background_avatar_02"
+                    app:layout_constraintStart_toStartOf="@id/background_avatar_02"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_02">
+
+                    <ImageView
+                        android:id="@+id/avatar_02"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male"
+                        app:gender="@{item.gender}"
+                        app:loadAvatar="@{item.getAvatar(2)}" />
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardview_avatar_03"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:visibility="@{item.getAvatar(3).isEmpty()? View.GONE: View.VISIBLE}"
+                    app:cardCornerRadius="23dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/background_avatar_03"
+                    app:layout_constraintEnd_toEndOf="@id/background_avatar_03"
+                    app:layout_constraintStart_toStartOf="@id/background_avatar_03"
+                    app:layout_constraintTop_toTopOf="@+id/background_avatar_03">
+
+                    <ImageView
+                        android:id="@+id/avatar_03"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_no_avatar_male"
+                        app:gender="@{item.gender}"
+                        app:loadAvatar="@{item.getAvatar(3)}" />
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/text_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="25dp"
+                    android:text="@{item.nameMei}"
+                    android:textColor="@color/color161616"
+                    android:textSize="16sp"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/background_avatar_00" />
+                <TextView
+                    android:id="@+id/age_prefecture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@{item.getAgePrefecture()}"
+                    android:textColor="#F46292"
+                    android:textSize="11sp"
+                    android:lines="1"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/name"
+                    app:layout_constraintStart_toEndOf="@+id/name" />
+
+
+                <TextView
+                    android:id="@+id/completed_profile_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:drawableLeft="@drawable/ic_profile_percent"
+                    android:drawablePadding="3dp"
+                    android:text="@{@string/rematch_profile_completed(item.commonCompleted)}"
+                    android:textColor="#F46292"
+                    android:textSize="11sp"
+                    android:lines="1"
+                    android:layout_marginStart="3dp"
+                    android:includeFontPadding="false"
+                    android:ellipsize="end"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/name"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/introduction_self"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:breakStrategy="simple"
+                    android:lineSpacingExtra="8dp"
+                    android:paddingTop="10dp"
+                    android:text="@{item.commonDescription}"
+                    android:textColor="@color/color161616"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
+
+                <View
+                    android:id="@+id/line_info"
+                    android:layout_width="0dp"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/color_ADADAD"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/introduction_self" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/profile_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="20dp"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line_info" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/loading_layout"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dialog"
+            type="org.atmarkcafe.otocon.dialog.PartyRegisterSuccessDialog"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/xml_background_dialog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:onClick="@{()->dialog.dismiss()}"
+                android:id="@+id/close"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="11dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:lineSpacingExtra="7dp"
+                android:text="パーティーへのお申込みありがとうございます！続いて、パーティーで使用する自己紹介カードの追加情報分の入力を済ませて、\n事前準備を完了しませんか？"
+                android:textColor="@color/colorBlack"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/bnOk"
+                style="@style/Button.Green"
+                android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="27dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="15dp"
+                android:onClick="@{()->dialog.onSubmit()}"
+                android:text="自己紹介カードの追加情報を入力する"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnContainer"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivCheckbox"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="5dp"
+        android:tint="@color/colorDefaultOption"
+        android:src="@drawable/icon_half_room"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全員と話せる"
+        android:textSize="7dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivCheckbox"
+        app:layout_constraintStart_toStartOf="@+id/ivCheckbox"
+        app:layout_constraintTop_toBottomOf="@+id/ivCheckbox" />
+
+</LinearLayout>

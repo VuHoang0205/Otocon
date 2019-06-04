@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/cus_background_title_change_area"
+    android:layout_marginTop="4dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:id="@+id/layoutCity">
+
+    <ImageView
+        android:id="@+id/cbCity"
+        android:layout_width="33dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingVertical="13dp"
+        android:src="@drawable/ic_unchecked"
+        />
+
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="東京エリア"
+        style="@style/text_normal"
+        android:textColor="@color/colorFontTextBlack"
+        android:textSize="14dp"
+        android:gravity="center"
+        android:layout_toEndOf="@id/cbCity"/>
+
+    <ImageView
+        android:id="@+id/ivArrow"
+        android:layout_width="9dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_down_black"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
+</RelativeLayout>
