@@ -68,14 +68,14 @@ public class SplashFragment extends OtoconBindingFragment<ActivitySplashBinding>
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        gpsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        gpsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
     public void run() {
         if (getActivity() != null) {
             if (gpsManager.isCalled(getActivity())) {
-                nextStep();
+//                nextStep();
             } else {
                 gpsManager.request(this);
             }
