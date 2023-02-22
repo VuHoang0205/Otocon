@@ -36,7 +36,6 @@ public class TestFragment extends OtoconBindingFragment<FragmentTestBinding> {
     @Override
     public void onPause() {
         super.onPause();
-
         setStoreChildFrgementManager(null);
     }
 }

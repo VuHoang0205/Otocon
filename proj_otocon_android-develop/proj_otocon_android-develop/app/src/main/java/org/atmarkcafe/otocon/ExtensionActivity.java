@@ -57,15 +57,11 @@ public class ExtensionActivity extends AppCompatActivity implements KeyExtension
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_party_list);
-
         // check deeplink rematch
         skipIntro(getIntent());
-
         SplashFragment f = new SplashFragment();
         FragmentUtils.replace(this, f, false);
-
         getSupportFragmentManager().addOnBackStackChangedListener(this);
     }
 

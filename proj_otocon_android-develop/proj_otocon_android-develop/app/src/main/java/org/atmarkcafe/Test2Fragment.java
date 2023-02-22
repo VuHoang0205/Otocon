@@ -19,12 +19,7 @@ public class Test2Fragment extends OtoconBindingFragment<FragmentTest2Binding> {
     public void onCreateView(FragmentTest2Binding viewDataBinding) {
         viewDataBinding.btn.setText(System.currentTimeMillis() + "");
 
-        viewDataBinding.btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                FragmentUtils.replaceChild(getStoreChildFrgementManager(), R.id.frame, new Test2Fragment(), true);
-            }
-        });
+        viewDataBinding.btn.setOnClickListener(v -> FragmentUtils.replaceChild(getStoreChildFrgementManager(), R.id.frame, new Test2Fragment(), true));
     }
 
 }
