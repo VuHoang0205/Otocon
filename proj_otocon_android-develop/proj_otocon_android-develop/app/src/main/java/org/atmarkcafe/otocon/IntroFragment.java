@@ -200,9 +200,7 @@ public class IntroFragment extends OtoconBindingFragment<ActivityIntroBinding> i
         @Override
         public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
             super.onDrawOver(c, parent, state);
-
             int itemCount = parent.getAdapter().getItemCount();
-
             // center horizontally, calculate width and subtract half from center
             float totalLength = mIndicatorItemLength * itemCount;
             float paddingBetweenItems = Math.max(0, itemCount - 1) * mIndicatorItemPadding;

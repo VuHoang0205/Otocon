@@ -56,7 +56,6 @@ public class InteractorManager implements KeyExtensionUtils {
                 Request.Builder requestBuilder = original.newBuilder()
                         .addHeader("Content-Type", "application/json")
                         .addHeader("X-Requested-With", "XMLHttpRequest");
-
                 if(DBManager.isLogin(context)){
                     requestBuilder.addHeader("Authorization", "Bearer " + DBManager.getToken(context));
                     //LogUtils.d("token : " +  DBManager.getToken(context), null);
